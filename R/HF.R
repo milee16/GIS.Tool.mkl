@@ -1923,7 +1923,7 @@ HF_GIS_tool <- function() {
 
   #Production VS. AvgDIN plots
   HF_PREC_vs_AvgDIN <<- ggplot(HF_AS_AG_FINAL, aes(x = AvgDIN, y = PREC, group = scenario)) +
-    geom_line(size = 1) +
+    geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
@@ -2033,7 +2033,7 @@ HF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
     labs(x = expression('Opp. macroalgae Production'~(g~C*~m^-2~GS^-1)), y = expression('Depth'~(m)))+
-    scale_x_continuous(limits = c(0,45), breaks = seq(0,45, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
+    scale_x_continuous(limits = c(0,50), breaks = seq(0,50, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
@@ -2061,7 +2061,7 @@ HF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
     labs(x = expression('Benthic diatom Production'~(g~C*~m^-2~GS^-1)), y = expression('Depth'~(m)))+
-    scale_x_continuous(limits = c(0,55), breaks = seq(0,55, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
+    scale_x_continuous(limits = c(0,60), breaks = seq(0,60, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
@@ -2177,7 +2177,7 @@ HF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
     labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = expression('Depth'~(m)))+
-    scale_x_continuous(limits = c(0,2.5), breaks = seq(0,2.5, by = 0.5), labels = scales::number_format(accuracy = 0.1), position = 'top') +
+    scale_x_continuous(limits = c(0,4), breaks = seq(0,4, by = 0.5), labels = scales::number_format(accuracy = 0.1), position = 'top') +
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
@@ -2236,7 +2236,7 @@ HF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
     labs(x = expression('Opp. macroalgae Production'~(g~C*~m^-2~GS^-1)), y = expression('Depth'~(m)))+
-    scale_x_continuous(limits = c(0,45), breaks = seq(0,45, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
+    scale_x_continuous(limits = c(0,50), breaks = seq(0,50, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
@@ -2264,7 +2264,7 @@ HF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
     labs(x = expression('Benthic diatom Production'~(g~C*~m^-2~GS^-1)), y = expression('Depth'~(m)))+
-    scale_x_continuous(limits = c(0,55), breaks = seq(0,55, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
+    scale_x_continuous(limits = c(0,60), breaks = seq(0,60, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 

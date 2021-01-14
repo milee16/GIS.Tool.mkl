@@ -2,16 +2,16 @@
 % Please edit documentation in R/RF.R
 \name{RF_GIS_tool}
 \alias{RF_GIS_tool}
-\title{Gradient analysis of RF}
+\title{Gradient analysis of VF}
 \usage{
 RF_GIS_tool()
 }
 \arguments{
-\item{RFData}{Tables of gradient polygons}
+\item{VFData}{Tables of gradient polygons}
 }
 \value{
 Vertical profiles and Monod growth kinetics in various plots
 }
 \description{
-Uses Model data for RF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
+Uses Model data for VF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
 }

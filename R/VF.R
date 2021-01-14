@@ -2131,18 +2131,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_PREC + theme_pub()
 
-  VF_AS_G1_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                       legend.background = element_rect(color = 'black'),
-                                       legend.spacing = unit(30, "pt"),
-                                       legend.key = element_blank(),
-                                       legend.key.size = unit(30, "pt"),
-                                       legend.key.width = unit(30, 'pt'),
-                                       legend.text = element_text(size = 20),
-                                       plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_PREC_vs_lower.tiff',
@@ -2220,18 +2213,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_PRBC1 + theme_pub()
 
-  VF_AS_G1_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_PRBC1_vs_lower.tiff',
@@ -2309,18 +2295,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_PRBC2 + theme_pub()
 
-  VF_AS_G1_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_PRBC2_vs_lower.tiff',
@@ -2398,18 +2377,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_PRBDC + theme_pub()
 
-  VF_AS_G1_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_PRBDC_vs_lower.tiff',
@@ -2487,18 +2459,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_PC + theme_pub()
 
-  VF_AS_G1_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                     legend.background = element_rect(color = 'black'),
-                                     legend.spacing = unit(30, "pt"),
-                                     legend.key = element_blank(),
-                                     legend.key.size = unit(30, "pt"),
-                                     legend.key.width = unit(30, 'pt'),
-                                     legend.text = element_text(size = 20),
-                                     plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_PC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_PC_vs_lower.tiff',
@@ -2576,18 +2541,11 @@ VF_GIS_tool <- function() {
 
   VF_AS_G5_lo_b + theme_pub()
 
-  VF_AS_G1_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                       legend.background = element_rect(color = 'black'),
-                                       legend.spacing = unit(30, "pt"),
-                                       legend.key = element_blank(),
-                                       legend.key.size = unit(30, "pt"),
-                                       legend.key.width = unit(30, 'pt'),
-                                       legend.text = element_text(size = 20),
-                                       plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  VF_AS_G1_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G2_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G3_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G4_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    VF_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
     ggsave(filename = 'VF_ASAG_lo_b_vs_lower.tiff',

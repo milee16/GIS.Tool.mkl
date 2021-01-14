@@ -1,7 +1,7 @@
-#' Gradient analysis of RF
+#' Gradient analysis of VF
 #'
-#' Uses Model data for RF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
-#' @param RFData Tables of gradient polygons
+#' Uses Model data for VF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
+#' @param VFData Tables of gradient polygons
 #' @return Vertical profiles and Monod growth kinetics in various plots
 #' @export
 RF_GIS_tool <- function() {
@@ -1191,74 +1191,74 @@ RF_GIS_tool <- function() {
   RF_B_DIP_b_AG <<- c((sum(RF_B_G1_no_Aspec$DIP_b))/RF_sumvolume_G1,(sum(RF_B_G2_no_Aspec$DIP_b))/RF_sumvolume_G2,(sum(RF_B_G3_no_Aspec$DIP_b))/RF_sumvolume_G3,(sum(RF_B_G4_no_Aspec$DIP_b))/RF_sumvolume_G4)
 
 
-
+  
   RF_S1_EC_AG <<- c((sum(RF_S1_G1_no_Aspec$EC))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$EC))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$EC))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$EC))/RF_sumarea_G4)
   RF_S1_EN_AG <<- c((sum(RF_S1_G1_no_Aspec$EN))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$EN))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$EN))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$EN))/RF_sumarea_G4)
   RF_S1_EP_AG <<- c((sum(RF_S1_G1_no_Aspec$EP))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$EP))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$EP))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$EP))/RF_sumarea_G4)
-
+  
   RF_S1_BC2_AG <<- c((sum(RF_S1_G1_no_Aspec$BC2))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BC2))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BC2))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BC2))/RF_sumarea_G4)
   RF_S1_BN2_AG <<- c((sum(RF_S1_G1_no_Aspec$BN2))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BN2))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BN2))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BN2))/RF_sumarea_G4)
   RF_S1_BP2_AG <<- c((sum(RF_S1_G1_no_Aspec$BP2))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BP2))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BP2))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BP2))/RF_sumarea_G4)
-
+  
   RF_S1_BC1_AG <<- c((sum(RF_S1_G1_no_Aspec$BC1))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BC1))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BC1))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BC1))/RF_sumarea_G4)
   RF_S1_BN1_AG <<- c((sum(RF_S1_G1_no_Aspec$BN1))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BN1))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BN1))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BN1))/RF_sumarea_G4)
   RF_S1_BP1_AG <<- c((sum(RF_S1_G1_no_Aspec$BP1))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BP1))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BP1))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BP1))/RF_sumarea_G4)
-
+  
   RF_S1_BDC_AG <<- c((sum(RF_S1_G1_no_Aspec$BDC))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BDC))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BDC))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BDC))/RF_sumarea_G4)
   RF_S1_BDN_AG <<- c((sum(RF_S1_G1_no_Aspec$BDN))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BDN))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BDN))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BDN))/RF_sumarea_G4)
   RF_S1_BDP_AG <<- c((sum(RF_S1_G1_no_Aspec$BDP))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$BDP))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$BDP))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$BDP))/RF_sumarea_G4)
-
+  
   RF_S1_PC_AG <<- c((sum(RF_S1_G1_no_Aspec$PC))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$PC))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$PC))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$PC))/RF_sumvolume_G4)
   RF_S1_PN_AG <<- c((sum(RF_S1_G1_no_Aspec$PN))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$PN))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$PN))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$PN))/RF_sumvolume_G4)
   RF_S1_PP_AG <<- c((sum(RF_S1_G1_no_Aspec$PP))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$PP))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$PP))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$PP))/RF_sumvolume_G4)
-
+  
   RF_S1_CH_AG <<- c((sum(RF_S1_G1_no_Aspec$CH))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$CH))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$CH))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$CH))/RF_sumvolume_G4)
-
+  
   RF_S1_DIN_AG <<- c((sum(RF_S1_G1_no_Aspec$DIN))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$DIN))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$DIN))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$DIN))/RF_sumvolume_G4)
   RF_S1_DIP_AG <<- c((sum(RF_S1_G1_no_Aspec$DIP))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$DIP))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$DIP))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$DIP))/RF_sumvolume_G4)
-
+  
   RF_S1_PREC_AG <<- c((sum(RF_S1_G1_no_Aspec$PREC))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$PREC))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$PREC))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$PREC))/RF_sumarea_G4)
   RF_S1_PRBC2_AG <<- c((sum(RF_S1_G1_no_Aspec$PRBC2))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$PRBC2))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$PRBC2))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$PRBC2))/RF_sumarea_G4)
   RF_S1_PRBC1_AG <<- c((sum(RF_S1_G1_no_Aspec$PRBC1))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$PRBC1))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$PRBC1))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$PRBC1))/RF_sumarea_G4)
   RF_S1_PRBDC_AG <<- c((sum(RF_S1_G1_no_Aspec$PRBDC))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$PRBDC))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$PRBDC))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$PRBDC))/RF_sumarea_G4)
   RF_S1_PRPC_AG <<- c((sum(RF_S1_G1_no_Aspec$PRPC))/RF_sumarea_G1,(sum(RF_S1_G2_no_Aspec$PRPC))/RF_sumarea_G2,(sum(RF_S1_G3_no_Aspec$PRPC))/RF_sumarea_G3,(sum(RF_S1_G4_no_Aspec$PRPC))/RF_sumarea_G4)
-
+  
   RF_S1_DIN_b_AG <<- c((sum(RF_S1_G1_no_Aspec$DIN_b))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$DIN_b))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$DIN_b))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$DIN_b))/RF_sumvolume_G4)
   RF_S1_DIP_b_AG <<- c((sum(RF_S1_G1_no_Aspec$DIP_b))/RF_sumvolume_G1,(sum(RF_S1_G2_no_Aspec$DIP_b))/RF_sumvolume_G2,(sum(RF_S1_G3_no_Aspec$DIP_b))/RF_sumvolume_G3,(sum(RF_S1_G4_no_Aspec$DIP_b))/RF_sumvolume_G4)
-
-
-
+  
+  
+  
   RF_S2_EC_AG <<- c((sum(RF_S2_G1_no_Aspec$EC))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$EC))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$EC))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$EC))/RF_sumarea_G4)
   RF_S2_EN_AG <<- c((sum(RF_S2_G1_no_Aspec$EN))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$EN))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$EN))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$EN))/RF_sumarea_G4)
   RF_S2_EP_AG <<- c((sum(RF_S2_G1_no_Aspec$EP))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$EP))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$EP))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$EP))/RF_sumarea_G4)
-
+  
   RF_S2_BC2_AG <<- c((sum(RF_S2_G1_no_Aspec$BC2))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BC2))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BC2))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BC2))/RF_sumarea_G4)
   RF_S2_BN2_AG <<- c((sum(RF_S2_G1_no_Aspec$BN2))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BN2))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BN2))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BN2))/RF_sumarea_G4)
   RF_S2_BP2_AG <<- c((sum(RF_S2_G1_no_Aspec$BP2))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BP2))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BP2))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BP2))/RF_sumarea_G4)
-
+  
   RF_S2_BC1_AG <<- c((sum(RF_S2_G1_no_Aspec$BC1))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BC1))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BC1))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BC1))/RF_sumarea_G4)
   RF_S2_BN1_AG <<- c((sum(RF_S2_G1_no_Aspec$BN1))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BN1))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BN1))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BN1))/RF_sumarea_G4)
   RF_S2_BP1_AG <<- c((sum(RF_S2_G1_no_Aspec$BP1))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BP1))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BP1))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BP1))/RF_sumarea_G4)
-
+  
   RF_S2_BDC_AG <<- c((sum(RF_S2_G1_no_Aspec$BDC))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BDC))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BDC))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BDC))/RF_sumarea_G4)
   RF_S2_BDN_AG <<- c((sum(RF_S2_G1_no_Aspec$BDN))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BDN))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BDN))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BDN))/RF_sumarea_G4)
   RF_S2_BDP_AG <<- c((sum(RF_S2_G1_no_Aspec$BDP))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$BDP))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$BDP))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$BDP))/RF_sumarea_G4)
-
+  
   RF_S2_PC_AG <<- c((sum(RF_S2_G1_no_Aspec$PC))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$PC))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$PC))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$PC))/RF_sumvolume_G4)
   RF_S2_PN_AG <<- c((sum(RF_S2_G1_no_Aspec$PN))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$PN))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$PN))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$PN))/RF_sumvolume_G4)
   RF_S2_PP_AG <<- c((sum(RF_S2_G1_no_Aspec$PP))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$PP))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$PP))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$PP))/RF_sumvolume_G4)
-
+  
   RF_S2_CH_AG <<- c((sum(RF_S2_G1_no_Aspec$CH))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$CH))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$CH))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$CH))/RF_sumvolume_G4)
-
+  
   RF_S2_DIN_AG <<- c((sum(RF_S2_G1_no_Aspec$DIN))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$DIN))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$DIN))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$DIN))/RF_sumvolume_G4)
   RF_S2_DIP_AG <<- c((sum(RF_S2_G1_no_Aspec$DIP))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$DIP))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$DIP))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$DIP))/RF_sumvolume_G4)
-
+  
   RF_S2_PREC_AG <<- c((sum(RF_S2_G1_no_Aspec$PREC))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$PREC))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$PREC))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$PREC))/RF_sumarea_G4)
   RF_S2_PRBC2_AG <<- c((sum(RF_S2_G1_no_Aspec$PRBC2))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$PRBC2))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$PRBC2))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$PRBC2))/RF_sumarea_G4)
   RF_S2_PRBC1_AG <<- c((sum(RF_S2_G1_no_Aspec$PRBC1))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$PRBC1))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$PRBC1))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$PRBC1))/RF_sumarea_G4)
   RF_S2_PRBDC_AG <<- c((sum(RF_S2_G1_no_Aspec$PRBDC))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$PRBDC))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$PRBDC))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$PRBDC))/RF_sumarea_G4)
   RF_S2_PRPC_AG <<- c((sum(RF_S2_G1_no_Aspec$PRPC))/RF_sumarea_G1,(sum(RF_S2_G2_no_Aspec$PRPC))/RF_sumarea_G2,(sum(RF_S2_G3_no_Aspec$PRPC))/RF_sumarea_G3,(sum(RF_S2_G4_no_Aspec$PRPC))/RF_sumarea_G4)
-
+  
   RF_S2_DIN_b_AG <<- c((sum(RF_S2_G1_no_Aspec$DIN_b))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$DIN_b))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$DIN_b))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$DIN_b))/RF_sumvolume_G4)
   RF_S2_DIP_b_AG <<- c((sum(RF_S2_G1_no_Aspec$DIP_b))/RF_sumvolume_G1,(sum(RF_S2_G2_no_Aspec$DIP_b))/RF_sumvolume_G2,(sum(RF_S2_G3_no_Aspec$DIP_b))/RF_sumvolume_G3,(sum(RF_S2_G4_no_Aspec$DIP_b))/RF_sumvolume_G4)
 
@@ -1422,7 +1422,7 @@ RF_GIS_tool <- function() {
     ylab('Eelgrass production ('*' g C'~m^-2~GS^-1*')') +
     scale_x_continuous(limits = c(0,0.45), breaks = seq(0,0.45, by = 0.1), labels = scales::number_format(accuracy = 0.05)) +
     scale_y_continuous(limits = c(0,25), breaks = seq(0,25, by = 5), labels = scales::number_format(accuracy = 1))
-
+    
 
   RF_panel_PREC_vs_AvgDIN <<- RF_PREC_vs_AvgDIN + theme_pub()
 
@@ -1581,7 +1581,7 @@ RF_GIS_tool <- function() {
 
   RF_B_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_B_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    RF_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    RF_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_B_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_B_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_B_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
@@ -1683,7 +1683,7 @@ RF_GIS_tool <- function() {
 
   RF_S1_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S1_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    RF_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    RF_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S1_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S1_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S1_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
@@ -1784,7 +1784,7 @@ RF_GIS_tool <- function() {
 
   RF_S2_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S2_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    RF_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    RF_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S2_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S2_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_S2_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,2.15), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
@@ -1838,7 +1838,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,120), breaks = seq(0,120, by = 20), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-6,0), breaks = seq(-6,0, by = 1), labels = scales::number_format(accuracy = 1))
 
@@ -1907,7 +1907,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,45), breaks = seq(0,45, by = 5), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
@@ -1976,7 +1976,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,18), breaks = seq(0,18, by = 3), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
@@ -2045,7 +2045,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,55), breaks = seq(0,55, by = 5), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-10,0), breaks = seq(-10,0, by = 2), labels = scales::number_format(accuracy = 1))
 
@@ -2064,7 +2064,7 @@ RF_GIS_tool <- function() {
 
 
   RF_AS_G4_PRBDC + theme_pub()
-
+  
 
   RF_AS_G1_PRBDC+ theme_pub() + theme(legend.justification = c(1,4.45), plot.tag.position = c(0.93,0.82), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     RF_AS_G2_PRBDC+ theme_pub() + theme(legend.justification = c(1,4.45), plot.tag.position = c(0.93,0.82), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
@@ -2114,7 +2114,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,2), breaks = seq(0,2, by = 0.3), labels = scales::number_format(accuracy = 0.1), position = 'top') +
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 3), labels = scales::number_format(accuracy = 1))
 
@@ -2183,7 +2183,7 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'white', 'black')) +
-    labs(x = '', y = expression('Depth'~(m))) +
+    labs(x = '', y = expression('                                                                                           Depth'~(m))) +
     scale_x_continuous(limits = c(0,700), breaks = seq(0,700, by = 100), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 3), labels = scales::number_format(accuracy = 1))
 
@@ -2383,9 +2383,9 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
-    scale_x_continuous(limits = c(0.35,0.9), breaks = seq(0.35,0.9, by = 0.05), labels = scales::number_format(accuracy = 0.01), position = 'top') +
+    scale_x_continuous(limits = c(0.50,1.09), breaks = seq(0.50,1.09, by = 0.1), labels = scales::number_format(accuracy = 0.1), position = 'top') +
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1)) +
-    labs(x = 'Opp. macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
+    labs(x = 'Opp. macroalgae growth inhibition by DIP\n', y = 'Depth (m)') 
 
   RF_monod_BC1_DIP + theme_pub() +
     theme(
@@ -2514,7 +2514,7 @@ RF_GIS_tool <- function() {
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
     scale_x_continuous(limits = c(0.15,1), breaks = seq(0.15,1, by = 0.1), labels = scales::number_format(accuracy = 0.1), position = 'top') +
-    scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
+    scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIN\n', y = '')
 
   RF_monod_BC2_DIN + theme_pub() +
@@ -2531,8 +2531,8 @@ RF_GIS_tool <- function() {
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
-    scale_x_continuous(limits = c(0.60,1), breaks = seq(0.60,1, by = 0.05), labels = scales::number_format(accuracy = 0.01), position = 'top') +
-    scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
+    scale_x_continuous(limits = c(0.5,1), breaks = seq(0.5,1, by = 0.1), labels = scales::number_format(accuracy = 0.1), position = 'top') +
+    scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
 
   RF_monod_BC2_DIP + theme_pub() +
