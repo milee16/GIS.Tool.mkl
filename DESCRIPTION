@@ -1,0 +1,11 @@
+Package: GIS.Tool.mkl
+Type: Package
+Title: GIS-Tool analisys of marine coastal areas
+Version: 0.1.0
+Author: Mikkel Keller Lees
+Maintainer: Mikkel Keller Lees <milee16@student.sdu.dk>
+Description: Performs GIS analisys of HF, VF, OF and RF by vertical profiles and monod kinetics analisys.
+License: SDU
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
