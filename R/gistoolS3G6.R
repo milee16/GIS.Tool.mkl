@@ -1,10 +1,10 @@
-#' Gradient analysis of HF
+#' Gradient analysis of WB
 #'
-#' Uses Model data for HF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
-#' @param HFData Tables of gradient polygons
+#' Uses Model data for WB divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
+#' @param WBData Tables of gradient polygons
 #' @return Vertical profiles and Monod growth kinetics in various plots
 #' @export
-HF_GIS_tool <- function() {
+gistoolS3G6 <- function() {
   if(!require(ggplot2)) install.packages("ggplot2")
   if(!require(extrafont)) install.packages("extrafont")
   library(ggplot2)
@@ -81,40 +81,13 @@ HF_GIS_tool <- function() {
       )
   }
 
-
-  if(!require(readr)) install.packages("readr")
-  library(readr)
-
-  data("HF_B_G1")
-  data("HF_B_G2")
-  data("HF_B_G3")
-  data("HF_B_G4")
-  data("HF_B_G5")
-  data("HF_B_G6")
-
-  data("HF_S1_G1")
-  data("HF_S1_G2")
-  data("HF_S1_G3")
-  data("HF_S1_G4")
-  data("HF_S1_G5")
-  data("HF_S1_G6")
-
-  data("HF_S2_G1")
-  data("HF_S2_G2")
-  data("HF_S2_G3")
-  data("HF_S2_G4")
-  data("HF_S2_G5")
-  data("HF_S2_G6")
-
-  #Load Tidyverse package
-
   if(!require(tidyverse)) install.packages("tidyverse")
   library(tidyverse)
 
-  #HF_B
-  #Rename Columns in HF_B_G1
+  #WB_B
+  #Rename Columns in WB_B_G1
 
-  HF_B_G1 <<- HF_B_G1 %>%
+  WB_B_G1 <<- WB_B_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -158,9 +131,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_B_G2
+  #Rename Columns in WB_B_G2
 
-  HF_B_G2 <<- HF_B_G2 %>%
+  WB_B_G2 <<- WB_B_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -204,9 +177,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_B_G3
+  #Rename Columns in WB_B_G3
 
-  HF_B_G3 <<- HF_B_G3 %>%
+  WB_B_G3 <<- WB_B_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -250,9 +223,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_B_G4
+  #Rename Columns in WB_B_G4
 
-  HF_B_G4 <<- HF_B_G4 %>%
+  WB_B_G4 <<- WB_B_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -296,9 +269,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_B_G5
+  #Rename Columns in WB_B_G5
 
-  HF_B_G5 <<- HF_B_G5 %>%
+  WB_B_G5 <<- WB_B_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -342,9 +315,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_B_G6
+  #Rename Columns in WB_B_G6
 
-  HF_B_G6 <<- HF_B_G6 %>%
+  WB_B_G6 <<- WB_B_G6 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -388,10 +361,10 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #HF_S1
-  #Rename Columns in HF_S1_G1
+  #WB_S1
+  #Rename Columns in WB_S1_G1
 
-  HF_S1_G1 <<- HF_S1_G1 %>%
+  WB_S1_G1 <<- WB_S1_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -435,9 +408,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S1_G2
+  #Rename Columns in WB_S1_G2
 
-  HF_S1_G2 <<- HF_S1_G2 %>%
+  WB_S1_G2 <<- WB_S1_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -481,9 +454,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S1_G3
+  #Rename Columns in WB_S1_G3
 
-  HF_S1_G3 <<- HF_S1_G3 %>%
+  WB_S1_G3 <<- WB_S1_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -527,9 +500,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S1_G4
+  #Rename Columns in WB_S1_G4
 
-  HF_S1_G4 <<- HF_S1_G4 %>%
+  WB_S1_G4 <<- WB_S1_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -573,9 +546,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S1_G5
+  #Rename Columns in WB_S1_G5
 
-  HF_S1_G5 <<- HF_S1_G5 %>%
+  WB_S1_G5 <<- WB_S1_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -619,9 +592,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S1_G6
+  #Rename Columns in WB_S1_G6
 
-  HF_S1_G6 <<- HF_S1_G6 %>%
+  WB_S1_G6 <<- WB_S1_G6 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -665,10 +638,10 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #HF_S2
-  #Rename Columns in HF_S2_G1
+  #WB_S2
+  #Rename Columns in WB_S2_G1
 
-  HF_S2_G1 <<- HF_S2_G1 %>%
+  WB_S2_G1 <<- WB_S2_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -712,9 +685,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S2_G2
+  #Rename Columns in WB_S2_G2
 
-  HF_S2_G2 <<- HF_S2_G2 %>%
+  WB_S2_G2 <<- WB_S2_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -758,9 +731,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S2_G3
+  #Rename Columns in WB_S2_G3
 
-  HF_S2_G3 <<- HF_S2_G3 %>%
+  WB_S2_G3 <<- WB_S2_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -804,9 +777,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S2_G4
+  #Rename Columns in WB_S2_G4
 
-  HF_S2_G4 <<- HF_S2_G4 %>%
+  WB_S2_G4 <<- WB_S2_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -850,9 +823,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S2_G5
+  #Rename Columns in WB_S2_G5
 
-  HF_S2_G5 <<- HF_S2_G5 %>%
+  WB_S2_G5 <<- WB_S2_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -896,9 +869,9 @@ HF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in HF_S2_G6
+  #Rename Columns in WB_S2_G6
 
-  HF_S2_G6 <<- HF_S2_G6 %>%
+  WB_S2_G6 <<- WB_S2_G6 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -943,29 +916,29 @@ HF_GIS_tool <- function() {
     )
 
 
-  #Create HF_gradient_no entries and Avg DIN/DIP for all scenarios and gradient polygons
+  #Create WB_gradient_no entries and Avg DIN/DIP for all scenarios and gradient polygons
 
-  HF_gradient_no <<- c(1:6)
+  WB_gradient_no <<- c(1:6)
 
-  HF_B_avgDIN_AG <<- c(mean(HF_B_G1$DIN),mean(HF_B_G2$DIN),mean(HF_B_G3$DIN),mean(HF_B_G4$DIN),mean(HF_B_G5$DIN),mean(HF_B_G6$DIN))
-  HF_B_avgDIP_AG <<- c(mean(HF_B_G1$DIP),mean(HF_B_G2$DIP),mean(HF_B_G3$DIP),mean(HF_B_G4$DIP),mean(HF_B_G5$DIP),mean(HF_B_G6$DIN))
-  HF_B_avgDIN_b_AG <<- c(mean(HF_B_G1$DIN_b),mean(HF_B_G2$DIN_b),mean(HF_B_G3$DIN_b),mean(HF_B_G4$DIN_b),mean(HF_B_G5$DIN_b),mean(HF_B_G6$DIN_b))
-  HF_B_avgDIP_b_AG <<- c(mean(HF_B_G1$DIP_b),mean(HF_B_G2$DIP_b),mean(HF_B_G3$DIP_b),mean(HF_B_G4$DIP_b),mean(HF_B_G5$DIP_b),mean(HF_B_G6$DIN_b))
+  WB_B_avgDIN_AG <<- c(mean(WB_B_G1$DIN),mean(WB_B_G2$DIN),mean(WB_B_G3$DIN),mean(WB_B_G4$DIN),mean(WB_B_G5$DIN),mean(WB_B_G6$DIN))
+  WB_B_avgDIP_AG <<- c(mean(WB_B_G1$DIP),mean(WB_B_G2$DIP),mean(WB_B_G3$DIP),mean(WB_B_G4$DIP),mean(WB_B_G5$DIP),mean(WB_B_G6$DIN))
+  WB_B_avgDIN_b_AG <<- c(mean(WB_B_G1$DIN_b),mean(WB_B_G2$DIN_b),mean(WB_B_G3$DIN_b),mean(WB_B_G4$DIN_b),mean(WB_B_G5$DIN_b),mean(WB_B_G6$DIN_b))
+  WB_B_avgDIP_b_AG <<- c(mean(WB_B_G1$DIP_b),mean(WB_B_G2$DIP_b),mean(WB_B_G3$DIP_b),mean(WB_B_G4$DIP_b),mean(WB_B_G5$DIP_b),mean(WB_B_G6$DIN_b))
 
-  HF_S1_avgDIN_AG <<- c(mean(HF_S1_G1$DIN),mean(HF_S1_G2$DIN),mean(HF_S1_G3$DIN),mean(HF_S1_G4$DIN),mean(HF_S1_G5$DIN),mean(HF_S1_G6$DIN))
-  HF_S1_avgDIP_AG <<- c(mean(HF_S1_G1$DIP),mean(HF_S1_G2$DIP),mean(HF_S1_G3$DIP),mean(HF_S1_G4$DIP),mean(HF_S1_G5$DIP),mean(HF_S1_G6$DIN))
-  HF_S1_avgDIN_S1_AG <<- c(mean(HF_S1_G1$DIN_b),mean(HF_S1_G2$DIN_b),mean(HF_S1_G3$DIN_b),mean(HF_S1_G4$DIN_b),mean(HF_S1_G5$DIN_b),mean(HF_S1_G6$DIN_b))
-  HF_S1_avgDIP_S1_AG <<- c(mean(HF_S1_G1$DIP_b),mean(HF_S1_G2$DIP_b),mean(HF_S1_G3$DIP_b),mean(HF_S1_G4$DIP_b),mean(HF_S1_G5$DIP_b),mean(HF_S1_G6$DIN_b))
+  WB_S1_avgDIN_AG <<- c(mean(WB_S1_G1$DIN),mean(WB_S1_G2$DIN),mean(WB_S1_G3$DIN),mean(WB_S1_G4$DIN),mean(WB_S1_G5$DIN),mean(WB_S1_G6$DIN))
+  WB_S1_avgDIP_AG <<- c(mean(WB_S1_G1$DIP),mean(WB_S1_G2$DIP),mean(WB_S1_G3$DIP),mean(WB_S1_G4$DIP),mean(WB_S1_G5$DIP),mean(WB_S1_G6$DIN))
+  WB_S1_avgDIN_S1_AG <<- c(mean(WB_S1_G1$DIN_b),mean(WB_S1_G2$DIN_b),mean(WB_S1_G3$DIN_b),mean(WB_S1_G4$DIN_b),mean(WB_S1_G5$DIN_b),mean(WB_S1_G6$DIN_b))
+  WB_S1_avgDIP_S1_AG <<- c(mean(WB_S1_G1$DIP_b),mean(WB_S1_G2$DIP_b),mean(WB_S1_G3$DIP_b),mean(WB_S1_G4$DIP_b),mean(WB_S1_G5$DIP_b),mean(WB_S1_G6$DIN_b))
 
-  HF_S2_avgDIN_AG <<- c(mean(HF_S2_G1$DIN),mean(HF_S2_G2$DIN),mean(HF_S2_G3$DIN),mean(HF_S2_G4$DIN),mean(HF_S2_G5$DIN),mean(HF_S2_G6$DIN))
-  HF_S2_avgDIP_AG <<- c(mean(HF_S2_G1$DIP),mean(HF_S2_G2$DIP),mean(HF_S2_G3$DIP),mean(HF_S2_G4$DIP),mean(HF_S2_G5$DIP),mean(HF_S2_G6$DIN))
-  HF_S2_avgDIN_S2_AG <<- c(mean(HF_S2_G1$DIN_b),mean(HF_S2_G2$DIN_b),mean(HF_S2_G3$DIN_b),mean(HF_S2_G4$DIN_b),mean(HF_S2_G5$DIN_b),mean(HF_S2_G6$DIN_b))
-  HF_S2_avgDIP_S2_AG <<- c(mean(HF_S2_G1$DIP_b),mean(HF_S2_G2$DIP_b),mean(HF_S2_G3$DIP_b),mean(HF_S2_G4$DIP_b),mean(HF_S2_G5$DIP_b),mean(HF_S2_G6$DIN_b))
+  WB_S2_avgDIN_AG <<- c(mean(WB_S2_G1$DIN),mean(WB_S2_G2$DIN),mean(WB_S2_G3$DIN),mean(WB_S2_G4$DIN),mean(WB_S2_G5$DIN),mean(WB_S2_G6$DIN))
+  WB_S2_avgDIP_AG <<- c(mean(WB_S2_G1$DIP),mean(WB_S2_G2$DIP),mean(WB_S2_G3$DIP),mean(WB_S2_G4$DIP),mean(WB_S2_G5$DIP),mean(WB_S2_G6$DIN))
+  WB_S2_avgDIN_S2_AG <<- c(mean(WB_S2_G1$DIN_b),mean(WB_S2_G2$DIN_b),mean(WB_S2_G3$DIN_b),mean(WB_S2_G4$DIN_b),mean(WB_S2_G5$DIN_b),mean(WB_S2_G6$DIN_b))
+  WB_S2_avgDIP_S2_AG <<- c(mean(WB_S2_G1$DIP_b),mean(WB_S2_G2$DIP_b),mean(WB_S2_G3$DIP_b),mean(WB_S2_G4$DIP_b),mean(WB_S2_G5$DIP_b),mean(WB_S2_G6$DIN_b))
 
 
   #Transmute area-specific VF tables to non area-specific tables to use in creating single values data frame for all gradient polygons later on
 
-  HF_B_G1_no_Aspec <<- HF_B_G1 %>%
+  WB_B_G1_no_Aspec <<- WB_B_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1003,7 +976,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_B_G2_no_Aspec <<- HF_B_G2 %>%
+  WB_B_G2_no_Aspec <<- WB_B_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1041,7 +1014,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_B_G3_no_Aspec <<- HF_B_G3 %>%
+  WB_B_G3_no_Aspec <<- WB_B_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1079,7 +1052,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_B_G4_no_Aspec <<- HF_B_G4 %>%
+  WB_B_G4_no_Aspec <<- WB_B_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1117,7 +1090,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_B_G5_no_Aspec <<- HF_B_G5 %>%
+  WB_B_G5_no_Aspec <<- WB_B_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1155,7 +1128,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_B_G6_no_Aspec <<- HF_B_G6 %>%
+  WB_B_G6_no_Aspec <<- WB_B_G6 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1193,7 +1166,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G1_no_Aspec <<- HF_S1_G1 %>%
+  WB_S1_G1_no_Aspec <<- WB_S1_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1231,7 +1204,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G2_no_Aspec <<- HF_S1_G2 %>%
+  WB_S1_G2_no_Aspec <<- WB_S1_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1269,7 +1242,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G3_no_Aspec <<- HF_S1_G3 %>%
+  WB_S1_G3_no_Aspec <<- WB_S1_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1307,7 +1280,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G4_no_Aspec <<- HF_S1_G4 %>%
+  WB_S1_G4_no_Aspec <<- WB_S1_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1345,7 +1318,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G5_no_Aspec <<- HF_S1_G5 %>%
+  WB_S1_G5_no_Aspec <<- WB_S1_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1383,7 +1356,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S1_G6_no_Aspec <<- HF_S1_G6 %>%
+  WB_S1_G6_no_Aspec <<- WB_S1_G6 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1421,7 +1394,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G1_no_Aspec <<- HF_S2_G1 %>%
+  WB_S2_G1_no_Aspec <<- WB_S2_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1459,7 +1432,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G2_no_Aspec <<- HF_S2_G2 %>%
+  WB_S2_G2_no_Aspec <<- WB_S2_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1497,7 +1470,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G3_no_Aspec <<- HF_S2_G3 %>%
+  WB_S2_G3_no_Aspec <<- WB_S2_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1535,7 +1508,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G4_no_Aspec <<- HF_S2_G4 %>%
+  WB_S2_G4_no_Aspec <<- WB_S2_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1573,7 +1546,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G5_no_Aspec <<- HF_S2_G5 %>%
+  WB_S2_G5_no_Aspec <<- WB_S2_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1611,7 +1584,7 @@ HF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  HF_S2_G6_no_Aspec <<- HF_S2_G6 %>%
+  WB_S2_G6_no_Aspec <<- WB_S2_G6 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1651,262 +1624,262 @@ HF_GIS_tool <- function() {
 
   #Create single entries of summed area and volume for all gradient polygons used to create primary producers biomass and production single values for all gradient polygons
 
-  HF_sumarea_G1 <<- sum(HF_B_G1$area_m2);HF_sumarea_G2 <<- sum(HF_B_G2$area_m2);HF_sumarea_G3 <<- sum(HF_B_G3$area_m2);HF_sumarea_G4 <<- sum(HF_B_G4$area_m2);HF_sumarea_G5 <<- sum(HF_B_G5$area_m2);HF_sumarea_G6 <<- sum(HF_B_G6$area_m2)
-  HF_sumvolume_G1 <<- sum(HF_B_G1$volume_m3);HF_sumvolume_G2 <<- sum(HF_B_G2$volume_m3);HF_sumvolume_G3 <<- sum(HF_B_G3$volume_m3);HF_sumvolume_G4 <<- sum(HF_B_G4$volume_m3);HF_sumvolume_G5 <<- sum(HF_B_G5$volume_m3);HF_sumvolume_G6 <<- sum(HF_B_G6$volume_m3)
+  WB_sumarea_G1 <<- sum(WB_B_G1$area_m2);WB_sumarea_G2 <<- sum(WB_B_G2$area_m2);WB_sumarea_G3 <<- sum(WB_B_G3$area_m2);WB_sumarea_G4 <<- sum(WB_B_G4$area_m2);WB_sumarea_G5 <<- sum(WB_B_G5$area_m2);WB_sumarea_G6 <<- sum(WB_B_G6$area_m2)
+  WB_sumvolume_G1 <<- sum(WB_B_G1$volume_m3);WB_sumvolume_G2 <<- sum(WB_B_G2$volume_m3);WB_sumvolume_G3 <<- sum(WB_B_G3$volume_m3);WB_sumvolume_G4 <<- sum(WB_B_G4$volume_m3);WB_sumvolume_G5 <<- sum(WB_B_G5$volume_m3);WB_sumvolume_G6 <<- sum(WB_B_G6$volume_m3)
 
   # Create summed area and volumes for all gradient polygons used later in final data frame
 
-  HF_B_sumarea_m2_AG <<- c(sum(HF_B_G1$area_m2),sum(HF_B_G2$area_m2),sum(HF_B_G3$area_m2),sum(HF_B_G4$area_m2),sum(HF_B_G5$area_m2),sum(HF_B_G6$area_m2))
-  HF_B_sumvolume_m3_AG <<- c(sum(HF_B_G1$volume_m3),sum(HF_B_G2$volume_m3),sum(HF_B_G3$volume_m3),sum(HF_B_G4$volume_m3),sum(HF_B_G5$volume_m3),sum(HF_B_G6$volume_m3))
+  WB_B_sumarea_m2_AG <<- c(sum(WB_B_G1$area_m2),sum(WB_B_G2$area_m2),sum(WB_B_G3$area_m2),sum(WB_B_G4$area_m2),sum(WB_B_G5$area_m2),sum(WB_B_G6$area_m2))
+  WB_B_sumvolume_m3_AG <<- c(sum(WB_B_G1$volume_m3),sum(WB_B_G2$volume_m3),sum(WB_B_G3$volume_m3),sum(WB_B_G4$volume_m3),sum(WB_B_G5$volume_m3),sum(WB_B_G6$volume_m3))
 
-  HF_S1_sumarea_m2_AG <<- c(sum(HF_S1_G1$area_m2),sum(HF_S1_G2$area_m2),sum(HF_S1_G3$area_m2),sum(HF_S1_G4$area_m2),sum(HF_S1_G5$area_m2),sum(HF_S1_G6$area_m2))
-  HF_S1_sumvolume_m3_AG <<- c(sum(HF_S1_G1$volume_m3),sum(HF_S1_G2$volume_m3),sum(HF_S1_G3$volume_m3),sum(HF_S1_G4$volume_m3),sum(HF_S1_G5$volume_m3),sum(HF_S1_G6$volume_m3))
+  WB_S1_sumarea_m2_AG <<- c(sum(WB_S1_G1$area_m2),sum(WB_S1_G2$area_m2),sum(WB_S1_G3$area_m2),sum(WB_S1_G4$area_m2),sum(WB_S1_G5$area_m2),sum(WB_S1_G6$area_m2))
+  WB_S1_sumvolume_m3_AG <<- c(sum(WB_S1_G1$volume_m3),sum(WB_S1_G2$volume_m3),sum(WB_S1_G3$volume_m3),sum(WB_S1_G4$volume_m3),sum(WB_S1_G5$volume_m3),sum(WB_S1_G6$volume_m3))
 
-  HF_S2_sumarea_m2_AG <<- c(sum(HF_S2_G1$area_m2),sum(HF_S2_G2$area_m2),sum(HF_S2_G3$area_m2),sum(HF_S2_G4$area_m2),sum(HF_S2_G5$area_m2),sum(HF_S2_G6$area_m2))
-  HF_S2_sumvolume_m3_AG <<- c(sum(HF_S2_G1$volume_m3),sum(HF_S2_G2$volume_m3),sum(HF_S2_G3$volume_m3),sum(HF_S2_G4$volume_m3),sum(HF_S2_G5$volume_m3),sum(HF_S2_G6$volume_m3))
+  WB_S2_sumarea_m2_AG <<- c(sum(WB_S2_G1$area_m2),sum(WB_S2_G2$area_m2),sum(WB_S2_G3$area_m2),sum(WB_S2_G4$area_m2),sum(WB_S2_G5$area_m2),sum(WB_S2_G6$area_m2))
+  WB_S2_sumvolume_m3_AG <<- c(sum(WB_S2_G1$volume_m3),sum(WB_S2_G2$volume_m3),sum(WB_S2_G3$volume_m3),sum(WB_S2_G4$volume_m3),sum(WB_S2_G5$volume_m3),sum(WB_S2_G6$volume_m3))
 
   #Create single value entries for all primary producers (biomass and production) for all gradient polygons and all model scenarios
 
-  HF_B_EC_AG <<- c((sum(HF_B_G1_no_Aspec$EC))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$EC))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$EC))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$EC))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$EC))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$EC))/HF_sumarea_G6)
-  HF_B_EN_AG <<- c((sum(HF_B_G1_no_Aspec$EN))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$EN))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$EN))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$EN))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$EN))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$EN))/HF_sumarea_G6)
-  HF_B_EP_AG <<- c((sum(HF_B_G1_no_Aspec$EP))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$EP))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$EP))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$EP))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$EP))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$EP))/HF_sumarea_G6)
+  WB_B_EC_AG <<- c((sum(WB_B_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EC))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$EC))/WB_sumarea_G6)
+  WB_B_EN_AG <<- c((sum(WB_B_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EN))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$EN))/WB_sumarea_G6)
+  WB_B_EP_AG <<- c((sum(WB_B_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EP))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$EP))/WB_sumarea_G6)
 
-  HF_B_BC2_AG <<- c((sum(HF_B_G1_no_Aspec$BC2))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BC2))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BC2))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BC2))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BC2))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BC2))/HF_sumarea_G6)
-  HF_B_BN2_AG <<- c((sum(HF_B_G1_no_Aspec$BN2))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BN2))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BN2))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BN2))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BN2))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BN2))/HF_sumarea_G6)
-  HF_B_BP2_AG <<- c((sum(HF_B_G1_no_Aspec$BP2))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BP2))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BP2))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BP2))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BP2))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BP2))/HF_sumarea_G6)
+  WB_B_BC2_AG <<- c((sum(WB_B_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BC2))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BC2))/WB_sumarea_G6)
+  WB_B_BN2_AG <<- c((sum(WB_B_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BN2))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BN2))/WB_sumarea_G6)
+  WB_B_BP2_AG <<- c((sum(WB_B_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BP2))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BP2))/WB_sumarea_G6)
 
-  HF_B_BC1_AG <<- c((sum(HF_B_G1_no_Aspec$BC1))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BC1))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BC1))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BC1))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BC1))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BC1))/HF_sumarea_G6)
-  HF_B_BN1_AG <<- c((sum(HF_B_G1_no_Aspec$BN1))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BN1))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BN1))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BN1))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BN1))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BN1))/HF_sumarea_G6)
-  HF_B_BP1_AG <<- c((sum(HF_B_G1_no_Aspec$BP1))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BP1))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BP1))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BP1))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BP1))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BP1))/HF_sumarea_G6)
+  WB_B_BC1_AG <<- c((sum(WB_B_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BC1))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BC1))/WB_sumarea_G6)
+  WB_B_BN1_AG <<- c((sum(WB_B_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BN1))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BN1))/WB_sumarea_G6)
+  WB_B_BP1_AG <<- c((sum(WB_B_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BP1))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BP1))/WB_sumarea_G6)
 
-  HF_B_BDC_AG <<- c((sum(HF_B_G1_no_Aspec$BDC))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BDC))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BDC))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BDC))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BDC))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BDC))/HF_sumarea_G6)
-  HF_B_BDN_AG <<- c((sum(HF_B_G1_no_Aspec$BDN))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BDN))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BDN))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BDN))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BDN))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BDN))/HF_sumarea_G6)
-  HF_B_BDP_AG <<- c((sum(HF_B_G1_no_Aspec$BDP))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$BDP))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$BDP))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$BDP))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$BDP))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$BDP))/HF_sumarea_G6)
+  WB_B_BDC_AG <<- c((sum(WB_B_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDC))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BDC))/WB_sumarea_G6)
+  WB_B_BDN_AG <<- c((sum(WB_B_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDN))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BDN))/WB_sumarea_G6)
+  WB_B_BDP_AG <<- c((sum(WB_B_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDP))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$BDP))/WB_sumarea_G6)
 
-  HF_B_PC_AG <<- c((sum(HF_B_G1_no_Aspec$PC))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$PC))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$PC))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$PC))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$PC))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$PC))/HF_sumvolume_G6)
-  HF_B_PN_AG <<- c((sum(HF_B_G1_no_Aspec$PN))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$PN))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$PN))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$PN))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$PN))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$PN))/HF_sumvolume_G6)
-  HF_B_PP_AG <<- c((sum(HF_B_G1_no_Aspec$PP))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$PP))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$PP))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$PP))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$PP))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$PP))/HF_sumvolume_G6)
+  WB_B_PC_AG <<- c((sum(WB_B_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PC))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$PC))/WB_sumvolume_G6)
+  WB_B_PN_AG <<- c((sum(WB_B_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PN))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$PN))/WB_sumvolume_G6)
+  WB_B_PP_AG <<- c((sum(WB_B_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PP))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$PP))/WB_sumvolume_G6)
 
-  HF_B_CH_AG <<- c((sum(HF_B_G1_no_Aspec$CH))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$CH))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$CH))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$CH))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$CH))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$CH))/HF_sumvolume_G6)
+  WB_B_CH_AG <<- c((sum(WB_B_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$CH))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$CH))/WB_sumvolume_G6)
 
-  HF_B_DIN_AG <<- c((sum(HF_B_G1_no_Aspec$DIN))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$DIN))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$DIN))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$DIN))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$DIN))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$DIN))/HF_sumvolume_G6)
-  HF_B_DIP_AG <<- c((sum(HF_B_G1_no_Aspec$DIP))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$DIP))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$DIP))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$DIP))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$DIP))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$DIP))/HF_sumvolume_G6)
+  WB_B_DIN_AG <<- c((sum(WB_B_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIN))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$DIN))/WB_sumvolume_G6)
+  WB_B_DIP_AG <<- c((sum(WB_B_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIP))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$DIP))/WB_sumvolume_G6)
 
-  HF_B_PREC_AG <<- c((sum(HF_B_G1_no_Aspec$PREC))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$PREC))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$PREC))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$PREC))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$PREC))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$PREC))/HF_sumarea_G6)
-  HF_B_PRBC2_AG <<- c((sum(HF_B_G1_no_Aspec$PRBC2))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$PRBC2))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$PRBC2))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$PRBC2))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$PRBC2))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$PRBC2))/HF_sumarea_G6)
-  HF_B_PRBC1_AG <<- c((sum(HF_B_G1_no_Aspec$PRBC1))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$PRBC1))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$PRBC1))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$PRBC1))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$PRBC1))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$PRBC1))/HF_sumarea_G6)
-  HF_B_PRBDC_AG <<- c((sum(HF_B_G1_no_Aspec$PRBDC))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$PRBDC))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$PRBDC))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$PRBDC))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$PRBDC))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$PRBDC))/HF_sumarea_G6)
-  HF_B_PRPC_AG <<- c((sum(HF_B_G1_no_Aspec$PRPC))/HF_sumarea_G1,(sum(HF_B_G2_no_Aspec$PRPC))/HF_sumarea_G2,(sum(HF_B_G3_no_Aspec$PRPC))/HF_sumarea_G3,(sum(HF_B_G4_no_Aspec$PRPC))/HF_sumarea_G4,(sum(HF_B_G5_no_Aspec$PRPC))/HF_sumarea_G5,(sum(HF_B_G6_no_Aspec$PRPC))/HF_sumarea_G6)
+  WB_B_PREC_AG <<- c((sum(WB_B_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PREC))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$PREC))/WB_sumarea_G6)
+  WB_B_PRBC2_AG <<- c((sum(WB_B_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBC2))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$PRBC2))/WB_sumarea_G6)
+  WB_B_PRBC1_AG <<- c((sum(WB_B_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBC1))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$PRBC1))/WB_sumarea_G6)
+  WB_B_PRBDC_AG <<- c((sum(WB_B_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBDC))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$PRBDC))/WB_sumarea_G6)
+  WB_B_PRPC_AG <<- c((sum(WB_B_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRPC))/WB_sumarea_G5,(sum(WB_B_G6_no_Aspec$PRPC))/WB_sumarea_G6)
 
-  HF_B_DIN_b_AG <<- c((sum(HF_B_G1_no_Aspec$DIN_b))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$DIN_b))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$DIN_b))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$DIN_b))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$DIN_b))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$DIN_b))/HF_sumvolume_G6)
-  HF_B_DIP_b_AG <<- c((sum(HF_B_G1_no_Aspec$DIP_b))/HF_sumvolume_G1,(sum(HF_B_G2_no_Aspec$DIP_b))/HF_sumvolume_G2,(sum(HF_B_G3_no_Aspec$DIP_b))/HF_sumvolume_G3,(sum(HF_B_G4_no_Aspec$DIP_b))/HF_sumvolume_G4,(sum(HF_B_G5_no_Aspec$DIP_b))/HF_sumvolume_G5,(sum(HF_B_G6_no_Aspec$DIP_b))/HF_sumvolume_G6)
-
-
-
-  HF_S1_EC_AG <<- c((sum(HF_S1_G1_no_Aspec$EC))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$EC))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$EC))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$EC))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$EC))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$EC))/HF_sumarea_G6)
-  HF_S1_EN_AG <<- c((sum(HF_S1_G1_no_Aspec$EN))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$EN))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$EN))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$EN))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$EN))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$EN))/HF_sumarea_G6)
-  HF_S1_EP_AG <<- c((sum(HF_S1_G1_no_Aspec$EP))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$EP))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$EP))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$EP))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$EP))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$EP))/HF_sumarea_G6)
-
-  HF_S1_BC2_AG <<- c((sum(HF_S1_G1_no_Aspec$BC2))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BC2))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BC2))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BC2))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BC2))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BC2))/HF_sumarea_G6)
-  HF_S1_BN2_AG <<- c((sum(HF_S1_G1_no_Aspec$BN2))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BN2))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BN2))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BN2))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BN2))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BN2))/HF_sumarea_G6)
-  HF_S1_BP2_AG <<- c((sum(HF_S1_G1_no_Aspec$BP2))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BP2))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BP2))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BP2))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BP2))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BP2))/HF_sumarea_G6)
-
-  HF_S1_BC1_AG <<- c((sum(HF_S1_G1_no_Aspec$BC1))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BC1))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BC1))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BC1))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BC1))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BC1))/HF_sumarea_G6)
-  HF_S1_BN1_AG <<- c((sum(HF_S1_G1_no_Aspec$BN1))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BN1))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BN1))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BN1))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BN1))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BN1))/HF_sumarea_G6)
-  HF_S1_BP1_AG <<- c((sum(HF_S1_G1_no_Aspec$BP1))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BP1))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BP1))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BP1))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BP1))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BP1))/HF_sumarea_G6)
-
-  HF_S1_BDC_AG <<- c((sum(HF_S1_G1_no_Aspec$BDC))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BDC))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BDC))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BDC))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BDC))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BDC))/HF_sumarea_G6)
-  HF_S1_BDN_AG <<- c((sum(HF_S1_G1_no_Aspec$BDN))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BDN))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BDN))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BDN))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BDN))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BDN))/HF_sumarea_G6)
-  HF_S1_BDP_AG <<- c((sum(HF_S1_G1_no_Aspec$BDP))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$BDP))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$BDP))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$BDP))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$BDP))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$BDP))/HF_sumarea_G6)
-
-  HF_S1_PC_AG <<- c((sum(HF_S1_G1_no_Aspec$PC))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$PC))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$PC))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$PC))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$PC))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$PC))/HF_sumvolume_G6)
-  HF_S1_PN_AG <<- c((sum(HF_S1_G1_no_Aspec$PN))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$PN))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$PN))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$PN))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$PN))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$PN))/HF_sumvolume_G6)
-  HF_S1_PP_AG <<- c((sum(HF_S1_G1_no_Aspec$PP))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$PP))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$PP))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$PP))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$PP))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$PP))/HF_sumvolume_G6)
-
-  HF_S1_CH_AG <<- c((sum(HF_S1_G1_no_Aspec$CH))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$CH))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$CH))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$CH))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$CH))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$CH))/HF_sumvolume_G6)
-
-  HF_S1_DIN_AG <<- c((sum(HF_S1_G1_no_Aspec$DIN))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$DIN))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$DIN))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$DIN))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$DIN))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$DIN))/HF_sumvolume_G6)
-  HF_S1_DIP_AG <<- c((sum(HF_S1_G1_no_Aspec$DIP))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$DIP))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$DIP))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$DIP))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$DIP))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$DIP))/HF_sumvolume_G6)
-
-  HF_S1_PREC_AG <<- c((sum(HF_S1_G1_no_Aspec$PREC))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$PREC))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$PREC))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$PREC))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$PREC))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$PREC))/HF_sumarea_G6)
-  HF_S1_PRBC2_AG <<- c((sum(HF_S1_G1_no_Aspec$PRBC2))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$PRBC2))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$PRBC2))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$PRBC2))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$PRBC2))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$PRBC2))/HF_sumarea_G6)
-  HF_S1_PRBC1_AG <<- c((sum(HF_S1_G1_no_Aspec$PRBC1))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$PRBC1))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$PRBC1))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$PRBC1))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$PRBC1))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$PRBC1))/HF_sumarea_G6)
-  HF_S1_PRBDC_AG <<- c((sum(HF_S1_G1_no_Aspec$PRBDC))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$PRBDC))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$PRBDC))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$PRBDC))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$PRBDC))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$PRBDC))/HF_sumarea_G6)
-  HF_S1_PRPC_AG <<- c((sum(HF_S1_G1_no_Aspec$PRPC))/HF_sumarea_G1,(sum(HF_S1_G2_no_Aspec$PRPC))/HF_sumarea_G2,(sum(HF_S1_G3_no_Aspec$PRPC))/HF_sumarea_G3,(sum(HF_S1_G4_no_Aspec$PRPC))/HF_sumarea_G4,(sum(HF_S1_G5_no_Aspec$PRPC))/HF_sumarea_G5,(sum(HF_S1_G6_no_Aspec$PRPC))/HF_sumarea_G6)
-
-  HF_S1_DIN_b_AG <<- c((sum(HF_S1_G1_no_Aspec$DIN_b))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$DIN_b))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$DIN_b))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$DIN_b))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$DIN_b))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$DIN_b))/HF_sumvolume_G6)
-  HF_S1_DIP_b_AG <<- c((sum(HF_S1_G1_no_Aspec$DIP_b))/HF_sumvolume_G1,(sum(HF_S1_G2_no_Aspec$DIP_b))/HF_sumvolume_G2,(sum(HF_S1_G3_no_Aspec$DIP_b))/HF_sumvolume_G3,(sum(HF_S1_G4_no_Aspec$DIP_b))/HF_sumvolume_G4,(sum(HF_S1_G5_no_Aspec$DIP_b))/HF_sumvolume_G5,(sum(HF_S1_G6_no_Aspec$DIP_b))/HF_sumvolume_G6)
+  WB_B_DIN_b_AG <<- c((sum(WB_B_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIN_b))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$DIN_b))/WB_sumvolume_G6)
+  WB_B_DIP_b_AG <<- c((sum(WB_B_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIP_b))/WB_sumvolume_G5,(sum(WB_B_G6_no_Aspec$DIP_b))/WB_sumvolume_G6)
 
 
 
-  HF_S2_EC_AG <<- c((sum(HF_S2_G1_no_Aspec$EC))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$EC))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$EC))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$EC))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$EC))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$EC))/HF_sumarea_G6)
-  HF_S2_EN_AG <<- c((sum(HF_S2_G1_no_Aspec$EN))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$EN))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$EN))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$EN))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$EN))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$EN))/HF_sumarea_G6)
-  HF_S2_EP_AG <<- c((sum(HF_S2_G1_no_Aspec$EP))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$EP))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$EP))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$EP))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$EP))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$EP))/HF_sumarea_G6)
+  WB_S1_EC_AG <<- c((sum(WB_S1_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EC))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$EC))/WB_sumarea_G6)
+  WB_S1_EN_AG <<- c((sum(WB_S1_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EN))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$EN))/WB_sumarea_G6)
+  WB_S1_EP_AG <<- c((sum(WB_S1_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EP))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$EP))/WB_sumarea_G6)
 
-  HF_S2_BC2_AG <<- c((sum(HF_S2_G1_no_Aspec$BC2))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BC2))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BC2))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BC2))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BC2))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BC2))/HF_sumarea_G6)
-  HF_S2_BN2_AG <<- c((sum(HF_S2_G1_no_Aspec$BN2))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BN2))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BN2))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BN2))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BN2))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BN2))/HF_sumarea_G6)
-  HF_S2_BP2_AG <<- c((sum(HF_S2_G1_no_Aspec$BP2))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BP2))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BP2))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BP2))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BP2))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BP2))/HF_sumarea_G6)
+  WB_S1_BC2_AG <<- c((sum(WB_S1_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BC2))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BC2))/WB_sumarea_G6)
+  WB_S1_BN2_AG <<- c((sum(WB_S1_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BN2))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BN2))/WB_sumarea_G6)
+  WB_S1_BP2_AG <<- c((sum(WB_S1_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BP2))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BP2))/WB_sumarea_G6)
 
-  HF_S2_BC1_AG <<- c((sum(HF_S2_G1_no_Aspec$BC1))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BC1))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BC1))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BC1))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BC1))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BC1))/HF_sumarea_G6)
-  HF_S2_BN1_AG <<- c((sum(HF_S2_G1_no_Aspec$BN1))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BN1))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BN1))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BN1))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BN1))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BN1))/HF_sumarea_G6)
-  HF_S2_BP1_AG <<- c((sum(HF_S2_G1_no_Aspec$BP1))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BP1))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BP1))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BP1))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BP1))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BP1))/HF_sumarea_G6)
+  WB_S1_BC1_AG <<- c((sum(WB_S1_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BC1))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BC1))/WB_sumarea_G6)
+  WB_S1_BN1_AG <<- c((sum(WB_S1_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BN1))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BN1))/WB_sumarea_G6)
+  WB_S1_BP1_AG <<- c((sum(WB_S1_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BP1))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BP1))/WB_sumarea_G6)
 
-  HF_S2_BDC_AG <<- c((sum(HF_S2_G1_no_Aspec$BDC))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BDC))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BDC))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BDC))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BDC))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BDC))/HF_sumarea_G6)
-  HF_S2_BDN_AG <<- c((sum(HF_S2_G1_no_Aspec$BDN))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BDN))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BDN))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BDN))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BDN))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BDN))/HF_sumarea_G6)
-  HF_S2_BDP_AG <<- c((sum(HF_S2_G1_no_Aspec$BDP))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$BDP))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$BDP))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$BDP))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$BDP))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$BDP))/HF_sumarea_G6)
+  WB_S1_BDC_AG <<- c((sum(WB_S1_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDC))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BDC))/WB_sumarea_G6)
+  WB_S1_BDN_AG <<- c((sum(WB_S1_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDN))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BDN))/WB_sumarea_G6)
+  WB_S1_BDP_AG <<- c((sum(WB_S1_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDP))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$BDP))/WB_sumarea_G6)
 
-  HF_S2_PC_AG <<- c((sum(HF_S2_G1_no_Aspec$PC))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$PC))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$PC))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$PC))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$PC))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$PC))/HF_sumvolume_G6)
-  HF_S2_PN_AG <<- c((sum(HF_S2_G1_no_Aspec$PN))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$PN))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$PN))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$PN))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$PN))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$PN))/HF_sumvolume_G6)
-  HF_S2_PP_AG <<- c((sum(HF_S2_G1_no_Aspec$PP))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$PP))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$PP))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$PP))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$PP))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$PP))/HF_sumvolume_G6)
+  WB_S1_PC_AG <<- c((sum(WB_S1_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PC))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$PC))/WB_sumvolume_G6)
+  WB_S1_PN_AG <<- c((sum(WB_S1_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PN))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$PN))/WB_sumvolume_G6)
+  WB_S1_PP_AG <<- c((sum(WB_S1_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PP))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$PP))/WB_sumvolume_G6)
 
-  HF_S2_CH_AG <<- c((sum(HF_S2_G1_no_Aspec$CH))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$CH))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$CH))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$CH))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$CH))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$CH))/HF_sumvolume_G6)
+  WB_S1_CH_AG <<- c((sum(WB_S1_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$CH))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$CH))/WB_sumvolume_G6)
 
-  HF_S2_DIN_AG <<- c((sum(HF_S2_G1_no_Aspec$DIN))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$DIN))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$DIN))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$DIN))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$DIN))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$DIN))/HF_sumvolume_G6)
-  HF_S2_DIP_AG <<- c((sum(HF_S2_G1_no_Aspec$DIP))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$DIP))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$DIP))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$DIP))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$DIP))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$DIP))/HF_sumvolume_G6)
+  WB_S1_DIN_AG <<- c((sum(WB_S1_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIN))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$DIN))/WB_sumvolume_G6)
+  WB_S1_DIP_AG <<- c((sum(WB_S1_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIP))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$DIP))/WB_sumvolume_G6)
 
-  HF_S2_PREC_AG <<- c((sum(HF_S2_G1_no_Aspec$PREC))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$PREC))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$PREC))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$PREC))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$PREC))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$PREC))/HF_sumarea_G6)
-  HF_S2_PRBC2_AG <<- c((sum(HF_S2_G1_no_Aspec$PRBC2))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$PRBC2))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$PRBC2))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$PRBC2))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$PRBC2))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$PRBC2))/HF_sumarea_G6)
-  HF_S2_PRBC1_AG <<- c((sum(HF_S2_G1_no_Aspec$PRBC1))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$PRBC1))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$PRBC1))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$PRBC1))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$PRBC1))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$PRBC1))/HF_sumarea_G6)
-  HF_S2_PRBDC_AG <<- c((sum(HF_S2_G1_no_Aspec$PRBDC))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$PRBDC))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$PRBDC))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$PRBDC))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$PRBDC))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$PRBDC))/HF_sumarea_G6)
-  HF_S2_PRPC_AG <<- c((sum(HF_S2_G1_no_Aspec$PRPC))/HF_sumarea_G1,(sum(HF_S2_G2_no_Aspec$PRPC))/HF_sumarea_G2,(sum(HF_S2_G3_no_Aspec$PRPC))/HF_sumarea_G3,(sum(HF_S2_G4_no_Aspec$PRPC))/HF_sumarea_G4,(sum(HF_S2_G5_no_Aspec$PRPC))/HF_sumarea_G5,(sum(HF_S2_G6_no_Aspec$PRPC))/HF_sumarea_G6)
+  WB_S1_PREC_AG <<- c((sum(WB_S1_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PREC))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$PREC))/WB_sumarea_G6)
+  WB_S1_PRBC2_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBC2))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$PRBC2))/WB_sumarea_G6)
+  WB_S1_PRBC1_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBC1))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$PRBC1))/WB_sumarea_G6)
+  WB_S1_PRBDC_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBDC))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$PRBDC))/WB_sumarea_G6)
+  WB_S1_PRPC_AG <<- c((sum(WB_S1_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRPC))/WB_sumarea_G5,(sum(WB_S1_G6_no_Aspec$PRPC))/WB_sumarea_G6)
 
-  HF_S2_DIN_b_AG <<- c((sum(HF_S2_G1_no_Aspec$DIN_b))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$DIN_b))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$DIN_b))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$DIN_b))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$DIN_b))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$DIN_b))/HF_sumvolume_G6)
-  HF_S2_DIP_b_AG <<- c((sum(HF_S2_G1_no_Aspec$DIP_b))/HF_sumvolume_G1,(sum(HF_S2_G2_no_Aspec$DIP_b))/HF_sumvolume_G2,(sum(HF_S2_G3_no_Aspec$DIP_b))/HF_sumvolume_G3,(sum(HF_S2_G4_no_Aspec$DIP_b))/HF_sumvolume_G4,(sum(HF_S2_G5_no_Aspec$DIP_b))/HF_sumvolume_G5,(sum(HF_S2_G6_no_Aspec$DIP_b))/HF_sumvolume_G6)
+  WB_S1_DIN_b_AG <<- c((sum(WB_S1_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIN_b))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$DIN_b))/WB_sumvolume_G6)
+  WB_S1_DIP_b_AG <<- c((sum(WB_S1_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIP_b))/WB_sumvolume_G5,(sum(WB_S1_G6_no_Aspec$DIP_b))/WB_sumvolume_G6)
+
+
+
+  WB_S2_EC_AG <<- c((sum(WB_S2_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EC))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$EC))/WB_sumarea_G6)
+  WB_S2_EN_AG <<- c((sum(WB_S2_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EN))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$EN))/WB_sumarea_G6)
+  WB_S2_EP_AG <<- c((sum(WB_S2_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EP))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$EP))/WB_sumarea_G6)
+
+  WB_S2_BC2_AG <<- c((sum(WB_S2_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BC2))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BC2))/WB_sumarea_G6)
+  WB_S2_BN2_AG <<- c((sum(WB_S2_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BN2))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BN2))/WB_sumarea_G6)
+  WB_S2_BP2_AG <<- c((sum(WB_S2_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BP2))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BP2))/WB_sumarea_G6)
+
+  WB_S2_BC1_AG <<- c((sum(WB_S2_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BC1))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BC1))/WB_sumarea_G6)
+  WB_S2_BN1_AG <<- c((sum(WB_S2_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BN1))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BN1))/WB_sumarea_G6)
+  WB_S2_BP1_AG <<- c((sum(WB_S2_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BP1))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BP1))/WB_sumarea_G6)
+
+  WB_S2_BDC_AG <<- c((sum(WB_S2_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDC))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BDC))/WB_sumarea_G6)
+  WB_S2_BDN_AG <<- c((sum(WB_S2_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDN))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BDN))/WB_sumarea_G6)
+  WB_S2_BDP_AG <<- c((sum(WB_S2_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDP))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$BDP))/WB_sumarea_G6)
+
+  WB_S2_PC_AG <<- c((sum(WB_S2_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PC))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$PC))/WB_sumvolume_G6)
+  WB_S2_PN_AG <<- c((sum(WB_S2_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PN))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$PN))/WB_sumvolume_G6)
+  WB_S2_PP_AG <<- c((sum(WB_S2_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PP))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$PP))/WB_sumvolume_G6)
+
+  WB_S2_CH_AG <<- c((sum(WB_S2_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$CH))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$CH))/WB_sumvolume_G6)
+
+  WB_S2_DIN_AG <<- c((sum(WB_S2_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIN))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$DIN))/WB_sumvolume_G6)
+  WB_S2_DIP_AG <<- c((sum(WB_S2_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIP))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$DIP))/WB_sumvolume_G6)
+
+  WB_S2_PREC_AG <<- c((sum(WB_S2_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PREC))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$PREC))/WB_sumarea_G6)
+  WB_S2_PRBC2_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBC2))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$PRBC2))/WB_sumarea_G6)
+  WB_S2_PRBC1_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBC1))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$PRBC1))/WB_sumarea_G6)
+  WB_S2_PRBDC_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBDC))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$PRBDC))/WB_sumarea_G6)
+  WB_S2_PRPC_AG <<- c((sum(WB_S2_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRPC))/WB_sumarea_G5,(sum(WB_S2_G6_no_Aspec$PRPC))/WB_sumarea_G6)
+
+  WB_S2_DIN_b_AG <<- c((sum(WB_S2_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIN_b))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$DIN_b))/WB_sumvolume_G6)
+  WB_S2_DIP_b_AG <<- c((sum(WB_S2_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIP_b))/WB_sumvolume_G5,(sum(WB_S2_G6_no_Aspec$DIP_b))/WB_sumvolume_G6)
 
   #Create final data frame with single values for primary producers (biomass and production) for all gradient polygons and all model scenarios. Also adds column "scenario"
 
-  HF_B_AG_ASSV <<- data.frame(HF_gradient_no,HF_B_avgDIN_AG,HF_B_avgDIP_AG,HF_B_EC_AG,HF_B_EN_AG,HF_B_EP_AG,HF_B_BC2_AG,HF_B_BN2_AG,HF_B_BP2_AG,HF_B_BC1_AG,HF_B_BN1_AG,HF_B_BP1_AG,HF_B_BDC_AG,HF_B_BDN_AG,HF_B_BDP_AG,HF_B_PC_AG,HF_B_PN_AG,HF_B_PP_AG,HF_B_CH_AG,HF_B_DIN_AG,HF_B_DIP_AG,HF_B_PREC_AG,HF_B_PRBC2_AG,HF_B_PRBC1_AG,HF_B_PRBDC_AG,HF_B_PRPC_AG,HF_B_DIN_b_AG,HF_B_DIP_b_AG) %>%
-    add_column(scenario = "Baseline", .before = "HF_gradient_no")
+  WB_B_AG_ASSV <<- data.frame(WB_gradient_no,WB_B_avgDIN_AG,WB_B_avgDIP_AG,WB_B_EC_AG,WB_B_EN_AG,WB_B_EP_AG,WB_B_BC2_AG,WB_B_BN2_AG,WB_B_BP2_AG,WB_B_BC1_AG,WB_B_BN1_AG,WB_B_BP1_AG,WB_B_BDC_AG,WB_B_BDN_AG,WB_B_BDP_AG,WB_B_PC_AG,WB_B_PN_AG,WB_B_PP_AG,WB_B_CH_AG,WB_B_DIN_AG,WB_B_DIP_AG,WB_B_PREC_AG,WB_B_PRBC2_AG,WB_B_PRBC1_AG,WB_B_PRBDC_AG,WB_B_PRPC_AG,WB_B_DIN_b_AG,WB_B_DIP_b_AG) %>%
+    add_column(scenario = "Baseline", .before = "WB_gradient_no")
 
-  HF_S1_AG_ASSV <<- data.frame(HF_gradient_no,HF_S1_avgDIN_AG,HF_S1_avgDIP_AG,HF_S1_EC_AG,HF_S1_EN_AG,HF_S1_EP_AG,HF_S1_BC2_AG,HF_S1_BN2_AG,HF_S1_BP2_AG,HF_S1_BC1_AG,HF_S1_BN1_AG,HF_S1_BP1_AG,HF_S1_BDC_AG,HF_S1_BDN_AG,HF_S1_BDP_AG,HF_S1_PC_AG,HF_S1_PN_AG,HF_S1_PP_AG,HF_S1_CH_AG,HF_S1_DIN_AG,HF_S1_DIP_AG,HF_S1_PREC_AG,HF_S1_PRBC2_AG,HF_S1_PRBC1_AG,HF_S1_PRBDC_AG,HF_S1_PRPC_AG,HF_S1_DIN_b_AG,HF_S1_DIP_b_AG) %>%
-    add_column(scenario = "N-30%", .before = "HF_gradient_no")
+  WB_S1_AG_ASSV <<- data.frame(WB_gradient_no,WB_S1_avgDIN_AG,WB_S1_avgDIP_AG,WB_S1_EC_AG,WB_S1_EN_AG,WB_S1_EP_AG,WB_S1_BC2_AG,WB_S1_BN2_AG,WB_S1_BP2_AG,WB_S1_BC1_AG,WB_S1_BN1_AG,WB_S1_BP1_AG,WB_S1_BDC_AG,WB_S1_BDN_AG,WB_S1_BDP_AG,WB_S1_PC_AG,WB_S1_PN_AG,WB_S1_PP_AG,WB_S1_CH_AG,WB_S1_DIN_AG,WB_S1_DIP_AG,WB_S1_PREC_AG,WB_S1_PRBC2_AG,WB_S1_PRBC1_AG,WB_S1_PRBDC_AG,WB_S1_PRPC_AG,WB_S1_DIN_b_AG,WB_S1_DIP_b_AG) %>%
+    add_column(scenario = "N-30%", .before = "WB_gradient_no")
 
-  HF_S2_AG_ASSV <<- data.frame(HF_gradient_no,HF_S2_avgDIN_AG,HF_S2_avgDIP_AG,HF_S2_EC_AG,HF_S2_EN_AG,HF_S2_EP_AG,HF_S2_BC2_AG,HF_S2_BN2_AG,HF_S2_BP2_AG,HF_S2_BC1_AG,HF_S2_BN1_AG,HF_S2_BP1_AG,HF_S2_BDC_AG,HF_S2_BDN_AG,HF_S2_BDP_AG,HF_S2_PC_AG,HF_S2_PN_AG,HF_S2_PP_AG,HF_S2_CH_AG,HF_S2_DIN_AG,HF_S2_DIP_AG,HF_S2_PREC_AG,HF_S2_PRBC2_AG,HF_S2_PRBC1_AG,HF_S2_PRBDC_AG,HF_S2_PRPC_AG,HF_S2_DIN_b_AG,HF_S2_DIP_b_AG) %>%
-    add_column(scenario = "P-30%", .before = "HF_gradient_no")
+  WB_S2_AG_ASSV <<- data.frame(WB_gradient_no,WB_S2_avgDIN_AG,WB_S2_avgDIP_AG,WB_S2_EC_AG,WB_S2_EN_AG,WB_S2_EP_AG,WB_S2_BC2_AG,WB_S2_BN2_AG,WB_S2_BP2_AG,WB_S2_BC1_AG,WB_S2_BN1_AG,WB_S2_BP1_AG,WB_S2_BDC_AG,WB_S2_BDN_AG,WB_S2_BDP_AG,WB_S2_PC_AG,WB_S2_PN_AG,WB_S2_PP_AG,WB_S2_CH_AG,WB_S2_DIN_AG,WB_S2_DIP_AG,WB_S2_PREC_AG,WB_S2_PRBC2_AG,WB_S2_PRBC1_AG,WB_S2_PRBDC_AG,WB_S2_PRPC_AG,WB_S2_DIN_b_AG,WB_S2_DIP_b_AG) %>%
+    add_column(scenario = "P-30%", .before = "WB_gradient_no")
 
   #Rename all column headers to enable merging of tables
-  HF_B <<- HF_B_AG_ASSV %>%
+  WB_B <<- WB_B_AG_ASSV %>%
     rename(
 
-      AvgDIN = HF_B_avgDIN_AG,
-      AvgDIP = HF_B_avgDIP_AG,
+      AvgDIN = WB_B_avgDIN_AG,
+      AvgDIP = WB_B_avgDIP_AG,
 
-      EC = HF_B_EC_AG,
-      EN = HF_B_EN_AG,
-      EP = HF_B_EP_AG,
+      EC = WB_B_EC_AG,
+      EN = WB_B_EN_AG,
+      EP = WB_B_EP_AG,
 
-      BC2 = HF_B_BC2_AG,
-      BN2 = HF_B_BN2_AG,
-      BP2 = HF_B_BP2_AG,
+      BC2 = WB_B_BC2_AG,
+      BN2 = WB_B_BN2_AG,
+      BP2 = WB_B_BP2_AG,
 
-      BC1 = HF_B_BC1_AG,
-      BN1 = HF_B_BN1_AG,
-      BP1 = HF_B_BP1_AG,
+      BC1 = WB_B_BC1_AG,
+      BN1 = WB_B_BN1_AG,
+      BP1 = WB_B_BP1_AG,
 
-      BDC = HF_B_BDC_AG,
-      BDN = HF_B_BDN_AG,
-      BDP = HF_B_BDP_AG,
+      BDC = WB_B_BDC_AG,
+      BDN = WB_B_BDN_AG,
+      BDP = WB_B_BDP_AG,
 
-      PC = HF_B_PC_AG,
-      PN = HF_B_PN_AG,
-      PP = HF_B_PP_AG,
+      PC = WB_B_PC_AG,
+      PN = WB_B_PN_AG,
+      PP = WB_B_PP_AG,
 
-      CH = HF_B_CH_AG,
+      CH = WB_B_CH_AG,
 
-      DIN = HF_B_DIN_AG,
-      DIP = HF_B_DIP_AG,
+      DIN = WB_B_DIN_AG,
+      DIP = WB_B_DIP_AG,
 
-      PREC = HF_B_PREC_AG,
-      PRBC2 = HF_B_PRBC2_AG,
-      PRBC1 = HF_B_PRBC1_AG,
-      PRBDC = HF_B_PRBDC_AG,
-      PRPC = HF_B_PRPC_AG,
-      DIN_b = HF_B_DIN_b_AG,
-      DIP_b = HF_B_DIP_b_AG
+      PREC = WB_B_PREC_AG,
+      PRBC2 = WB_B_PRBC2_AG,
+      PRBC1 = WB_B_PRBC1_AG,
+      PRBDC = WB_B_PRBDC_AG,
+      PRPC = WB_B_PRPC_AG,
+      DIN_b = WB_B_DIN_b_AG,
+      DIP_b = WB_B_DIP_b_AG
     )
 
-  HF_S1 <<- HF_S1_AG_ASSV %>%
+  WB_S1 <<- WB_S1_AG_ASSV %>%
     rename(
 
-      AvgDIN = HF_S1_avgDIN_AG,
-      AvgDIP = HF_S1_avgDIP_AG,
+      AvgDIN = WB_S1_avgDIN_AG,
+      AvgDIP = WB_S1_avgDIP_AG,
 
-      EC = HF_S1_EC_AG,
-      EN = HF_S1_EN_AG,
-      EP = HF_S1_EP_AG,
+      EC = WB_S1_EC_AG,
+      EN = WB_S1_EN_AG,
+      EP = WB_S1_EP_AG,
 
-      BC2 = HF_S1_BC2_AG,
-      BN2 = HF_S1_BN2_AG,
-      BP2 = HF_S1_BP2_AG,
+      BC2 = WB_S1_BC2_AG,
+      BN2 = WB_S1_BN2_AG,
+      BP2 = WB_S1_BP2_AG,
 
-      BC1 = HF_S1_BC1_AG,
-      BN1 = HF_S1_BN1_AG,
-      BP1 = HF_S1_BP1_AG,
+      BC1 = WB_S1_BC1_AG,
+      BN1 = WB_S1_BN1_AG,
+      BP1 = WB_S1_BP1_AG,
 
-      BDC = HF_S1_BDC_AG,
-      BDN = HF_S1_BDN_AG,
-      BDP = HF_S1_BDP_AG,
+      BDC = WB_S1_BDC_AG,
+      BDN = WB_S1_BDN_AG,
+      BDP = WB_S1_BDP_AG,
 
-      PC = HF_S1_PC_AG,
-      PN = HF_S1_PN_AG,
-      PP = HF_S1_PP_AG,
+      PC = WB_S1_PC_AG,
+      PN = WB_S1_PN_AG,
+      PP = WB_S1_PP_AG,
 
-      CH = HF_S1_CH_AG,
+      CH = WB_S1_CH_AG,
 
-      DIN = HF_S1_DIN_AG,
-      DIP = HF_S1_DIP_AG,
+      DIN = WB_S1_DIN_AG,
+      DIP = WB_S1_DIP_AG,
 
-      PREC = HF_S1_PREC_AG,
-      PRBC2 = HF_S1_PRBC2_AG,
-      PRBC1 = HF_S1_PRBC1_AG,
-      PRBDC = HF_S1_PRBDC_AG,
-      PRPC = HF_S1_PRPC_AG,
-      DIN_b = HF_S1_DIN_b_AG,
-      DIP_b = HF_S1_DIP_b_AG
+      PREC = WB_S1_PREC_AG,
+      PRBC2 = WB_S1_PRBC2_AG,
+      PRBC1 = WB_S1_PRBC1_AG,
+      PRBDC = WB_S1_PRBDC_AG,
+      PRPC = WB_S1_PRPC_AG,
+      DIN_b = WB_S1_DIN_b_AG,
+      DIP_b = WB_S1_DIP_b_AG
     )
 
-  HF_S2 <<- HF_S2_AG_ASSV %>%
+  WB_S2 <<- WB_S2_AG_ASSV %>%
     rename(
 
-      AvgDIN = HF_S2_avgDIN_AG,
-      AvgDIP = HF_S2_avgDIP_AG,
+      AvgDIN = WB_S2_avgDIN_AG,
+      AvgDIP = WB_S2_avgDIP_AG,
 
-      EC = HF_S2_EC_AG,
-      EN = HF_S2_EN_AG,
-      EP = HF_S2_EP_AG,
+      EC = WB_S2_EC_AG,
+      EN = WB_S2_EN_AG,
+      EP = WB_S2_EP_AG,
 
-      BC2 = HF_S2_BC2_AG,
-      BN2 = HF_S2_BN2_AG,
-      BP2 = HF_S2_BP2_AG,
+      BC2 = WB_S2_BC2_AG,
+      BN2 = WB_S2_BN2_AG,
+      BP2 = WB_S2_BP2_AG,
 
-      BC1 = HF_S2_BC1_AG,
-      BN1 = HF_S2_BN1_AG,
-      BP1 = HF_S2_BP1_AG,
+      BC1 = WB_S2_BC1_AG,
+      BN1 = WB_S2_BN1_AG,
+      BP1 = WB_S2_BP1_AG,
 
-      BDC = HF_S2_BDC_AG,
-      BDN = HF_S2_BDN_AG,
-      BDP = HF_S2_BDP_AG,
+      BDC = WB_S2_BDC_AG,
+      BDN = WB_S2_BDN_AG,
+      BDP = WB_S2_BDP_AG,
 
-      PC = HF_S2_PC_AG,
-      PN = HF_S2_PN_AG,
-      PP = HF_S2_PP_AG,
+      PC = WB_S2_PC_AG,
+      PN = WB_S2_PN_AG,
+      PP = WB_S2_PP_AG,
 
-      CH = HF_S2_CH_AG,
+      CH = WB_S2_CH_AG,
 
-      DIN = HF_S2_DIN_AG,
-      DIP = HF_S2_DIP_AG,
+      DIN = WB_S2_DIN_AG,
+      DIP = WB_S2_DIP_AG,
 
-      PREC = HF_S2_PREC_AG,
-      PRBC2 = HF_S2_PRBC2_AG,
-      PRBC1 = HF_S2_PRBC1_AG,
-      PRBDC = HF_S2_PRBDC_AG,
-      PRPC = HF_S2_PRPC_AG,
-      DIN_b = HF_S2_DIN_b_AG,
-      DIP_b = HF_S2_DIP_b_AG
+      PREC = WB_S2_PREC_AG,
+      PRBC2 = WB_S2_PRBC2_AG,
+      PRBC1 = WB_S2_PRBC1_AG,
+      PRBDC = WB_S2_PRBDC_AG,
+      PRPC = WB_S2_PRPC_AG,
+      DIN_b = WB_S2_DIN_b_AG,
+      DIP_b = WB_S2_DIP_b_AG
     )
 
   #Merging tables
-  HF_AS_AG_FINAL <<- bind_rows(HF_B,HF_S1,HF_S2)
+  WB_AS_AG_FINAL <<- bind_rows(WB_B,WB_S1,WB_S2)
 
 
   #Install and load GGplot2, gridExtra and ggpubr packages
@@ -1922,7 +1895,7 @@ HF_GIS_tool <- function() {
   library(patchwork)
 
   #Production VS. AvgDIN plots
-  HF_PREC_vs_AvgDIN <<- ggplot(HF_AS_AG_FINAL, aes(x = AvgDIN, y = PREC, group = scenario)) +
+  WB_PREC_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PREC, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1935,10 +1908,10 @@ HF_GIS_tool <- function() {
 
 
 
-  HF_panel_PREC_vs_AvgDIN <<- HF_PREC_vs_AvgDIN + theme_pub()
+  WB_panel_PREC_vs_AvgDIN <<- WB_PREC_vs_AvgDIN + theme_pub()
 
 
-  HF_PRBC1_vs_AvgDIN <<- ggplot(HF_AS_AG_FINAL, aes(x = AvgDIN, y = PRBC1, group = scenario)) +
+  WB_PRBC1_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PRBC1, group = scenario)) +
     geom_line(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1949,11 +1922,11 @@ HF_GIS_tool <- function() {
     xlab('Avg. DIN ('*'g C'~m^-2*')') +
     ylab('Opp. macroalgae production ('*' g C'~m^-2~GS^-1*')')
 
-  HF_panel_PRBC1_vs_AvgDIN <<- HF_PRBC1_vs_AvgDIN + theme_pub()
+  WB_panel_PRBC1_vs_AvgDIN <<- WB_PRBC1_vs_AvgDIN + theme_pub()
 
 
 
-  HF_PRPC_vs_AvgDIN <<- ggplot(HF_AS_AG_FINAL, aes(x = AvgDIN, y = PRPC, group = scenario)) +
+  WB_PRPC_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PRPC, group = scenario)) +
     geom_line(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1964,15 +1937,15 @@ HF_GIS_tool <- function() {
     xlab('Avg. DIN ('*'g C'~m^-2*')') +
     ylab('Phytoplankton production ('*'  g C'~m^-2~GS^-1*')')
 
-  HF_panel_PRPC_vs_AvgDIN <<- HF_PRPC_vs_AvgDIN + theme_pub()
+  WB_panel_PRPC_vs_AvgDIN <<- WB_PRPC_vs_AvgDIN + theme_pub()
 
 
-  HF_panel_PREC_vs_AvgDIN + labs(x = '', y = expression('Eelgrass production'~(g~C*~m^-2~GS^-1))) +
-    HF_panel_PRBC1_vs_AvgDIN + labs(x = '', y = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1))) +
-    HF_panel_PRPC_vs_AvgDIN +
+  WB_panel_PREC_vs_AvgDIN + labs(x = '', y = expression('Eelgrass production'~(g~C*~m^-2~GS^-1))) +
+    WB_panel_PRBC1_vs_AvgDIN + labs(x = '', y = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1))) +
+    WB_panel_PRPC_vs_AvgDIN +
     plot_layout(ncol = 1) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'HF_PRXX_vs_AvgDIN_panel.tiff',
+    ggsave(filename = 'WB_PRXX_vs_AvgDIN_panel.tiff',
 
            width = 15,
            height = 35,
@@ -1982,40 +1955,40 @@ HF_GIS_tool <- function() {
 
   #Vertical profiles of primary producers and benthic light for all gradient polygons for each scenario
 
-  HF_B_G1 <<- add_column(HF_B_G1, scenario = 'Baseline', HF_gradient_no = 'no. 1', .before = 'upper')
-  HF_B_G2 <<- add_column(HF_B_G2, scenario = 'Baseline', HF_gradient_no = 'no. 2', .before = 'upper')
-  HF_B_G3 <<- add_column(HF_B_G3, scenario = 'Baseline', HF_gradient_no = 'no. 3', .before = 'upper')
-  HF_B_G4 <<- add_column(HF_B_G4, scenario = 'Baseline', HF_gradient_no = 'no. 4', .before = 'upper')
-  HF_B_G5 <<- add_column(HF_B_G5, scenario = 'Baseline', HF_gradient_no = 'no. 5', .before = 'upper')
-  HF_B_G6 <<- add_column(HF_B_G6, scenario = 'Baseline', HF_gradient_no = 'no. 6', .before = 'upper')
+  WB_B_G1 <<- add_column(WB_B_G1, scenario = 'Baseline', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_B_G2 <<- add_column(WB_B_G2, scenario = 'Baseline', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_B_G3 <<- add_column(WB_B_G3, scenario = 'Baseline', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_B_G4 <<- add_column(WB_B_G4, scenario = 'Baseline', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_B_G5 <<- add_column(WB_B_G5, scenario = 'Baseline', WB_gradient_no = 'no. 5', .before = 'upper')
+  WB_B_G6 <<- add_column(WB_B_G6, scenario = 'Baseline', WB_gradient_no = 'no. 6', .before = 'upper')
 
-  HF_B_AG <<- bind_rows(HF_B_G1, HF_B_G2, HF_B_G3, HF_B_G4, HF_B_G5, HF_B_G6)
-
-
-  HF_S1_G1 <<- add_column(HF_S1_G1, scenario = 'N-30%', HF_gradient_no = 'no. 1', .before = 'upper')
-  HF_S1_G2 <<- add_column(HF_S1_G2, scenario = 'N-30%', HF_gradient_no = 'no. 2', .before = 'upper')
-  HF_S1_G3 <<- add_column(HF_S1_G3, scenario = 'N-30%', HF_gradient_no = 'no. 3', .before = 'upper')
-  HF_S1_G4 <<- add_column(HF_S1_G4, scenario = 'N-30%', HF_gradient_no = 'no. 4', .before = 'upper')
-  HF_S1_G5 <<- add_column(HF_S1_G5, scenario = 'N-30%', HF_gradient_no = 'no. 5', .before = 'upper')
-  HF_S1_G6 <<- add_column(HF_S1_G6, scenario = 'N-30%', HF_gradient_no = 'no. 6', .before = 'upper')
-
-  HF_S1_AG <<- bind_rows(HF_S1_G1, HF_S1_G2, HF_S1_G3, HF_S1_G4, HF_S1_G5, HF_S1_G6)
+  WB_B_AG <<- bind_rows(WB_B_G1, WB_B_G2, WB_B_G3, WB_B_G4, WB_B_G5, WB_B_G6)
 
 
-  HF_S2_G1 <<- add_column(HF_S2_G1, scenario = 'P-30%', HF_gradient_no = 'no. 1', .before = 'upper')
-  HF_S2_G2 <<- add_column(HF_S2_G2, scenario = 'P-30%', HF_gradient_no = 'no. 2', .before = 'upper')
-  HF_S2_G3 <<- add_column(HF_S2_G3, scenario = 'P-30%', HF_gradient_no = 'no. 3', .before = 'upper')
-  HF_S2_G4 <<- add_column(HF_S2_G4, scenario = 'P-30%', HF_gradient_no = 'no. 4', .before = 'upper')
-  HF_S2_G5 <<- add_column(HF_S2_G5, scenario = 'P-30%', HF_gradient_no = 'no. 5', .before = 'upper')
-  HF_S2_G6 <<- add_column(HF_S2_G6, scenario = 'P-30%', HF_gradient_no = 'no. 6', .before = 'upper')
+  WB_S1_G1 <<- add_column(WB_S1_G1, scenario = 'N-30%', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_S1_G2 <<- add_column(WB_S1_G2, scenario = 'N-30%', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_S1_G3 <<- add_column(WB_S1_G3, scenario = 'N-30%', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_S1_G4 <<- add_column(WB_S1_G4, scenario = 'N-30%', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_S1_G5 <<- add_column(WB_S1_G5, scenario = 'N-30%', WB_gradient_no = 'no. 5', .before = 'upper')
+  WB_S1_G6 <<- add_column(WB_S1_G6, scenario = 'N-30%', WB_gradient_no = 'no. 6', .before = 'upper')
 
-  HF_S2_AG <<- bind_rows(HF_S2_G1, HF_S2_G2, HF_S2_G3, HF_S2_G4, HF_S2_G5, HF_S2_G6)
+  WB_S1_AG <<- bind_rows(WB_S1_G1, WB_S1_G2, WB_S1_G3, WB_S1_G4, WB_S1_G5, WB_S1_G6)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_B VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_B_PREC_vs_lower <<- ggplot(HF_B_AG, aes(x = PREC, y = lower, group = HF_gradient_no)) +
+  WB_S2_G1 <<- add_column(WB_S2_G1, scenario = 'P-30%', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_S2_G2 <<- add_column(WB_S2_G2, scenario = 'P-30%', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_S2_G3 <<- add_column(WB_S2_G3, scenario = 'P-30%', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_S2_G4 <<- add_column(WB_S2_G4, scenario = 'P-30%', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_S2_G5 <<- add_column(WB_S2_G5, scenario = 'P-30%', WB_gradient_no = 'no. 5', .before = 'upper')
+  WB_S2_G6 <<- add_column(WB_S2_G6, scenario = 'P-30%', WB_gradient_no = 'no. 6', .before = 'upper')
+
+  WB_S2_AG <<- bind_rows(WB_S2_G1, WB_S2_G2, WB_S2_G3, WB_S2_G4, WB_S2_G5, WB_S2_G6)
+
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_B VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+  WB_B_PREC_vs_lower <<- ggplot(WB_B_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2023,12 +1996,12 @@ HF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,120), breaks = seq(0,120, by = 20), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  HF_B_PREC_vs_lower + theme_pub()
+  WB_B_PREC_vs_lower + theme_pub()
 
 
-  HF_B_PRBC1_vs_lower <<- ggplot(HF_B_AG, aes(x = PRBC1, y = lower, group = HF_gradient_no)) +
+  WB_B_PRBC1_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2037,12 +2010,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_B_PRBC1_vs_lower + theme_pub()
+  WB_B_PRBC1_vs_lower + theme_pub()
 
 
-  HF_B_PRBC2_vs_lower <<- ggplot(HF_B_AG, aes(x = PRBC2, y = lower, group = HF_gradient_no)) +
+  WB_B_PRBC2_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2051,12 +2024,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_B_PRBC2_vs_lower + theme_pub()
+  WB_B_PRBC2_vs_lower + theme_pub()
 
 
-  HF_B_PRBDC_vs_lower <<- ggplot(HF_B_AG, aes(x = PRBDC, y = lower, group = HF_gradient_no)) +
+  WB_B_PRBDC_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2065,12 +2038,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_B_PRBDC_vs_lower + theme_pub()
+  WB_B_PRBDC_vs_lower + theme_pub()
 
 
-  HF_B_PC_vs_lower <<- ggplot(HF_B_AG, aes(x = PC, y = lower, group = HF_gradient_no)) +
+  WB_B_PC_vs_lower <<- ggplot(WB_B_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2079,12 +2052,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_B_PC_vs_lower + theme_pub()
+  WB_B_PC_vs_lower + theme_pub()
 
 
-  HF_B_lo_b_vs_lower <<- ggplot(HF_B_AG, aes(x = lo_b, y = lower, group = HF_gradient_no)) +
+  WB_B_lo_b_vs_lower <<- ggplot(WB_B_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2093,18 +2066,18 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_B_lo_b_vs_lower + theme_pub()
+  WB_B_lo_b_vs_lower + theme_pub()
 
 
-  HF_B_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_B_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_B_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_B_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_B_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_B_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'HF_B_AG_production.tiff',
+    ggsave(filename = 'WB_B_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -2113,11 +2086,11 @@ HF_GIS_tool <- function() {
            dpi=300)
 
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_S1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_S1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_S1_PREC_vs_lower <<- ggplot(HF_S1_AG, aes(x = PREC, y = lower, group = HF_gradient_no)) +
+  WB_S1_PREC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2125,12 +2098,12 @@ HF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,120), breaks = seq(0,120, by = 20), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  HF_S1_PREC_vs_lower + theme_pub()
+  WB_S1_PREC_vs_lower + theme_pub()
 
 
-  HF_S1_PRBC1_vs_lower <<- ggplot(HF_S1_AG, aes(x = PRBC1, y = lower, group = HF_gradient_no)) +
+  WB_S1_PRBC1_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2139,12 +2112,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S1_PRBC1_vs_lower + theme_pub()
+  WB_S1_PRBC1_vs_lower + theme_pub()
 
 
-  HF_S1_PRBC2_vs_lower <<- ggplot(HF_S1_AG, aes(x = PRBC2, y = lower, group = HF_gradient_no)) +
+  WB_S1_PRBC2_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2153,12 +2126,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S1_PRBC2_vs_lower + theme_pub()
+  WB_S1_PRBC2_vs_lower + theme_pub()
 
 
-  HF_S1_PRBDC_vs_lower <<- ggplot(HF_S1_AG, aes(x = PRBDC, y = lower, group = HF_gradient_no)) +
+  WB_S1_PRBDC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2167,12 +2140,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S1_PRBDC_vs_lower + theme_pub()
+  WB_S1_PRBDC_vs_lower + theme_pub()
 
 
-  HF_S1_PC_vs_lower <<- ggplot(HF_S1_AG, aes(x = PC, y = lower, group = HF_gradient_no)) +
+  WB_S1_PC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2181,12 +2154,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S1_PC_vs_lower + theme_pub()
+  WB_S1_PC_vs_lower + theme_pub()
 
 
-  HF_S1_lo_b_vs_lower <<- ggplot(HF_S1_AG, aes(x = lo_b, y = lower, group = HF_gradient_no)) +
+  WB_S1_lo_b_vs_lower <<- ggplot(WB_S1_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2195,18 +2168,18 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S1_lo_b_vs_lower + theme_pub()
+  WB_S1_lo_b_vs_lower + theme_pub()
 
 
-  HF_S1_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S1_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S1_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S1_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S1_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_S1_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'HF_S1_AG_production.tiff',
+    ggsave(filename = 'WB_S1_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -2214,11 +2187,11 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_S2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_S2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_S2_PREC_vs_lower <<- ggplot(HF_S2_AG, aes(x = PREC, y = lower, group = HF_gradient_no)) +
+  WB_S2_PREC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2226,12 +2199,12 @@ HF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,120), breaks = seq(0,120, by = 20), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  HF_S2_PREC_vs_lower + theme_pub()
+  WB_S2_PREC_vs_lower + theme_pub()
 
 
-  HF_S2_PRBC1_vs_lower <<- ggplot(HF_S2_AG, aes(x = PRBC1, y = lower, group = HF_gradient_no)) +
+  WB_S2_PRBC1_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2240,12 +2213,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S2_PRBC1_vs_lower + theme_pub()
+  WB_S2_PRBC1_vs_lower + theme_pub()
 
 
-  HF_S2_PRBC2_vs_lower <<- ggplot(HF_S2_AG, aes(x = PRBC2, y = lower, group = HF_gradient_no)) +
+  WB_S2_PRBC2_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2254,12 +2227,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S2_PRBC2_vs_lower + theme_pub()
+  WB_S2_PRBC2_vs_lower + theme_pub()
 
 
-  HF_S2_PRBDC_vs_lower <<- ggplot(HF_S2_AG, aes(x = PRBDC, y = lower, group = HF_gradient_no)) +
+  WB_S2_PRBDC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2268,12 +2241,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S2_PRBDC_vs_lower + theme_pub()
+  WB_S2_PRBDC_vs_lower + theme_pub()
 
 
-  HF_S2_PC_vs_lower <<- ggplot(HF_S2_AG, aes(x = PC, y = lower, group = HF_gradient_no)) +
+  WB_S2_PC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2282,12 +2255,12 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S2_PC_vs_lower + theme_pub()
+  WB_S2_PC_vs_lower + theme_pub()
 
 
-  HF_S2_lo_b_vs_lower <<- ggplot(HF_S2_AG, aes(x = lo_b, y = lower, group = HF_gradient_no)) +
+  WB_S2_lo_b_vs_lower <<- ggplot(WB_S2_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = HF_gradient_no, color = HF_gradient_no, fill = HF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -2296,18 +2269,18 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  HF_S2_lo_b_vs_lower + theme_pub()
+  WB_S2_lo_b_vs_lower + theme_pub()
 
 
-  HF_S2_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S2_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S2_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S2_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_S2_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_S2_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.55), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'HF_S2_AG_production.tiff',
+    ggsave(filename = 'WB_S2_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -2315,17 +2288,17 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_PREC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PREC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_G1_AS <<- bind_rows(HF_B_G1, HF_S1_G1, HF_S2_G1)
-  HF_G2_AS <<- bind_rows(HF_B_G2, HF_S1_G2, HF_S2_G2)
-  HF_G3_AS <<- bind_rows(HF_B_G3, HF_S1_G3, HF_S2_G3)
-  HF_G4_AS <<- bind_rows(HF_B_G4, HF_S1_G4, HF_S2_G4)
-  HF_G5_AS <<- bind_rows(HF_B_G5, HF_S1_G5, HF_S2_G5)
-  HF_G6_AS <<- bind_rows(HF_B_G6, HF_S1_G6, HF_S2_G6)
+  WB_G1_AS <<- bind_rows(WB_B_G1, WB_S1_G1, WB_S2_G1)
+  WB_G2_AS <<- bind_rows(WB_B_G2, WB_S1_G2, WB_S2_G2)
+  WB_G3_AS <<- bind_rows(WB_B_G3, WB_S1_G3, WB_S2_G3)
+  WB_G4_AS <<- bind_rows(WB_B_G4, WB_S1_G4, WB_S2_G4)
+  WB_G5_AS <<- bind_rows(WB_B_G5, WB_S1_G5, WB_S2_G5)
+  WB_G6_AS <<- bind_rows(WB_B_G6, WB_S1_G6, WB_S2_G6)
 
 
-  HF_AS_G1_PREC <<- ggplot(HF_G1_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G1_PREC <<- ggplot(WB_G1_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2336,9 +2309,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_PREC + theme_pub()
+  WB_AS_G1_PREC + theme_pub()
 
-  HF_AS_G2_PREC <<- ggplot(HF_G2_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G2_PREC <<- ggplot(WB_G2_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2349,9 +2322,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_PREC + theme_pub()
+  WB_AS_G2_PREC + theme_pub()
 
-  HF_AS_G3_PREC <<- ggplot(HF_G3_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G3_PREC <<- ggplot(WB_G3_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2362,9 +2335,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_PREC + theme_pub()
+  WB_AS_G3_PREC + theme_pub()
 
-  HF_AS_G4_PREC <<- ggplot(HF_G4_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G4_PREC <<- ggplot(WB_G4_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2375,9 +2348,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_PREC + theme_pub()
+  WB_AS_G4_PREC + theme_pub()
 
-  HF_AS_G5_PREC <<- ggplot(HF_G5_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G5_PREC <<- ggplot(WB_G5_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2388,9 +2361,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_PREC + theme_pub()
+  WB_AS_G5_PREC + theme_pub()
 
-  HF_AS_G6_PREC <<- ggplot(HF_G6_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G6_PREC <<- ggplot(WB_G6_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2401,17 +2374,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_PREC + theme_pub()
+  WB_AS_G6_PREC + theme_pub()
 
-  HF_AS_G1_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_PREC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_PREC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PREC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2419,9 +2392,9 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_PRBC1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBC1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_AS_G1_PRBC1 <<- ggplot(HF_G1_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G1_PRBC1 <<- ggplot(WB_G1_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2432,9 +2405,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_PRBC1 + theme_pub()
+  WB_AS_G1_PRBC1 + theme_pub()
 
-  HF_AS_G2_PRBC1 <<- ggplot(HF_G2_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G2_PRBC1 <<- ggplot(WB_G2_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2445,9 +2418,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_PRBC1 + theme_pub()
+  WB_AS_G2_PRBC1 + theme_pub()
 
-  HF_AS_G3_PRBC1 <<- ggplot(HF_G3_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G3_PRBC1 <<- ggplot(WB_G3_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2458,9 +2431,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_PRBC1 + theme_pub()
+  WB_AS_G3_PRBC1 + theme_pub()
 
-  HF_AS_G4_PRBC1 <<- ggplot(HF_G4_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G4_PRBC1 <<- ggplot(WB_G4_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2471,9 +2444,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_PRBC1 + theme_pub()
+  WB_AS_G4_PRBC1 + theme_pub()
 
-  HF_AS_G5_PRBC1 <<- ggplot(HF_G5_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G5_PRBC1 <<- ggplot(WB_G5_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2484,9 +2457,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_PRBC1 + theme_pub()
+  WB_AS_G5_PRBC1 + theme_pub()
 
-  HF_AS_G6_PRBC1 <<- ggplot(HF_G6_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G6_PRBC1 <<- ggplot(WB_G6_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2497,17 +2470,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_PRBC1 + theme_pub()
+  WB_AS_G6_PRBC1 + theme_pub()
 
-  HF_AS_G1_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_PRBC1_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBC1_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2515,9 +2488,9 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_PRBC2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBC2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_AS_G1_PRBC2 <<- ggplot(HF_G1_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G1_PRBC2 <<- ggplot(WB_G1_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2528,9 +2501,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_PRBC2 + theme_pub()
+  WB_AS_G1_PRBC2 + theme_pub()
 
-  HF_AS_G2_PRBC2 <<- ggplot(HF_G2_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G2_PRBC2 <<- ggplot(WB_G2_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2541,9 +2514,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_PRBC2 + theme_pub()
+  WB_AS_G2_PRBC2 + theme_pub()
 
-  HF_AS_G3_PRBC2 <<- ggplot(HF_G3_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G3_PRBC2 <<- ggplot(WB_G3_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2554,9 +2527,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_PRBC2 + theme_pub()
+  WB_AS_G3_PRBC2 + theme_pub()
 
-  HF_AS_G4_PRBC2 <<- ggplot(HF_G4_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G4_PRBC2 <<- ggplot(WB_G4_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2567,9 +2540,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_PRBC2 + theme_pub()
+  WB_AS_G4_PRBC2 + theme_pub()
 
-  HF_AS_G5_PRBC2 <<- ggplot(HF_G5_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G5_PRBC2 <<- ggplot(WB_G5_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2580,9 +2553,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_PRBC2 + theme_pub()
+  WB_AS_G5_PRBC2 + theme_pub()
 
-  HF_AS_G6_PRBC2 <<- ggplot(HF_G6_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G6_PRBC2 <<- ggplot(WB_G6_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2593,17 +2566,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_PRBC2 + theme_pub()
+  WB_AS_G6_PRBC2 + theme_pub()
 
-  HF_AS_G1_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_PRBC2_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBC2_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2611,9 +2584,9 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_PRBDC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBDC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_AS_G1_PRBDC <<- ggplot(HF_G1_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G1_PRBDC <<- ggplot(WB_G1_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2624,9 +2597,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_PRBDC + theme_pub()
+  WB_AS_G1_PRBDC + theme_pub()
 
-  HF_AS_G2_PRBDC <<- ggplot(HF_G2_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G2_PRBDC <<- ggplot(WB_G2_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2637,9 +2610,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_PRBDC + theme_pub()
+  WB_AS_G2_PRBDC + theme_pub()
 
-  HF_AS_G3_PRBDC <<- ggplot(HF_G3_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G3_PRBDC <<- ggplot(WB_G3_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2650,9 +2623,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_PRBDC + theme_pub()
+  WB_AS_G3_PRBDC + theme_pub()
 
-  HF_AS_G4_PRBDC <<- ggplot(HF_G4_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G4_PRBDC <<- ggplot(WB_G4_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2663,9 +2636,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_PRBDC + theme_pub()
+  WB_AS_G4_PRBDC + theme_pub()
 
-  HF_AS_G5_PRBDC <<- ggplot(HF_G5_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G5_PRBDC <<- ggplot(WB_G5_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2676,9 +2649,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_PRBDC + theme_pub()
+  WB_AS_G5_PRBDC + theme_pub()
 
-  HF_AS_G6_PRBDC <<- ggplot(HF_G6_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G6_PRBDC <<- ggplot(WB_G6_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2689,17 +2662,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_PRBDC + theme_pub()
+  WB_AS_G6_PRBDC + theme_pub()
 
-  HF_AS_G1_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_PRBDC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBDC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2707,9 +2680,9 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_PC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_AS_G1_PC <<- ggplot(HF_G1_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G1_PC <<- ggplot(WB_G1_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2720,9 +2693,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_PC + theme_pub()
+  WB_AS_G1_PC + theme_pub()
 
-  HF_AS_G2_PC <<- ggplot(HF_G2_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G2_PC <<- ggplot(WB_G2_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2733,9 +2706,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_PC + theme_pub()
+  WB_AS_G2_PC + theme_pub()
 
-  HF_AS_G3_PC <<- ggplot(HF_G3_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G3_PC <<- ggplot(WB_G3_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2746,9 +2719,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_PC + theme_pub()
+  WB_AS_G3_PC + theme_pub()
 
-  HF_AS_G4_PC <<- ggplot(HF_G4_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G4_PC <<- ggplot(WB_G4_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2759,9 +2732,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_PC + theme_pub()
+  WB_AS_G4_PC + theme_pub()
 
-  HF_AS_G5_PC <<- ggplot(HF_G5_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G5_PC <<- ggplot(WB_G5_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2772,9 +2745,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_PC + theme_pub()
+  WB_AS_G5_PC + theme_pub()
 
-  HF_AS_G6_PC <<- ggplot(HF_G6_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G6_PC <<- ggplot(WB_G6_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2785,17 +2758,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_PC + theme_pub()
+  WB_AS_G6_PC + theme_pub()
 
-  HF_AS_G1_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_PC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_PC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PC+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_PC+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_PC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2803,9 +2776,9 @@ HF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH HF_ASAG_lo_b VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_lo_b VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_AS_G1_lo_b <<- ggplot(HF_G1_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G1_lo_b <<- ggplot(WB_G1_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2816,9 +2789,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G1_lo_b + theme_pub()
+  WB_AS_G1_lo_b + theme_pub()
 
-  HF_AS_G2_lo_b <<- ggplot(HF_G2_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G2_lo_b <<- ggplot(WB_G2_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2829,9 +2802,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G2_lo_b + theme_pub()
+  WB_AS_G2_lo_b + theme_pub()
 
-  HF_AS_G3_lo_b <<- ggplot(HF_G3_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G3_lo_b <<- ggplot(WB_G3_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2842,9 +2815,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G3_lo_b + theme_pub()
+  WB_AS_G3_lo_b + theme_pub()
 
-  HF_AS_G4_lo_b <<- ggplot(HF_G4_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G4_lo_b <<- ggplot(WB_G4_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2855,9 +2828,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G4_lo_b + theme_pub()
+  WB_AS_G4_lo_b + theme_pub()
 
-  HF_AS_G5_lo_b <<- ggplot(HF_G5_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G5_lo_b <<- ggplot(WB_G5_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2868,9 +2841,9 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G5_lo_b + theme_pub()
+  WB_AS_G5_lo_b + theme_pub()
 
-  HF_AS_G6_lo_b <<- ggplot(HF_G6_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G6_lo_b <<- ggplot(WB_G6_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2881,17 +2854,17 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  HF_AS_G6_lo_b + theme_pub()
+  WB_AS_G6_lo_b + theme_pub()
 
-  HF_AS_G1_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G2_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G3_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G4_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    HF_AS_G6_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G6_lo_b+ theme_pub() + theme(legend.justification = c(1,2.7),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'HF_ASAG_lo_b_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_lo_b_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2901,8 +2874,8 @@ HF_GIS_tool <- function() {
 
   #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH   Benthic Vs. WC production   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  HF_benthic_vs_WC_prod <<- HF_AS_AG_FINAL %>%
-    select(scenario, HF_gradient_no, PREC, PRBC1, PRBC2, PRBDC, PRPC) %>%
+  WB_benthic_vs_WC_prod <<- WB_AS_AG_FINAL %>%
+    select(scenario, WB_gradient_no, PREC, PRBC1, PRBC2, PRBDC, PRPC) %>%
     mutate(benthic_prod = PREC + PRBC1 + PRBC2 + PRBDC,
            WC_prod = PRPC,
            prod_100_pct = benthic_prod + WC_prod,
@@ -2912,11 +2885,11 @@ HF_GIS_tool <- function() {
     ) %>%
     rename('Benthic prod.' = benthic_prod_pct,
            'WC prod.' = WC_prod_pct) %>%
-    select(scenario, HF_gradient_no, 'Benthic prod.', 'WC prod.') %>%
+    select(scenario, WB_gradient_no, 'Benthic prod.', 'WC prod.') %>%
     gather(prod_ID, prod_pct, 'Benthic prod.':'WC prod.')
 
 
-  HF_benthic_vs_WC_prod_plot <<- ggplot(data = HF_benthic_vs_WC_prod, aes(x = HF_gradient_no, y = prod_pct, group = interaction(scenario, prod_ID))) +
+  WB_benthic_vs_WC_prod_plot <<- ggplot(data = WB_benthic_vs_WC_prod, aes(x = WB_gradient_no, y = prod_pct, group = interaction(scenario, prod_ID))) +
     geom_path(size = 1, aes(linetype = prod_ID)) +
     geom_point(size = 3, aes(shape = scenario, color = scenario, fill = scenario)) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2926,7 +2899,7 @@ HF_GIS_tool <- function() {
     scale_x_discrete(limits = c('0-2', '2-4', '4-6', '6-10', '10-16', '10-17'), expand = c(0,0.05)) +
     scale_y_continuous(limits = c(0,105), breaks = seq(0,105, by = 10), labels = scales::number_format(accuracy = 1), expand = c(0,0.05))
 
-  HF_benthic_vs_WC_prod_plot + theme_pub() +
+  WB_benthic_vs_WC_prod_plot + theme_pub() +
     theme(
       legend.text = element_text(size = 20),
       legend.background = element_blank(),
@@ -2938,7 +2911,7 @@ HF_GIS_tool <- function() {
       axis.text.x = element_text(angle = -45, vjust = 1, hjust = 0),
       plot.margin = unit(c(5,50,0,0), "pt"),
     ) +
-    ggsave(filename = 'HF_Benthic_vs_WC_prod.tiff',
+    ggsave(filename = 'WB_Benthic_vs_WC_prod.tiff',
 
            width = 30,
            height = 20,
@@ -2959,8 +2932,8 @@ HF_GIS_tool <- function() {
 
   PC_vmax_C <<- 2; PC_kmDIN_C <<- 0.03; PC_kmDIP_C <<- 0.005; PC_kmlight_C <<- 75
 
-  HF_monod_table <<- bind_rows(HF_B_AG, HF_S1_AG, HF_S2_AG) %>%
-    select(scenario, HF_gradient_no, lower, EC, EN, EP, BC1, BN1, BP1, BC2, BN2, BP2, BDC, BDN, BDP, PC, PN, PP, DIN, DIP, lo_b, DIN_b, DIP_b) %>%
+  WB_monod_table <<- bind_rows(WB_B_AG, WB_S1_AG, WB_S2_AG) %>%
+    select(scenario, WB_gradient_no, lower, EC, EN, EP, BC1, BN1, BP1, BC2, BN2, BP2, BDC, BDN, BDP, PC, PN, PP, DIN, DIP, lo_b, DIN_b, DIP_b) %>%
     rename(
       EC_kmDIN = EC,
       EC_kmDIP = EN,
@@ -3006,9 +2979,9 @@ HF_GIS_tool <- function() {
 
 
   #Monod EC
-  HF_monod_EC_light <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = EC_kmlight, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_EC_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = EC_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.5, aes(color = scenario)) +
-    geom_point(size = 3, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 3, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3016,7 +2989,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Eelgrass growth limitation by benthic light\n', y = 'Depth (m)')
 
-  HF_monod_EC_light + theme_pub() +
+  WB_monod_EC_light + theme_pub() +
     theme(
       plot.margin = unit(c(1,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3025,13 +2998,13 @@ HF_GIS_tool <- function() {
       legend.text = element_text(size = 22)
     )
 
-  HF_monod_EC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 22), axis.text = element_text(size = 18), legend.justification = c(1.05,4.80),
+  WB_monod_EC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 22), axis.text = element_text(size = 18), legend.justification = c(1.05,4.80),
                                           legend.direction = 'vertical',
                                           legend.box = 'vertical',
                                           legend.text = element_text(size = 22),
                                           legend.spacing.x = unit(0.05, 'cm'),) +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'HF_monod_EC_light.tiff',
+    ggsave(filename = 'WB_monod_EC_light.tiff',
 
            width = 30,
            height = 40,
@@ -3040,9 +3013,9 @@ HF_GIS_tool <- function() {
            dpi=300)
 
   #Monod BC1
-  HF_monod_BC1_DIN <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIN, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC1_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3050,7 +3023,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by DIN\n', y = '')
 
-  HF_monod_BC1_DIN + theme_pub() +
+  WB_monod_BC1_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3058,9 +3031,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  HF_monod_BC1_DIP <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIP, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC1_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3068,7 +3041,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
 
-  HF_monod_BC1_DIP + theme_pub() +
+  WB_monod_BC1_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3076,9 +3049,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_BC1_light <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmlight, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC1_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3086,7 +3059,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by benthic light\n', y = '')
 
-  HF_monod_BC1_light + theme_pub() +
+  WB_monod_BC1_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3094,17 +3067,17 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_BC1_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+  WB_monod_BC1_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                          legend.direction = 'vertical',
                                          legend.box = 'vertical') +
-    HF_monod_BC1_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_BC1_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                            legend.direction = 'vertical',
                                            legend.box = 'vertical') +
-    HF_monod_BC1_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_BC1_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                              legend.direction = 'vertical',
                                              legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'HF_monod_BC1.tiff',
+    ggsave(filename = 'WB_monod_BC1.tiff',
 
            width = 20,
            height = 40,
@@ -3114,9 +3087,9 @@ HF_GIS_tool <- function() {
 
 
   #Monod PC
-  HF_monod_PC_DIN <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIN, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_PC_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3124,7 +3097,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by DIN\n', y = '')
 
-  HF_monod_PC_DIN + theme_pub() +
+  WB_monod_PC_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3132,9 +3105,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  HF_monod_PC_DIP <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIP, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_PC_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3142,7 +3115,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by DIP\n', y = 'Depth (m)')
 
-  HF_monod_PC_DIP + theme_pub() +
+  WB_monod_PC_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3150,9 +3123,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_PC_light <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmlight, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_PC_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3160,7 +3133,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by benthic light\n', y = '')
 
-  HF_monod_PC_light + theme_pub() +
+  WB_monod_PC_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3168,17 +3141,17 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_PC_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+  WB_monod_PC_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                         legend.direction = 'vertical',
                                         legend.box = 'vertical') +
-    HF_monod_PC_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_PC_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                           legend.direction = 'vertical',
                                           legend.box = 'vertical') +
-    HF_monod_PC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_PC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                             legend.direction = 'vertical',
                                             legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'HF_monod_PC.tiff',
+    ggsave(filename = 'WB_monod_PC.tiff',
 
            width = 20,
            height = 40,
@@ -3188,9 +3161,9 @@ HF_GIS_tool <- function() {
 
 
   #Monod BC2
-  HF_monod_BC2_DIN <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIN, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC2_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3198,7 +3171,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIN\n', y = '')
 
-  HF_monod_BC2_DIN + theme_pub() +
+  WB_monod_BC2_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3206,9 +3179,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  HF_monod_BC2_DIP <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIP, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC2_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3216,7 +3189,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
 
-  HF_monod_BC2_DIP + theme_pub() +
+  WB_monod_BC2_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3224,9 +3197,9 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_BC2_light <<- ggplot(subset(HF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmlight, y = lower, group = interaction(scenario, HF_gradient_no))) +
+  WB_monod_BC2_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = HF_gradient_no, fill = HF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24, 21)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white', 'white')) +
@@ -3234,7 +3207,7 @@ HF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by benthic light\n', y = '')
 
-  HF_monod_BC2_light + theme_pub() +
+  WB_monod_BC2_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -3242,17 +3215,17 @@ HF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  HF_monod_BC2_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+  WB_monod_BC2_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                          legend.direction = 'vertical',
                                          legend.box = 'vertical') +
-    HF_monod_BC2_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_BC2_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                            legend.direction = 'vertical',
                                            legend.box = 'vertical') +
-    HF_monod_BC2_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
+    WB_monod_BC2_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.4),
                                              legend.direction = 'vertical',
                                              legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'HF_monod_BC2.tiff',
+    ggsave(filename = 'WB_monod_BC2.tiff',
 
            width = 20,
            height = 40,

@@ -1,10 +1,10 @@
-#' Gradient analysis of VF
+#' Gradient analysis of WB
 #'
-#' Uses Model data for VF divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
-#' @param VFData Tables of gradient polygons
+#' Uses Model data for WB divided into five gradient polygons. Model scenarios are "Baseline", "N-30%" and "P-30%"
+#' @param WBData Tables of gradient polygons
 #' @return Vertical profiles and Monod growth kinetics in various plots
 #' @export
-VF_GIS_tool <- function() {
+gistoolS3G5 <- function() {
   if(!require(ggplot2)) install.packages("ggplot2")
   if(!require(extrafont)) install.packages("extrafont")
   library(ggplot2)
@@ -81,39 +81,13 @@ VF_GIS_tool <- function() {
       )
   }
 
-
-  if(!require(readr)) install.packages("readr")
-  library(readr)
-
-  data("VF_B_G1")
-  data("VF_B_G2")
-  data("VF_B_G3")
-  data("VF_B_G4")
-  data("VF_B_G5")
-
-  data("VF_S1_G1")
-  data("VF_S1_G2")
-  data("VF_S1_G3")
-  data("VF_S1_G4")
-  data("VF_S1_G5")
-
-  data("VF_S2_G1")
-  data("VF_S2_G2")
-  data("VF_S2_G3")
-  data("VF_S2_G4")
-  data("VF_S2_G5")
-
-
-
-  #Load Tidyverse package
-
   if(!require(tidyverse)) install.packages("tidyverse")
   library(tidyverse)
 
-  #VF_B
-  #Rename Columns in VF_B_G1
+  #WB_B
+  #Rename Columns in WB_B_G1
 
-  VF_B_G1 <<- VF_B_G1 %>%
+  WB_B_G1 <<- WB_B_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -157,9 +131,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_B_G2
+  #Rename Columns in WB_B_G2
 
-  VF_B_G2 <<- VF_B_G2 %>%
+  WB_B_G2 <<- WB_B_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -203,9 +177,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_B_G3
+  #Rename Columns in WB_B_G3
 
-  VF_B_G3 <<- VF_B_G3 %>%
+  WB_B_G3 <<- WB_B_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -249,9 +223,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_B_G4
+  #Rename Columns in WB_B_G4
 
-  VF_B_G4 <<- VF_B_G4 %>%
+  WB_B_G4 <<- WB_B_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -295,9 +269,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_B_G5
+  #Rename Columns in WB_B_G5
 
-  VF_B_G5 <<- VF_B_G5 %>%
+  WB_B_G5 <<- WB_B_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -341,10 +315,10 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #VF_S1
-  #Rename Columns in VF_S1_G1
+  #WB_S1
+  #Rename Columns in WB_S1_G1
 
-  VF_S1_G1 <<- VF_S1_G1 %>%
+  WB_S1_G1 <<- WB_S1_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -388,9 +362,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S1_G2
+  #Rename Columns in WB_S1_G2
 
-  VF_S1_G2 <<- VF_S1_G2 %>%
+  WB_S1_G2 <<- WB_S1_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -434,9 +408,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S1_G3
+  #Rename Columns in WB_S1_G3
 
-  VF_S1_G3 <<- VF_S1_G3 %>%
+  WB_S1_G3 <<- WB_S1_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -480,9 +454,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S1_G4
+  #Rename Columns in WB_S1_G4
 
-  VF_S1_G4 <<- VF_S1_G4 %>%
+  WB_S1_G4 <<- WB_S1_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -526,9 +500,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S1_G5
+  #Rename Columns in WB_S1_G5
 
-  VF_S1_G5 <<- VF_S1_G5 %>%
+  WB_S1_G5 <<- WB_S1_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -572,10 +546,10 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #VF_S2
-  #Rename Columns in VF_S2_G1
+  #WB_S2
+  #Rename Columns in WB_S2_G1
 
-  VF_S2_G1 <<- VF_S2_G1 %>%
+  WB_S2_G1 <<- WB_S2_G1 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -619,9 +593,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S2_G2
+  #Rename Columns in WB_S2_G2
 
-  VF_S2_G2 <<- VF_S2_G2 %>%
+  WB_S2_G2 <<- WB_S2_G2 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -665,9 +639,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S2_G3
+  #Rename Columns in WB_S2_G3
 
-  VF_S2_G3 <<- VF_S2_G3 %>%
+  WB_S2_G3 <<- WB_S2_G3 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -711,9 +685,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S2_G4
+  #Rename Columns in WB_S2_G4
 
-  VF_S2_G4 <<- VF_S2_G4 %>%
+  WB_S2_G4 <<- WB_S2_G4 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -757,9 +731,9 @@ VF_GIS_tool <- function() {
       DIP_b = X_COL32
     )
 
-  #Rename Columns in VF_S2_G5
+  #Rename Columns in WB_S2_G5
 
-  VF_S2_G5 <<- VF_S2_G5 %>%
+  WB_S2_G5 <<- WB_S2_G5 %>%
     arrange(desc(upper)) %>%
     rename(
       area_km2 = X_COL3,
@@ -804,29 +778,29 @@ VF_GIS_tool <- function() {
     )
 
 
-  #Create VF_gradient_no entries and Avg DIN/DIP for all scenarios and gradient polygons
+  #Create WB_gradient_no entries and Avg DIN/DIP for all scenarios and gradient polygons
 
-  VF_gradient_no <<- c(1:5)
+  WB_gradient_no <<- c(1:5)
 
-  VF_B_avgDIN_AG <<- c(mean(VF_B_G1$DIN),mean(VF_B_G2$DIN),mean(VF_B_G3$DIN),mean(VF_B_G4$DIN),mean(VF_B_G5$DIN))
-  VF_B_avgDIP_AG <<- c(mean(VF_B_G1$DIP),mean(VF_B_G2$DIP),mean(VF_B_G3$DIP),mean(VF_B_G4$DIP),mean(VF_B_G5$DIP))
-  VF_B_avgDIN_b_AG <<- c(mean(VF_B_G1$DIN_b),mean(VF_B_G2$DIN_b),mean(VF_B_G3$DIN_b),mean(VF_B_G4$DIN_b),mean(VF_B_G5$DIN_b))
-  VF_B_avgDIP_b_AG <<- c(mean(VF_B_G1$DIP_b),mean(VF_B_G2$DIP_b),mean(VF_B_G3$DIP_b),mean(VF_B_G4$DIP_b),mean(VF_B_G5$DIP_b))
+  WB_B_avgDIN_AG <<- c(mean(WB_B_G1$DIN),mean(WB_B_G2$DIN),mean(WB_B_G3$DIN),mean(WB_B_G4$DIN),mean(WB_B_G5$DIN))
+  WB_B_avgDIP_AG <<- c(mean(WB_B_G1$DIP),mean(WB_B_G2$DIP),mean(WB_B_G3$DIP),mean(WB_B_G4$DIP),mean(WB_B_G5$DIP))
+  WB_B_avgDIN_b_AG <<- c(mean(WB_B_G1$DIN_b),mean(WB_B_G2$DIN_b),mean(WB_B_G3$DIN_b),mean(WB_B_G4$DIN_b),mean(WB_B_G5$DIN_b))
+  WB_B_avgDIP_b_AG <<- c(mean(WB_B_G1$DIP_b),mean(WB_B_G2$DIP_b),mean(WB_B_G3$DIP_b),mean(WB_B_G4$DIP_b),mean(WB_B_G5$DIP_b))
 
-  VF_S1_avgDIN_AG <<- c(mean(VF_S1_G1$DIN),mean(VF_S1_G2$DIN),mean(VF_S1_G3$DIN),mean(VF_S1_G4$DIN),mean(VF_S1_G5$DIN))
-  VF_S1_avgDIP_AG <<- c(mean(VF_S1_G1$DIP),mean(VF_S1_G2$DIP),mean(VF_S1_G3$DIP),mean(VF_S1_G4$DIP),mean(VF_S1_G5$DIP))
-  VF_S1_avgDIN_b_AG <<- c(mean(VF_S1_G1$DIN_b),mean(VF_S1_G2$DIN_b),mean(VF_S1_G3$DIN_b),mean(VF_S1_G4$DIN_b),mean(VF_S1_G5$DIN_b))
-  VF_S1_avgDIP_b_AG <<- c(mean(VF_S1_G1$DIP_b),mean(VF_S1_G2$DIP_b),mean(VF_S1_G3$DIP_b),mean(VF_S1_G4$DIP_b),mean(VF_S1_G5$DIP_b))
+  WB_S1_avgDIN_AG <<- c(mean(WB_S1_G1$DIN),mean(WB_S1_G2$DIN),mean(WB_S1_G3$DIN),mean(WB_S1_G4$DIN),mean(WB_S1_G5$DIN))
+  WB_S1_avgDIP_AG <<- c(mean(WB_S1_G1$DIP),mean(WB_S1_G2$DIP),mean(WB_S1_G3$DIP),mean(WB_S1_G4$DIP),mean(WB_S1_G5$DIP))
+  WB_S1_avgDIN_b_AG <<- c(mean(WB_S1_G1$DIN_b),mean(WB_S1_G2$DIN_b),mean(WB_S1_G3$DIN_b),mean(WB_S1_G4$DIN_b),mean(WB_S1_G5$DIN_b))
+  WB_S1_avgDIP_b_AG <<- c(mean(WB_S1_G1$DIP_b),mean(WB_S1_G2$DIP_b),mean(WB_S1_G3$DIP_b),mean(WB_S1_G4$DIP_b),mean(WB_S1_G5$DIP_b))
 
-  VF_S2_avgDIN_AG <<- c(mean(VF_S2_G1$DIN),mean(VF_S2_G2$DIN),mean(VF_S2_G3$DIN),mean(VF_S2_G4$DIN),mean(VF_S2_G5$DIN))
-  VF_S2_avgDIP_AG <<- c(mean(VF_S2_G1$DIP),mean(VF_S2_G2$DIP),mean(VF_S2_G3$DIP),mean(VF_S2_G4$DIP),mean(VF_S2_G5$DIP))
-  VF_S2_avgDIN_b_AG <<- c(mean(VF_S2_G1$DIN_b),mean(VF_S2_G2$DIN_b),mean(VF_S2_G3$DIN_b),mean(VF_S2_G4$DIN_b),mean(VF_S2_G5$DIN_b))
-  VF_S2_avgDIP_b_AG <<- c(mean(VF_S2_G1$DIP_b),mean(VF_S2_G2$DIP_b),mean(VF_S2_G3$DIP_b),mean(VF_S2_G4$DIP_b),mean(VF_S2_G5$DIP_b))
+  WB_S2_avgDIN_AG <<- c(mean(WB_S2_G1$DIN),mean(WB_S2_G2$DIN),mean(WB_S2_G3$DIN),mean(WB_S2_G4$DIN),mean(WB_S2_G5$DIN))
+  WB_S2_avgDIP_AG <<- c(mean(WB_S2_G1$DIP),mean(WB_S2_G2$DIP),mean(WB_S2_G3$DIP),mean(WB_S2_G4$DIP),mean(WB_S2_G5$DIP))
+  WB_S2_avgDIN_b_AG <<- c(mean(WB_S2_G1$DIN_b),mean(WB_S2_G2$DIN_b),mean(WB_S2_G3$DIN_b),mean(WB_S2_G4$DIN_b),mean(WB_S2_G5$DIN_b))
+  WB_S2_avgDIP_b_AG <<- c(mean(WB_S2_G1$DIP_b),mean(WB_S2_G2$DIP_b),mean(WB_S2_G3$DIP_b),mean(WB_S2_G4$DIP_b),mean(WB_S2_G5$DIP_b))
 
 
-  #Transmute area-specific VF tables to non area-specific tables to use in creating single values data frame for all gradient polygons later on
+  #Transmute area-specific WB tables to non area-specific tables to use in creating single values data frame for all gradient polygons later on
 
-  VF_B_G1_no_Aspec <<- VF_B_G1 %>%
+  WB_B_G1_no_Aspec <<- WB_B_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -864,7 +838,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_B_G2_no_Aspec <<- VF_B_G2 %>%
+  WB_B_G2_no_Aspec <<- WB_B_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -902,7 +876,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_B_G3_no_Aspec <<- VF_B_G3 %>%
+  WB_B_G3_no_Aspec <<- WB_B_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -940,7 +914,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_B_G4_no_Aspec <<- VF_B_G4 %>%
+  WB_B_G4_no_Aspec <<- WB_B_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -978,7 +952,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_B_G5_no_Aspec <<- VF_B_G5 %>%
+  WB_B_G5_no_Aspec <<- WB_B_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1016,7 +990,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S1_G1_no_Aspec <<- VF_S1_G1 %>%
+  WB_S1_G1_no_Aspec <<- WB_S1_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1054,7 +1028,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S1_G2_no_Aspec <<- VF_S1_G2 %>%
+  WB_S1_G2_no_Aspec <<- WB_S1_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1092,7 +1066,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S1_G3_no_Aspec <<- VF_S1_G3 %>%
+  WB_S1_G3_no_Aspec <<- WB_S1_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1130,7 +1104,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S1_G4_no_Aspec <<- VF_S1_G4 %>%
+  WB_S1_G4_no_Aspec <<- WB_S1_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1168,7 +1142,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S1_G5_no_Aspec <<- VF_S1_G5 %>%
+  WB_S1_G5_no_Aspec <<- WB_S1_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1206,7 +1180,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S2_G1_no_Aspec <<- VF_S2_G1 %>%
+  WB_S2_G1_no_Aspec <<- WB_S2_G1 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1244,7 +1218,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S2_G2_no_Aspec <<- VF_S2_G2 %>%
+  WB_S2_G2_no_Aspec <<- WB_S2_G2 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1282,7 +1256,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S2_G3_no_Aspec <<- VF_S2_G3 %>%
+  WB_S2_G3_no_Aspec <<- WB_S2_G3 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1320,7 +1294,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S2_G4_no_Aspec <<- VF_S2_G4 %>%
+  WB_S2_G4_no_Aspec <<- WB_S2_G4 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1358,7 +1332,7 @@ VF_GIS_tool <- function() {
       DIP_b = DIP_b*volume_m3
     )
 
-  VF_S2_G5_no_Aspec <<- VF_S2_G5 %>%
+  WB_S2_G5_no_Aspec <<- WB_S2_G5 %>%
     transmute(
       EC = EC*area_m2,
       EN = EN*area_m2,
@@ -1397,263 +1371,263 @@ VF_GIS_tool <- function() {
     )
   #Create single entries of summed area and volume for all gradient polygons used to create primary producers biomass and production single values for all gradient polygons
 
-  VF_sumarea_G1 <<- sum(VF_B_G1$area_m2);VF_sumarea_G2 <<- sum(VF_B_G2$area_m2);VF_sumarea_G3 <<- sum(VF_B_G3$area_m2);VF_sumarea_G4 <<- sum(VF_B_G4$area_m2);VF_sumarea_G5 <<- sum(VF_B_G5$area_m2)
-  VF_sumvolume_G1 <<- sum(VF_B_G1$volume_m3);VF_sumvolume_G2 <<- sum(VF_B_G2$volume_m3);VF_sumvolume_G3 <<- sum(VF_B_G3$volume_m3);VF_sumvolume_G4 <<- sum(VF_B_G4$volume_m3);VF_sumvolume_G5 <<- sum(VF_B_G5$volume_m3)
+  WB_sumarea_G1 <<- sum(WB_B_G1$area_m2);WB_sumarea_G2 <<- sum(WB_B_G2$area_m2);WB_sumarea_G3 <<- sum(WB_B_G3$area_m2);WB_sumarea_G4 <<- sum(WB_B_G4$area_m2);WB_sumarea_G5 <<- sum(WB_B_G5$area_m2)
+  WB_sumvolume_G1 <<- sum(WB_B_G1$volume_m3);WB_sumvolume_G2 <<- sum(WB_B_G2$volume_m3);WB_sumvolume_G3 <<- sum(WB_B_G3$volume_m3);WB_sumvolume_G4 <<- sum(WB_B_G4$volume_m3);WB_sumvolume_G5 <<- sum(WB_B_G5$volume_m3)
 
   # Create summed area and volumes for all gradient polygons used later in final data frame
 
-  VF_B_sumarea_m2_AG <<- c(sum(VF_B_G1$area_m2),sum(VF_B_G2$area_m2),sum(VF_B_G3$area_m2),sum(VF_B_G4$area_m2),sum(VF_B_G5$area_m2))
-  VF_B_sumvolume_m3_AG <<- c(sum(VF_B_G1$volume_m3),sum(VF_B_G2$volume_m3),sum(VF_B_G3$volume_m3),sum(VF_B_G4$volume_m3),sum(VF_B_G5$volume_m3))
+  WB_B_sumarea_m2_AG <<- c(sum(WB_B_G1$area_m2),sum(WB_B_G2$area_m2),sum(WB_B_G3$area_m2),sum(WB_B_G4$area_m2),sum(WB_B_G5$area_m2))
+  WB_B_sumvolume_m3_AG <<- c(sum(WB_B_G1$volume_m3),sum(WB_B_G2$volume_m3),sum(WB_B_G3$volume_m3),sum(WB_B_G4$volume_m3),sum(WB_B_G5$volume_m3))
 
-  VF_S1_sumarea_m2_AG <<- c(sum(VF_S1_G1$area_m2),sum(VF_S1_G2$area_m2),sum(VF_S1_G3$area_m2),sum(VF_S1_G4$area_m2),sum(VF_S1_G5$area_m2))
-  VF_S1_sumvolume_m3_AG <<- c(sum(VF_S1_G1$volume_m3),sum(VF_S1_G2$volume_m3),sum(VF_S1_G3$volume_m3),sum(VF_S1_G4$volume_m3),sum(VF_S1_G5$volume_m3))
+  WB_S1_sumarea_m2_AG <<- c(sum(WB_S1_G1$area_m2),sum(WB_S1_G2$area_m2),sum(WB_S1_G3$area_m2),sum(WB_S1_G4$area_m2),sum(WB_S1_G5$area_m2))
+  WB_S1_sumvolume_m3_AG <<- c(sum(WB_S1_G1$volume_m3),sum(WB_S1_G2$volume_m3),sum(WB_S1_G3$volume_m3),sum(WB_S1_G4$volume_m3),sum(WB_S1_G5$volume_m3))
 
-  VF_S2_sumarea_m2_AG <<- c(sum(VF_S2_G1$area_m2),sum(VF_S2_G2$area_m2),sum(VF_S2_G3$area_m2),sum(VF_S2_G4$area_m2),sum(VF_S2_G5$area_m2))
-  VF_S2_sumvolume_m3_AG <<- c(sum(VF_S2_G1$volume_m3),sum(VF_S2_G2$volume_m3),sum(VF_S2_G3$volume_m3),sum(VF_S2_G4$volume_m3),sum(VF_S2_G5$volume_m3))
+  WB_S2_sumarea_m2_AG <<- c(sum(WB_S2_G1$area_m2),sum(WB_S2_G2$area_m2),sum(WB_S2_G3$area_m2),sum(WB_S2_G4$area_m2),sum(WB_S2_G5$area_m2))
+  WB_S2_sumvolume_m3_AG <<- c(sum(WB_S2_G1$volume_m3),sum(WB_S2_G2$volume_m3),sum(WB_S2_G3$volume_m3),sum(WB_S2_G4$volume_m3),sum(WB_S2_G5$volume_m3))
 
   #Create single value entries for all primary producers (biomass and production) for all gradient polygons and all model scenarios
 
-  VF_B_EC_AG <<- c((sum(VF_B_G1_no_Aspec$EC))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$EC))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$EC))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$EC))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$EC))/VF_sumarea_G5)
-  VF_B_EN_AG <<- c((sum(VF_B_G1_no_Aspec$EN))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$EN))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$EN))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$EN))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$EN))/VF_sumarea_G5)
-  VF_B_EP_AG <<- c((sum(VF_B_G1_no_Aspec$EP))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$EP))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$EP))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$EP))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$EP))/VF_sumarea_G5)
+  WB_B_EC_AG <<- c((sum(WB_B_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EC))/WB_sumarea_G5)
+  WB_B_EN_AG <<- c((sum(WB_B_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EN))/WB_sumarea_G5)
+  WB_B_EP_AG <<- c((sum(WB_B_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$EP))/WB_sumarea_G5)
 
-  VF_B_BC2_AG <<- c((sum(VF_B_G1_no_Aspec$BC2))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BC2))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BC2))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BC2))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BC2))/VF_sumarea_G5)
-  VF_B_BN2_AG <<- c((sum(VF_B_G1_no_Aspec$BN2))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BN2))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BN2))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BN2))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BN2))/VF_sumarea_G5)
-  VF_B_BP2_AG <<- c((sum(VF_B_G1_no_Aspec$BP2))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BP2))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BP2))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BP2))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BP2))/VF_sumarea_G5)
+  WB_B_BC2_AG <<- c((sum(WB_B_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BC2))/WB_sumarea_G5)
+  WB_B_BN2_AG <<- c((sum(WB_B_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BN2))/WB_sumarea_G5)
+  WB_B_BP2_AG <<- c((sum(WB_B_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BP2))/WB_sumarea_G5)
 
-  VF_B_BC1_AG <<- c((sum(VF_B_G1_no_Aspec$BC1))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BC1))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BC1))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BC1))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BC1))/VF_sumarea_G5)
-  VF_B_BN1_AG <<- c((sum(VF_B_G1_no_Aspec$BN1))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BN1))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BN1))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BN1))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BN1))/VF_sumarea_G5)
-  VF_B_BP1_AG <<- c((sum(VF_B_G1_no_Aspec$BP1))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BP1))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BP1))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BP1))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BP1))/VF_sumarea_G5)
+  WB_B_BC1_AG <<- c((sum(WB_B_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BC1))/WB_sumarea_G5)
+  WB_B_BN1_AG <<- c((sum(WB_B_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BN1))/WB_sumarea_G5)
+  WB_B_BP1_AG <<- c((sum(WB_B_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BP1))/WB_sumarea_G5)
 
-  VF_B_BDC_AG <<- c((sum(VF_B_G1_no_Aspec$BDC))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BDC))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BDC))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BDC))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BDC))/VF_sumarea_G5)
-  VF_B_BDN_AG <<- c((sum(VF_B_G1_no_Aspec$BDN))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BDN))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BDN))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BDN))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BDN))/VF_sumarea_G5)
-  VF_B_BDP_AG <<- c((sum(VF_B_G1_no_Aspec$BDP))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$BDP))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$BDP))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$BDP))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$BDP))/VF_sumarea_G5)
+  WB_B_BDC_AG <<- c((sum(WB_B_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDC))/WB_sumarea_G5)
+  WB_B_BDN_AG <<- c((sum(WB_B_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDN))/WB_sumarea_G5)
+  WB_B_BDP_AG <<- c((sum(WB_B_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$BDP))/WB_sumarea_G5)
 
-  VF_B_PC_AG <<- c((sum(VF_B_G1_no_Aspec$PC))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$PC))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$PC))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$PC))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$PC))/VF_sumvolume_G5)
-  VF_B_PN_AG <<- c((sum(VF_B_G1_no_Aspec$PN))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$PN))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$PN))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$PN))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$PN))/VF_sumvolume_G5)
-  VF_B_PP_AG <<- c((sum(VF_B_G1_no_Aspec$PP))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$PP))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$PP))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$PP))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$PP))/VF_sumvolume_G5)
+  WB_B_PC_AG <<- c((sum(WB_B_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PC))/WB_sumvolume_G5)
+  WB_B_PN_AG <<- c((sum(WB_B_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PN))/WB_sumvolume_G5)
+  WB_B_PP_AG <<- c((sum(WB_B_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$PP))/WB_sumvolume_G5)
 
-  VF_B_CH_AG <<- c((sum(VF_B_G1_no_Aspec$CH))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$CH))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$CH))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$CH))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$CH))/VF_sumvolume_G5)
+  WB_B_CH_AG <<- c((sum(WB_B_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$CH))/WB_sumvolume_G5)
 
-  VF_B_DIN_AG <<- c((sum(VF_B_G1_no_Aspec$DIN))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$DIN))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$DIN))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$DIN))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$DIN))/VF_sumvolume_G5)
-  VF_B_DIP_AG <<- c((sum(VF_B_G1_no_Aspec$DIP))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$DIP))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$DIP))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$DIP))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$DIP))/VF_sumvolume_G5)
+  WB_B_DIN_AG <<- c((sum(WB_B_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIN))/WB_sumvolume_G5)
+  WB_B_DIP_AG <<- c((sum(WB_B_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIP))/WB_sumvolume_G5)
 
-  VF_B_PREC_AG <<- c((sum(VF_B_G1_no_Aspec$PREC))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$PREC))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$PREC))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$PREC))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$PREC))/VF_sumarea_G5)
-  VF_B_PRBC2_AG <<- c((sum(VF_B_G1_no_Aspec$PRBC2))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$PRBC2))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$PRBC2))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$PRBC2))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$PRBC2))/VF_sumarea_G5)
-  VF_B_PRBC1_AG <<- c((sum(VF_B_G1_no_Aspec$PRBC1))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$PRBC1))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$PRBC1))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$PRBC1))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$PRBC1))/VF_sumarea_G5)
-  VF_B_PRBDC_AG <<- c((sum(VF_B_G1_no_Aspec$PRBDC))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$PRBDC))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$PRBDC))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$PRBDC))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$PRBDC))/VF_sumarea_G5)
-  VF_B_PRPC_AG <<- c((sum(VF_B_G1_no_Aspec$PRPC))/VF_sumarea_G1,(sum(VF_B_G2_no_Aspec$PRPC))/VF_sumarea_G2,(sum(VF_B_G3_no_Aspec$PRPC))/VF_sumarea_G3,(sum(VF_B_G4_no_Aspec$PRPC))/VF_sumarea_G4,(sum(VF_B_G5_no_Aspec$PRPC))/VF_sumarea_G5)
+  WB_B_PREC_AG <<- c((sum(WB_B_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PREC))/WB_sumarea_G5)
+  WB_B_PRBC2_AG <<- c((sum(WB_B_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBC2))/WB_sumarea_G5)
+  WB_B_PRBC1_AG <<- c((sum(WB_B_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBC1))/WB_sumarea_G5)
+  WB_B_PRBDC_AG <<- c((sum(WB_B_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRBDC))/WB_sumarea_G5)
+  WB_B_PRPC_AG <<- c((sum(WB_B_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_B_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_B_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_B_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_B_G5_no_Aspec$PRPC))/WB_sumarea_G5)
 
-  VF_B_DIN_b_AG <<- c((sum(VF_B_G1_no_Aspec$DIN_b))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$DIN_b))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$DIN_b))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$DIN_b))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$DIN_b))/VF_sumvolume_G5)
-  VF_B_DIP_b_AG <<- c((sum(VF_B_G1_no_Aspec$DIP_b))/VF_sumvolume_G1,(sum(VF_B_G2_no_Aspec$DIP_b))/VF_sumvolume_G2,(sum(VF_B_G3_no_Aspec$DIP_b))/VF_sumvolume_G3,(sum(VF_B_G4_no_Aspec$DIP_b))/VF_sumvolume_G4,(sum(VF_B_G5_no_Aspec$DIP_b))/VF_sumvolume_G5)
-
-
-  VF_S1_EC_AG <<- c((sum(VF_S1_G1_no_Aspec$EC))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$EC))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$EC))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$EC))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$EC))/VF_sumarea_G5)
-  VF_S1_EN_AG <<- c((sum(VF_S1_G1_no_Aspec$EN))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$EN))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$EN))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$EN))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$EN))/VF_sumarea_G5)
-  VF_S1_EP_AG <<- c((sum(VF_S1_G1_no_Aspec$EP))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$EP))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$EP))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$EP))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$EP))/VF_sumarea_G5)
-
-  VF_S1_BC2_AG <<- c((sum(VF_S1_G1_no_Aspec$BC2))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BC2))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BC2))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BC2))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BC2))/VF_sumarea_G5)
-  VF_S1_BN2_AG <<- c((sum(VF_S1_G1_no_Aspec$BN2))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BN2))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BN2))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BN2))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BN2))/VF_sumarea_G5)
-  VF_S1_BP2_AG <<- c((sum(VF_S1_G1_no_Aspec$BP2))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BP2))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BP2))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BP2))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BP2))/VF_sumarea_G5)
-
-  VF_S1_BC1_AG <<- c((sum(VF_S1_G1_no_Aspec$BC1))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BC1))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BC1))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BC1))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BC1))/VF_sumarea_G5)
-  VF_S1_BN1_AG <<- c((sum(VF_S1_G1_no_Aspec$BN1))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BN1))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BN1))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BN1))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BN1))/VF_sumarea_G5)
-  VF_S1_BP1_AG <<- c((sum(VF_S1_G1_no_Aspec$BP1))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BP1))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BP1))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BP1))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BP1))/VF_sumarea_G5)
-
-  VF_S1_BDC_AG <<- c((sum(VF_S1_G1_no_Aspec$BDC))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BDC))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BDC))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BDC))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BDC))/VF_sumarea_G5)
-  VF_S1_BDN_AG <<- c((sum(VF_S1_G1_no_Aspec$BDN))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BDN))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BDN))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BDN))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BDN))/VF_sumarea_G5)
-  VF_S1_BDP_AG <<- c((sum(VF_S1_G1_no_Aspec$BDP))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$BDP))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$BDP))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$BDP))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$BDP))/VF_sumarea_G5)
-
-  VF_S1_PC_AG <<- c((sum(VF_S1_G1_no_Aspec$PC))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$PC))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$PC))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$PC))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$PC))/VF_sumvolume_G5)
-  VF_S1_PN_AG <<- c((sum(VF_S1_G1_no_Aspec$PN))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$PN))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$PN))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$PN))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$PN))/VF_sumvolume_G5)
-  VF_S1_PP_AG <<- c((sum(VF_S1_G1_no_Aspec$PP))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$PP))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$PP))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$PP))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$PP))/VF_sumvolume_G5)
-
-  VF_S1_CH_AG <<- c((sum(VF_S1_G1_no_Aspec$CH))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$CH))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$CH))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$CH))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$CH))/VF_sumvolume_G5)
-
-  VF_S1_DIN_AG <<- c((sum(VF_S1_G1_no_Aspec$DIN))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$DIN))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$DIN))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$DIN))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$DIN))/VF_sumvolume_G5)
-  VF_S1_DIP_AG <<- c((sum(VF_S1_G1_no_Aspec$DIP))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$DIP))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$DIP))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$DIP))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$DIP))/VF_sumvolume_G5)
-
-  VF_S1_PREC_AG <<- c((sum(VF_S1_G1_no_Aspec$PREC))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$PREC))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$PREC))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$PREC))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$PREC))/VF_sumarea_G5)
-  VF_S1_PRBC2_AG <<- c((sum(VF_S1_G1_no_Aspec$PRBC2))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$PRBC2))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$PRBC2))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$PRBC2))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$PRBC2))/VF_sumarea_G5)
-  VF_S1_PRBC1_AG <<- c((sum(VF_S1_G1_no_Aspec$PRBC1))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$PRBC1))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$PRBC1))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$PRBC1))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$PRBC1))/VF_sumarea_G5)
-  VF_S1_PRBDC_AG <<- c((sum(VF_S1_G1_no_Aspec$PRBDC))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$PRBDC))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$PRBDC))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$PRBDC))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$PRBDC))/VF_sumarea_G5)
-  VF_S1_PRPC_AG <<- c((sum(VF_S1_G1_no_Aspec$PRPC))/VF_sumarea_G1,(sum(VF_S1_G2_no_Aspec$PRPC))/VF_sumarea_G2,(sum(VF_S1_G3_no_Aspec$PRPC))/VF_sumarea_G3,(sum(VF_S1_G4_no_Aspec$PRPC))/VF_sumarea_G4,(sum(VF_S1_G5_no_Aspec$PRPC))/VF_sumarea_G5)
-
-  VF_S1_DIN_b_AG <<- c((sum(VF_S1_G1_no_Aspec$DIN_b))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$DIN_b))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$DIN_b))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$DIN_b))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$DIN_b))/VF_sumvolume_G5)
-  VF_S1_DIP_b_AG <<- c((sum(VF_S1_G1_no_Aspec$DIP_b))/VF_sumvolume_G1,(sum(VF_S1_G2_no_Aspec$DIP_b))/VF_sumvolume_G2,(sum(VF_S1_G3_no_Aspec$DIP_b))/VF_sumvolume_G3,(sum(VF_S1_G4_no_Aspec$DIP_b))/VF_sumvolume_G4,(sum(VF_S1_G5_no_Aspec$DIP_b))/VF_sumvolume_G5)
+  WB_B_DIN_b_AG <<- c((sum(WB_B_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIN_b))/WB_sumvolume_G5)
+  WB_B_DIP_b_AG <<- c((sum(WB_B_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_B_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_B_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_B_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_B_G5_no_Aspec$DIP_b))/WB_sumvolume_G5)
 
 
+  WB_S1_EC_AG <<- c((sum(WB_S1_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EC))/WB_sumarea_G5)
+  WB_S1_EN_AG <<- c((sum(WB_S1_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EN))/WB_sumarea_G5)
+  WB_S1_EP_AG <<- c((sum(WB_S1_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$EP))/WB_sumarea_G5)
 
-  VF_S2_EC_AG <<- c((sum(VF_S2_G1_no_Aspec$EC))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$EC))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$EC))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$EC))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$EC))/VF_sumarea_G5)
-  VF_S2_EN_AG <<- c((sum(VF_S2_G1_no_Aspec$EN))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$EN))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$EN))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$EN))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$EN))/VF_sumarea_G5)
-  VF_S2_EP_AG <<- c((sum(VF_S2_G1_no_Aspec$EP))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$EP))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$EP))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$EP))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$EP))/VF_sumarea_G5)
+  WB_S1_BC2_AG <<- c((sum(WB_S1_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BC2))/WB_sumarea_G5)
+  WB_S1_BN2_AG <<- c((sum(WB_S1_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BN2))/WB_sumarea_G5)
+  WB_S1_BP2_AG <<- c((sum(WB_S1_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BP2))/WB_sumarea_G5)
 
-  VF_S2_BC2_AG <<- c((sum(VF_S2_G1_no_Aspec$BC2))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BC2))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BC2))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BC2))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BC2))/VF_sumarea_G5)
-  VF_S2_BN2_AG <<- c((sum(VF_S2_G1_no_Aspec$BN2))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BN2))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BN2))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BN2))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BN2))/VF_sumarea_G5)
-  VF_S2_BP2_AG <<- c((sum(VF_S2_G1_no_Aspec$BP2))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BP2))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BP2))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BP2))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BP2))/VF_sumarea_G5)
+  WB_S1_BC1_AG <<- c((sum(WB_S1_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BC1))/WB_sumarea_G5)
+  WB_S1_BN1_AG <<- c((sum(WB_S1_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BN1))/WB_sumarea_G5)
+  WB_S1_BP1_AG <<- c((sum(WB_S1_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BP1))/WB_sumarea_G5)
 
-  VF_S2_BC1_AG <<- c((sum(VF_S2_G1_no_Aspec$BC1))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BC1))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BC1))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BC1))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BC1))/VF_sumarea_G5)
-  VF_S2_BN1_AG <<- c((sum(VF_S2_G1_no_Aspec$BN1))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BN1))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BN1))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BN1))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BN1))/VF_sumarea_G5)
-  VF_S2_BP1_AG <<- c((sum(VF_S2_G1_no_Aspec$BP1))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BP1))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BP1))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BP1))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BP1))/VF_sumarea_G5)
+  WB_S1_BDC_AG <<- c((sum(WB_S1_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDC))/WB_sumarea_G5)
+  WB_S1_BDN_AG <<- c((sum(WB_S1_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDN))/WB_sumarea_G5)
+  WB_S1_BDP_AG <<- c((sum(WB_S1_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$BDP))/WB_sumarea_G5)
 
-  VF_S2_BDC_AG <<- c((sum(VF_S2_G1_no_Aspec$BDC))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BDC))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BDC))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BDC))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BDC))/VF_sumarea_G5)
-  VF_S2_BDN_AG <<- c((sum(VF_S2_G1_no_Aspec$BDN))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BDN))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BDN))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BDN))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BDN))/VF_sumarea_G5)
-  VF_S2_BDP_AG <<- c((sum(VF_S2_G1_no_Aspec$BDP))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$BDP))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$BDP))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$BDP))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$BDP))/VF_sumarea_G5)
+  WB_S1_PC_AG <<- c((sum(WB_S1_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PC))/WB_sumvolume_G5)
+  WB_S1_PN_AG <<- c((sum(WB_S1_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PN))/WB_sumvolume_G5)
+  WB_S1_PP_AG <<- c((sum(WB_S1_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$PP))/WB_sumvolume_G5)
 
-  VF_S2_PC_AG <<- c((sum(VF_S2_G1_no_Aspec$PC))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$PC))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$PC))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$PC))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$PC))/VF_sumvolume_G5)
-  VF_S2_PN_AG <<- c((sum(VF_S2_G1_no_Aspec$PN))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$PN))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$PN))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$PN))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$PN))/VF_sumvolume_G5)
-  VF_S2_PP_AG <<- c((sum(VF_S2_G1_no_Aspec$PP))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$PP))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$PP))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$PP))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$PP))/VF_sumvolume_G5)
+  WB_S1_CH_AG <<- c((sum(WB_S1_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$CH))/WB_sumvolume_G5)
 
-  VF_S2_CH_AG <<- c((sum(VF_S2_G1_no_Aspec$CH))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$CH))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$CH))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$CH))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$CH))/VF_sumvolume_G5)
+  WB_S1_DIN_AG <<- c((sum(WB_S1_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIN))/WB_sumvolume_G5)
+  WB_S1_DIP_AG <<- c((sum(WB_S1_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIP))/WB_sumvolume_G5)
 
-  VF_S2_DIN_AG <<- c((sum(VF_S2_G1_no_Aspec$DIN))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$DIN))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$DIN))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$DIN))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$DIN))/VF_sumvolume_G5)
-  VF_S2_DIP_AG <<- c((sum(VF_S2_G1_no_Aspec$DIP))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$DIP))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$DIP))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$DIP))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$DIP))/VF_sumvolume_G5)
+  WB_S1_PREC_AG <<- c((sum(WB_S1_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PREC))/WB_sumarea_G5)
+  WB_S1_PRBC2_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBC2))/WB_sumarea_G5)
+  WB_S1_PRBC1_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBC1))/WB_sumarea_G5)
+  WB_S1_PRBDC_AG <<- c((sum(WB_S1_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRBDC))/WB_sumarea_G5)
+  WB_S1_PRPC_AG <<- c((sum(WB_S1_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_S1_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_S1_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_S1_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_S1_G5_no_Aspec$PRPC))/WB_sumarea_G5)
 
-  VF_S2_PREC_AG <<- c((sum(VF_S2_G1_no_Aspec$PREC))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$PREC))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$PREC))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$PREC))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$PREC))/VF_sumarea_G5)
-  VF_S2_PRBC2_AG <<- c((sum(VF_S2_G1_no_Aspec$PRBC2))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$PRBC2))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$PRBC2))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$PRBC2))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$PRBC2))/VF_sumarea_G5)
-  VF_S2_PRBC1_AG <<- c((sum(VF_S2_G1_no_Aspec$PRBC1))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$PRBC1))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$PRBC1))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$PRBC1))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$PRBC1))/VF_sumarea_G5)
-  VF_S2_PRBDC_AG <<- c((sum(VF_S2_G1_no_Aspec$PRBDC))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$PRBDC))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$PRBDC))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$PRBDC))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$PRBDC))/VF_sumarea_G5)
-  VF_S2_PRPC_AG <<- c((sum(VF_S2_G1_no_Aspec$PRPC))/VF_sumarea_G1,(sum(VF_S2_G2_no_Aspec$PRPC))/VF_sumarea_G2,(sum(VF_S2_G3_no_Aspec$PRPC))/VF_sumarea_G3,(sum(VF_S2_G4_no_Aspec$PRPC))/VF_sumarea_G4,(sum(VF_S2_G5_no_Aspec$PRPC))/VF_sumarea_G5)
+  WB_S1_DIN_b_AG <<- c((sum(WB_S1_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIN_b))/WB_sumvolume_G5)
+  WB_S1_DIP_b_AG <<- c((sum(WB_S1_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_S1_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_S1_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_S1_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_S1_G5_no_Aspec$DIP_b))/WB_sumvolume_G5)
 
-  VF_S2_DIN_b_AG <<- c((sum(VF_S2_G1_no_Aspec$DIN_b))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$DIN_b))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$DIN_b))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$DIN_b))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$DIN_b))/VF_sumvolume_G5)
-  VF_S2_DIP_b_AG <<- c((sum(VF_S2_G1_no_Aspec$DIP_b))/VF_sumvolume_G1,(sum(VF_S2_G2_no_Aspec$DIP_b))/VF_sumvolume_G2,(sum(VF_S2_G3_no_Aspec$DIP_b))/VF_sumvolume_G3,(sum(VF_S2_G4_no_Aspec$DIP_b))/VF_sumvolume_G4,(sum(VF_S2_G5_no_Aspec$DIP_b))/VF_sumvolume_G5)
+
+
+  WB_S2_EC_AG <<- c((sum(WB_S2_G1_no_Aspec$EC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EC))/WB_sumarea_G5)
+  WB_S2_EN_AG <<- c((sum(WB_S2_G1_no_Aspec$EN))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EN))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EN))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EN))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EN))/WB_sumarea_G5)
+  WB_S2_EP_AG <<- c((sum(WB_S2_G1_no_Aspec$EP))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$EP))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$EP))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$EP))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$EP))/WB_sumarea_G5)
+
+  WB_S2_BC2_AG <<- c((sum(WB_S2_G1_no_Aspec$BC2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BC2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BC2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BC2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BC2))/WB_sumarea_G5)
+  WB_S2_BN2_AG <<- c((sum(WB_S2_G1_no_Aspec$BN2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BN2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BN2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BN2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BN2))/WB_sumarea_G5)
+  WB_S2_BP2_AG <<- c((sum(WB_S2_G1_no_Aspec$BP2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BP2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BP2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BP2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BP2))/WB_sumarea_G5)
+
+  WB_S2_BC1_AG <<- c((sum(WB_S2_G1_no_Aspec$BC1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BC1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BC1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BC1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BC1))/WB_sumarea_G5)
+  WB_S2_BN1_AG <<- c((sum(WB_S2_G1_no_Aspec$BN1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BN1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BN1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BN1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BN1))/WB_sumarea_G5)
+  WB_S2_BP1_AG <<- c((sum(WB_S2_G1_no_Aspec$BP1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BP1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BP1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BP1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BP1))/WB_sumarea_G5)
+
+  WB_S2_BDC_AG <<- c((sum(WB_S2_G1_no_Aspec$BDC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDC))/WB_sumarea_G5)
+  WB_S2_BDN_AG <<- c((sum(WB_S2_G1_no_Aspec$BDN))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDN))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDN))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDN))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDN))/WB_sumarea_G5)
+  WB_S2_BDP_AG <<- c((sum(WB_S2_G1_no_Aspec$BDP))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$BDP))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$BDP))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$BDP))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$BDP))/WB_sumarea_G5)
+
+  WB_S2_PC_AG <<- c((sum(WB_S2_G1_no_Aspec$PC))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PC))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PC))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PC))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PC))/WB_sumvolume_G5)
+  WB_S2_PN_AG <<- c((sum(WB_S2_G1_no_Aspec$PN))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PN))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PN))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PN))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PN))/WB_sumvolume_G5)
+  WB_S2_PP_AG <<- c((sum(WB_S2_G1_no_Aspec$PP))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$PP))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$PP))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$PP))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$PP))/WB_sumvolume_G5)
+
+  WB_S2_CH_AG <<- c((sum(WB_S2_G1_no_Aspec$CH))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$CH))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$CH))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$CH))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$CH))/WB_sumvolume_G5)
+
+  WB_S2_DIN_AG <<- c((sum(WB_S2_G1_no_Aspec$DIN))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIN))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIN))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIN))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIN))/WB_sumvolume_G5)
+  WB_S2_DIP_AG <<- c((sum(WB_S2_G1_no_Aspec$DIP))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIP))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIP))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIP))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIP))/WB_sumvolume_G5)
+
+  WB_S2_PREC_AG <<- c((sum(WB_S2_G1_no_Aspec$PREC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PREC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PREC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PREC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PREC))/WB_sumarea_G5)
+  WB_S2_PRBC2_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBC2))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBC2))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBC2))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBC2))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBC2))/WB_sumarea_G5)
+  WB_S2_PRBC1_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBC1))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBC1))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBC1))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBC1))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBC1))/WB_sumarea_G5)
+  WB_S2_PRBDC_AG <<- c((sum(WB_S2_G1_no_Aspec$PRBDC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRBDC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRBDC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRBDC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRBDC))/WB_sumarea_G5)
+  WB_S2_PRPC_AG <<- c((sum(WB_S2_G1_no_Aspec$PRPC))/WB_sumarea_G1,(sum(WB_S2_G2_no_Aspec$PRPC))/WB_sumarea_G2,(sum(WB_S2_G3_no_Aspec$PRPC))/WB_sumarea_G3,(sum(WB_S2_G4_no_Aspec$PRPC))/WB_sumarea_G4,(sum(WB_S2_G5_no_Aspec$PRPC))/WB_sumarea_G5)
+
+  WB_S2_DIN_b_AG <<- c((sum(WB_S2_G1_no_Aspec$DIN_b))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIN_b))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIN_b))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIN_b))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIN_b))/WB_sumvolume_G5)
+  WB_S2_DIP_b_AG <<- c((sum(WB_S2_G1_no_Aspec$DIP_b))/WB_sumvolume_G1,(sum(WB_S2_G2_no_Aspec$DIP_b))/WB_sumvolume_G2,(sum(WB_S2_G3_no_Aspec$DIP_b))/WB_sumvolume_G3,(sum(WB_S2_G4_no_Aspec$DIP_b))/WB_sumvolume_G4,(sum(WB_S2_G5_no_Aspec$DIP_b))/WB_sumvolume_G5)
 
 
 
   #Create final data frame with single values for primary producers (biomass and production) for all gradient polygons and all model scenarios. Also adds column "scenario"
 
-  VF_B_AG_ASSV <<- data.frame(VF_gradient_no,VF_B_avgDIN_AG,VF_B_avgDIP_AG,VF_B_EC_AG,VF_B_EN_AG,VF_B_EP_AG,VF_B_BC2_AG,VF_B_BN2_AG,VF_B_BP2_AG,VF_B_BC1_AG,VF_B_BN1_AG,VF_B_BP1_AG,VF_B_BDC_AG,VF_B_BDN_AG,VF_B_BDP_AG,VF_B_PC_AG,VF_B_PN_AG,VF_B_PP_AG,VF_B_CH_AG,VF_B_DIN_AG,VF_B_DIP_AG,VF_B_PREC_AG,VF_B_PRBC2_AG,VF_B_PRBC1_AG,VF_B_PRBDC_AG,VF_B_PRPC_AG,VF_B_DIN_b_AG,VF_B_DIP_b_AG) %>%
-    add_column(scenario = "Baseline", .before = "VF_gradient_no")
+  WB_B_AG_ASSV <<- data.frame(WB_gradient_no,WB_B_avgDIN_AG,WB_B_avgDIP_AG,WB_B_EC_AG,WB_B_EN_AG,WB_B_EP_AG,WB_B_BC2_AG,WB_B_BN2_AG,WB_B_BP2_AG,WB_B_BC1_AG,WB_B_BN1_AG,WB_B_BP1_AG,WB_B_BDC_AG,WB_B_BDN_AG,WB_B_BDP_AG,WB_B_PC_AG,WB_B_PN_AG,WB_B_PP_AG,WB_B_CH_AG,WB_B_DIN_AG,WB_B_DIP_AG,WB_B_PREC_AG,WB_B_PRBC2_AG,WB_B_PRBC1_AG,WB_B_PRBDC_AG,WB_B_PRPC_AG,WB_B_DIN_b_AG,WB_B_DIP_b_AG) %>%
+    add_column(scenario = "Baseline", .before = "WB_gradient_no")
 
-  VF_S1_AG_ASSV <<- data.frame(VF_gradient_no,VF_S1_avgDIN_AG,VF_S1_avgDIP_AG,VF_S1_EC_AG,VF_S1_EN_AG,VF_S1_EP_AG,VF_S1_BC2_AG,VF_S1_BN2_AG,VF_S1_BP2_AG,VF_S1_BC1_AG,VF_S1_BN1_AG,VF_S1_BP1_AG,VF_S1_BDC_AG,VF_S1_BDN_AG,VF_S1_BDP_AG,VF_S1_PC_AG,VF_S1_PN_AG,VF_S1_PP_AG,VF_S1_CH_AG,VF_S1_DIN_AG,VF_S1_DIP_AG,VF_S1_PREC_AG,VF_S1_PRBC2_AG,VF_S1_PRBC1_AG,VF_S1_PRBDC_AG,VF_S1_PRPC_AG,VF_S1_DIN_b_AG,VF_S1_DIP_b_AG) %>%
-    add_column(scenario = "N-30%", .before = "VF_gradient_no")
+  WB_S1_AG_ASSV <<- data.frame(WB_gradient_no,WB_S1_avgDIN_AG,WB_S1_avgDIP_AG,WB_S1_EC_AG,WB_S1_EN_AG,WB_S1_EP_AG,WB_S1_BC2_AG,WB_S1_BN2_AG,WB_S1_BP2_AG,WB_S1_BC1_AG,WB_S1_BN1_AG,WB_S1_BP1_AG,WB_S1_BDC_AG,WB_S1_BDN_AG,WB_S1_BDP_AG,WB_S1_PC_AG,WB_S1_PN_AG,WB_S1_PP_AG,WB_S1_CH_AG,WB_S1_DIN_AG,WB_S1_DIP_AG,WB_S1_PREC_AG,WB_S1_PRBC2_AG,WB_S1_PRBC1_AG,WB_S1_PRBDC_AG,WB_S1_PRPC_AG,WB_S1_DIN_b_AG,WB_S1_DIP_b_AG) %>%
+    add_column(scenario = "N-30%", .before = "WB_gradient_no")
 
-  VF_S2_AG_ASSV <<- data.frame(VF_gradient_no,VF_S2_avgDIN_AG,VF_S2_avgDIP_AG,VF_S2_EC_AG,VF_S2_EN_AG,VF_S2_EP_AG,VF_S2_BC2_AG,VF_S2_BN2_AG,VF_S2_BP2_AG,VF_S2_BC1_AG,VF_S2_BN1_AG,VF_S2_BP1_AG,VF_S2_BDC_AG,VF_S2_BDN_AG,VF_S2_BDP_AG,VF_S2_PC_AG,VF_S2_PN_AG,VF_S2_PP_AG,VF_S2_CH_AG,VF_S2_DIN_AG,VF_S2_DIP_AG,VF_S2_PREC_AG,VF_S2_PRBC2_AG,VF_S2_PRBC1_AG,VF_S2_PRBDC_AG,VF_S2_PRPC_AG,VF_S2_DIN_b_AG,VF_S2_DIP_b_AG) %>%
-    add_column(scenario = "P-30%", .before = "VF_gradient_no")
+  WB_S2_AG_ASSV <<- data.frame(WB_gradient_no,WB_S2_avgDIN_AG,WB_S2_avgDIP_AG,WB_S2_EC_AG,WB_S2_EN_AG,WB_S2_EP_AG,WB_S2_BC2_AG,WB_S2_BN2_AG,WB_S2_BP2_AG,WB_S2_BC1_AG,WB_S2_BN1_AG,WB_S2_BP1_AG,WB_S2_BDC_AG,WB_S2_BDN_AG,WB_S2_BDP_AG,WB_S2_PC_AG,WB_S2_PN_AG,WB_S2_PP_AG,WB_S2_CH_AG,WB_S2_DIN_AG,WB_S2_DIP_AG,WB_S2_PREC_AG,WB_S2_PRBC2_AG,WB_S2_PRBC1_AG,WB_S2_PRBDC_AG,WB_S2_PRPC_AG,WB_S2_DIN_b_AG,WB_S2_DIP_b_AG) %>%
+    add_column(scenario = "P-30%", .before = "WB_gradient_no")
 
   #Rename all column headers to enable merging of tables
-  VF_B <<- VF_B_AG_ASSV %>%
+  WB_B <<- WB_B_AG_ASSV %>%
     rename(
 
-      AvgDIN = VF_B_avgDIN_AG,
-      AvgDIP = VF_B_avgDIP_AG,
+      AvgDIN = WB_B_avgDIN_AG,
+      AvgDIP = WB_B_avgDIP_AG,
 
-      EC = VF_B_EC_AG,
-      EN = VF_B_EN_AG,
-      EP = VF_B_EP_AG,
+      EC = WB_B_EC_AG,
+      EN = WB_B_EN_AG,
+      EP = WB_B_EP_AG,
 
-      BC2 = VF_B_BC2_AG,
-      BN2 = VF_B_BN2_AG,
-      BP2 = VF_B_BP2_AG,
+      BC2 = WB_B_BC2_AG,
+      BN2 = WB_B_BN2_AG,
+      BP2 = WB_B_BP2_AG,
 
-      BC1 = VF_B_BC1_AG,
-      BN1 = VF_B_BN1_AG,
-      BP1 = VF_B_BP1_AG,
+      BC1 = WB_B_BC1_AG,
+      BN1 = WB_B_BN1_AG,
+      BP1 = WB_B_BP1_AG,
 
-      BDC = VF_B_BDC_AG,
-      BDN = VF_B_BDN_AG,
-      BDP = VF_B_BDP_AG,
+      BDC = WB_B_BDC_AG,
+      BDN = WB_B_BDN_AG,
+      BDP = WB_B_BDP_AG,
 
-      PC = VF_B_PC_AG,
-      PN = VF_B_PN_AG,
-      PP = VF_B_PP_AG,
+      PC = WB_B_PC_AG,
+      PN = WB_B_PN_AG,
+      PP = WB_B_PP_AG,
 
-      CH = VF_B_CH_AG,
+      CH = WB_B_CH_AG,
 
-      DIN = VF_B_DIN_AG,
-      DIP = VF_B_DIP_AG,
+      DIN = WB_B_DIN_AG,
+      DIP = WB_B_DIP_AG,
 
-      PREC = VF_B_PREC_AG,
-      PRBC2 = VF_B_PRBC2_AG,
-      PRBC1 = VF_B_PRBC1_AG,
-      PRBDC = VF_B_PRBDC_AG,
-      PRPC = VF_B_PRPC_AG,
-      DIN_b = VF_B_DIN_b_AG,
-      DIP_b = VF_B_DIP_b_AG
+      PREC = WB_B_PREC_AG,
+      PRBC2 = WB_B_PRBC2_AG,
+      PRBC1 = WB_B_PRBC1_AG,
+      PRBDC = WB_B_PRBDC_AG,
+      PRPC = WB_B_PRPC_AG,
+      DIN_b = WB_B_DIN_b_AG,
+      DIP_b = WB_B_DIP_b_AG
     )
 
-  VF_S1 <<- VF_S1_AG_ASSV %>%
+  WB_S1 <<- WB_S1_AG_ASSV %>%
     rename(
 
-      AvgDIN = VF_S1_avgDIN_AG,
-      AvgDIP = VF_S1_avgDIP_AG,
+      AvgDIN = WB_S1_avgDIN_AG,
+      AvgDIP = WB_S1_avgDIP_AG,
 
-      EC = VF_S1_EC_AG,
-      EN = VF_S1_EN_AG,
-      EP = VF_S1_EP_AG,
+      EC = WB_S1_EC_AG,
+      EN = WB_S1_EN_AG,
+      EP = WB_S1_EP_AG,
 
-      BC2 = VF_S1_BC2_AG,
-      BN2 = VF_S1_BN2_AG,
-      BP2 = VF_S1_BP2_AG,
+      BC2 = WB_S1_BC2_AG,
+      BN2 = WB_S1_BN2_AG,
+      BP2 = WB_S1_BP2_AG,
 
-      BC1 = VF_S1_BC1_AG,
-      BN1 = VF_S1_BN1_AG,
-      BP1 = VF_S1_BP1_AG,
+      BC1 = WB_S1_BC1_AG,
+      BN1 = WB_S1_BN1_AG,
+      BP1 = WB_S1_BP1_AG,
 
-      BDC = VF_S1_BDC_AG,
-      BDN = VF_S1_BDN_AG,
-      BDP = VF_S1_BDP_AG,
+      BDC = WB_S1_BDC_AG,
+      BDN = WB_S1_BDN_AG,
+      BDP = WB_S1_BDP_AG,
 
-      PC = VF_S1_PC_AG,
-      PN = VF_S1_PN_AG,
-      PP = VF_S1_PP_AG,
+      PC = WB_S1_PC_AG,
+      PN = WB_S1_PN_AG,
+      PP = WB_S1_PP_AG,
 
-      CH = VF_S1_CH_AG,
+      CH = WB_S1_CH_AG,
 
-      DIN = VF_S1_DIN_AG,
-      DIP = VF_S1_DIP_AG,
+      DIN = WB_S1_DIN_AG,
+      DIP = WB_S1_DIP_AG,
 
-      PREC = VF_S1_PREC_AG,
-      PRBC2 = VF_S1_PRBC2_AG,
-      PRBC1 = VF_S1_PRBC1_AG,
-      PRBDC = VF_S1_PRBDC_AG,
-      PRPC = VF_S1_PRPC_AG,
-      DIN_b = VF_S1_DIN_b_AG,
-      DIP_b = VF_S1_DIP_b_AG
+      PREC = WB_S1_PREC_AG,
+      PRBC2 = WB_S1_PRBC2_AG,
+      PRBC1 = WB_S1_PRBC1_AG,
+      PRBDC = WB_S1_PRBDC_AG,
+      PRPC = WB_S1_PRPC_AG,
+      DIN_b = WB_S1_DIN_b_AG,
+      DIP_b = WB_S1_DIP_b_AG
     )
 
-  VF_S2 <<- VF_S2_AG_ASSV %>%
+  WB_S2 <<- WB_S2_AG_ASSV %>%
     rename(
 
-      AvgDIN = VF_S2_avgDIN_AG,
-      AvgDIP = VF_S2_avgDIP_AG,
+      AvgDIN = WB_S2_avgDIN_AG,
+      AvgDIP = WB_S2_avgDIP_AG,
 
-      EC = VF_S2_EC_AG,
-      EN = VF_S2_EN_AG,
-      EP = VF_S2_EP_AG,
+      EC = WB_S2_EC_AG,
+      EN = WB_S2_EN_AG,
+      EP = WB_S2_EP_AG,
 
-      BC2 = VF_S2_BC2_AG,
-      BN2 = VF_S2_BN2_AG,
-      BP2 = VF_S2_BP2_AG,
+      BC2 = WB_S2_BC2_AG,
+      BN2 = WB_S2_BN2_AG,
+      BP2 = WB_S2_BP2_AG,
 
-      BC1 = VF_S2_BC1_AG,
-      BN1 = VF_S2_BN1_AG,
-      BP1 = VF_S2_BP1_AG,
+      BC1 = WB_S2_BC1_AG,
+      BN1 = WB_S2_BN1_AG,
+      BP1 = WB_S2_BP1_AG,
 
-      BDC = VF_S2_BDC_AG,
-      BDN = VF_S2_BDN_AG,
-      BDP = VF_S2_BDP_AG,
+      BDC = WB_S2_BDC_AG,
+      BDN = WB_S2_BDN_AG,
+      BDP = WB_S2_BDP_AG,
 
-      PC = VF_S2_PC_AG,
-      PN = VF_S2_PN_AG,
-      PP = VF_S2_PP_AG,
+      PC = WB_S2_PC_AG,
+      PN = WB_S2_PN_AG,
+      PP = WB_S2_PP_AG,
 
-      CH = VF_S2_CH_AG,
+      CH = WB_S2_CH_AG,
 
-      DIN = VF_S2_DIN_AG,
-      DIP = VF_S2_DIP_AG,
+      DIN = WB_S2_DIN_AG,
+      DIP = WB_S2_DIP_AG,
 
-      PREC = VF_S2_PREC_AG,
-      PRBC2 = VF_S2_PRBC2_AG,
-      PRBC1 = VF_S2_PRBC1_AG,
-      PRBDC = VF_S2_PRBDC_AG,
-      PRPC = VF_S2_PRPC_AG,
-      DIN_b = VF_S2_DIN_b_AG,
-      DIP_b = VF_S2_DIP_b_AG
+      PREC = WB_S2_PREC_AG,
+      PRBC2 = WB_S2_PRBC2_AG,
+      PRBC1 = WB_S2_PRBC1_AG,
+      PRBDC = WB_S2_PRBDC_AG,
+      PRPC = WB_S2_PRPC_AG,
+      DIN_b = WB_S2_DIN_b_AG,
+      DIP_b = WB_S2_DIP_b_AG
     )
 
   #Merging tables
-  VF_AS_AG_FINAL <<- bind_rows(VF_B,VF_S1,VF_S2)
+  WB_AS_AG_FINAL <<- bind_rows(WB_B,WB_S1,WB_S2)
 
 
   #Install and load GGplot2, gridExtra and ggpubr packages
@@ -1669,7 +1643,7 @@ VF_GIS_tool <- function() {
   library(patchwork)
 
   #Production VS. AvgDIN plots
-  VF_PREC_vs_AvgDIN <<- ggplot(VF_AS_AG_FINAL, aes(x = AvgDIN, y = PREC, group = scenario)) +
+  WB_PREC_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PREC, group = scenario)) +
     geom_line(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1678,12 +1652,12 @@ VF_GIS_tool <- function() {
     xlim(0,0.25) +
     xlab('Avg. DIN ('*'g C'~m^-2*')') +
     ylab('Eelgrass production ('*' g C'~m^-2~GS^-1*')') +
-    scale_y_continuous(breaks = round(seq(min(VF_B$PREC), max(VF_B$PREC+1), by = 0.5),1))
+    scale_y_continuous(breaks = round(seq(min(WB_B$PREC), max(WB_B$PREC+1), by = 0.5),1))
 
-  VF_panel_PREC_vs_AvgDIN <<- VF_PREC_vs_AvgDIN + theme_pub()
+  WB_panel_PREC_vs_AvgDIN <<- WB_PREC_vs_AvgDIN + theme_pub()
 
 
-  VF_PRBC1_vs_AvgDIN <<- ggplot(VF_AS_AG_FINAL, aes(x = AvgDIN, y = PRBC1, group = scenario)) +
+  WB_PRBC1_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PRBC1, group = scenario)) +
     geom_line(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1694,11 +1668,11 @@ VF_GIS_tool <- function() {
     xlab('Avg. DIN ('*'g C'~m^-2*')') +
     ylab('Opp. macroalgae production ('*' g C'~m^-2~GS^-1*')')
 
-  VF_panel_PRBC1_vs_AvgDIN <<- VF_PRBC1_vs_AvgDIN + theme_pub()
+  WB_panel_PRBC1_vs_AvgDIN <<- WB_PRBC1_vs_AvgDIN + theme_pub()
 
 
 
-  VF_PRPC_vs_AvgDIN <<- ggplot(VF_AS_AG_FINAL, aes(x = AvgDIN, y = PRPC, group = scenario)) +
+  WB_PRPC_vs_AvgDIN <<- ggplot(WB_AS_AG_FINAL, aes(x = AvgDIN, y = PRPC, group = scenario)) +
     geom_line(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -1709,15 +1683,15 @@ VF_GIS_tool <- function() {
     xlab('Avg. DIN ('*'g C'~m^-2*')') +
     ylab('Phytoplankton production ('*'  g C'~m^-2~GS^-1*')')
 
-  VF_panel_PRPC_vs_AvgDIN <<- VF_PRPC_vs_AvgDIN + theme_pub()
+  WB_panel_PRPC_vs_AvgDIN <<- WB_PRPC_vs_AvgDIN + theme_pub()
 
 
-  VF_panel_PREC_vs_AvgDIN + labs(x = '', y = expression('Eelgrass production'~(g~C*~m^-2~GS^-1))) +
-    VF_panel_PRBC1_vs_AvgDIN + labs(x = '', y = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1))) +
-    VF_panel_PRPC_vs_AvgDIN +
+  WB_panel_PREC_vs_AvgDIN + labs(x = '', y = expression('Eelgrass production'~(g~C*~m^-2~GS^-1))) +
+    WB_panel_PRBC1_vs_AvgDIN + labs(x = '', y = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1))) +
+    WB_panel_PRPC_vs_AvgDIN +
     plot_layout(ncol = 1) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'VF_PRXX_vs_AvgDIN_panel.tiff',
+    ggsave(filename = 'WB_PRXX_vs_AvgDIN_panel.tiff',
 
            width = 15,
            height = 35,
@@ -1727,37 +1701,37 @@ VF_GIS_tool <- function() {
 
   #Vertical profiles of primary producers and benthic light for all gradient polygons for each scenario
 
-  VF_B_G1 <<- add_column(VF_B_G1, scenario = 'Baseline', VF_gradient_no = 'no. 1', .before = 'upper')
-  VF_B_G2 <<- add_column(VF_B_G2, scenario = 'Baseline', VF_gradient_no = 'no. 2', .before = 'upper')
-  VF_B_G3 <<- add_column(VF_B_G3, scenario = 'Baseline', VF_gradient_no = 'no. 3', .before = 'upper')
-  VF_B_G4 <<- add_column(VF_B_G4, scenario = 'Baseline', VF_gradient_no = 'no. 4', .before = 'upper')
-  VF_B_G5 <<- add_column(VF_B_G5, scenario = 'Baseline', VF_gradient_no = 'no. 5', .before = 'upper')
+  WB_B_G1 <<- add_column(WB_B_G1, scenario = 'Baseline', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_B_G2 <<- add_column(WB_B_G2, scenario = 'Baseline', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_B_G3 <<- add_column(WB_B_G3, scenario = 'Baseline', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_B_G4 <<- add_column(WB_B_G4, scenario = 'Baseline', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_B_G5 <<- add_column(WB_B_G5, scenario = 'Baseline', WB_gradient_no = 'no. 5', .before = 'upper')
 
-  VF_B_AG <<- bind_rows(VF_B_G1, VF_B_G2, VF_B_G3, VF_B_G4, VF_B_G5)
-
-
-  VF_S1_G1 <<- add_column(VF_S1_G1, scenario = 'N-30%', VF_gradient_no = 'no. 1', .before = 'upper')
-  VF_S1_G2 <<- add_column(VF_S1_G2, scenario = 'N-30%', VF_gradient_no = 'no. 2', .before = 'upper')
-  VF_S1_G3 <<- add_column(VF_S1_G3, scenario = 'N-30%', VF_gradient_no = 'no. 3', .before = 'upper')
-  VF_S1_G4 <<- add_column(VF_S1_G4, scenario = 'N-30%', VF_gradient_no = 'no. 4', .before = 'upper')
-  VF_S1_G5 <<- add_column(VF_S1_G5, scenario = 'N-30%', VF_gradient_no = 'no. 5', .before = 'upper')
-
-  VF_S1_AG <<- bind_rows(VF_S1_G1, VF_S1_G2, VF_S1_G3, VF_S1_G4, VF_S1_G5)
+  WB_B_AG <<- bind_rows(WB_B_G1, WB_B_G2, WB_B_G3, WB_B_G4, WB_B_G5)
 
 
-  VF_S2_G1 <<- add_column(VF_S2_G1, scenario = 'P-30%', VF_gradient_no = 'no. 1', .before = 'upper')
-  VF_S2_G2 <<- add_column(VF_S2_G2, scenario = 'P-30%', VF_gradient_no = 'no. 2', .before = 'upper')
-  VF_S2_G3 <<- add_column(VF_S2_G3, scenario = 'P-30%', VF_gradient_no = 'no. 3', .before = 'upper')
-  VF_S2_G4 <<- add_column(VF_S2_G4, scenario = 'P-30%', VF_gradient_no = 'no. 4', .before = 'upper')
-  VF_S2_G5 <<- add_column(VF_S2_G5, scenario = 'P-30%', VF_gradient_no = 'no. 5', .before = 'upper')
+  WB_S1_G1 <<- add_column(WB_S1_G1, scenario = 'N-30%', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_S1_G2 <<- add_column(WB_S1_G2, scenario = 'N-30%', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_S1_G3 <<- add_column(WB_S1_G3, scenario = 'N-30%', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_S1_G4 <<- add_column(WB_S1_G4, scenario = 'N-30%', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_S1_G5 <<- add_column(WB_S1_G5, scenario = 'N-30%', WB_gradient_no = 'no. 5', .before = 'upper')
 
-  VF_S2_AG <<- bind_rows(VF_S2_G1, VF_S2_G2, VF_S2_G3, VF_S2_G4, VF_S2_G5)
+  WB_S1_AG <<- bind_rows(WB_S1_G1, WB_S1_G2, WB_S1_G3, WB_S1_G4, WB_S1_G5)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_B VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_B_PREC_vs_lower <<- ggplot(VF_B_AG, aes(x = PREC, y = lower, group = VF_gradient_no)) +
+  WB_S2_G1 <<- add_column(WB_S2_G1, scenario = 'P-30%', WB_gradient_no = 'no. 1', .before = 'upper')
+  WB_S2_G2 <<- add_column(WB_S2_G2, scenario = 'P-30%', WB_gradient_no = 'no. 2', .before = 'upper')
+  WB_S2_G3 <<- add_column(WB_S2_G3, scenario = 'P-30%', WB_gradient_no = 'no. 3', .before = 'upper')
+  WB_S2_G4 <<- add_column(WB_S2_G4, scenario = 'P-30%', WB_gradient_no = 'no. 4', .before = 'upper')
+  WB_S2_G5 <<- add_column(WB_S2_G5, scenario = 'P-30%', WB_gradient_no = 'no. 5', .before = 'upper')
+
+  WB_S2_AG <<- bind_rows(WB_S2_G1, WB_S2_G2, WB_S2_G3, WB_S2_G4, WB_S2_G5)
+
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_B VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+  WB_B_PREC_vs_lower <<- ggplot(WB_B_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1765,12 +1739,12 @@ VF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,70), breaks = seq(0,70, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  VF_B_PREC_vs_lower + theme_pub()
+  WB_B_PREC_vs_lower + theme_pub()
 
 
-  VF_B_PRBC1_vs_lower <<- ggplot(VF_B_AG, aes(x = PRBC1, y = lower, group = VF_gradient_no)) +
+  WB_B_PRBC1_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1779,12 +1753,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_B_PRBC1_vs_lower + theme_pub()
+  WB_B_PRBC1_vs_lower + theme_pub()
 
 
-  VF_B_PRBC2_vs_lower <<- ggplot(VF_B_AG, aes(x = PRBC2, y = lower, group = VF_gradient_no)) +
+  WB_B_PRBC2_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1793,12 +1767,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_B_PRBC2_vs_lower + theme_pub()
+  WB_B_PRBC2_vs_lower + theme_pub()
 
 
-  VF_B_PRBDC_vs_lower <<- ggplot(VF_B_AG, aes(x = PRBDC, y = lower, group = VF_gradient_no)) +
+  WB_B_PRBDC_vs_lower <<- ggplot(WB_B_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1807,12 +1781,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_B_PRBDC_vs_lower + theme_pub()
+  WB_B_PRBDC_vs_lower + theme_pub()
 
 
-  VF_B_PC_vs_lower <<- ggplot(VF_B_AG, aes(x = PC, y = lower, group = VF_gradient_no)) +
+  WB_B_PC_vs_lower <<- ggplot(WB_B_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1821,12 +1795,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_B_PC_vs_lower + theme_pub()
+  WB_B_PC_vs_lower + theme_pub()
 
 
-  VF_B_lo_b_vs_lower <<- ggplot(VF_B_AG, aes(x = lo_b, y = lower, group = VF_gradient_no)) +
+  WB_B_lo_b_vs_lower <<- ggplot(WB_B_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1835,18 +1809,18 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_B_lo_b_vs_lower + theme_pub()
+  WB_B_lo_b_vs_lower + theme_pub()
 
 
-  VF_B_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_B_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_B_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_B_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_B_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_B_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_B_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'VF_B_AG_production.tiff',
+    ggsave(filename = 'WB_B_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -1855,11 +1829,11 @@ VF_GIS_tool <- function() {
            dpi=300)
 
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_S1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_S1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_S1_PREC_vs_lower <<- ggplot(VF_S1_AG, aes(x = PREC, y = lower, group = VF_gradient_no)) +
+  WB_S1_PREC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1867,12 +1841,12 @@ VF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,70), breaks = seq(0,70, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  VF_S1_PREC_vs_lower + theme_pub()
+  WB_S1_PREC_vs_lower + theme_pub()
 
 
-  VF_S1_PRBC1_vs_lower <<- ggplot(VF_S1_AG, aes(x = PRBC1, y = lower, group = VF_gradient_no)) +
+  WB_S1_PRBC1_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1881,12 +1855,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S1_PRBC1_vs_lower + theme_pub()
+  WB_S1_PRBC1_vs_lower + theme_pub()
 
 
-  VF_S1_PRBC2_vs_lower <<- ggplot(VF_S1_AG, aes(x = PRBC2, y = lower, group = VF_gradient_no)) +
+  WB_S1_PRBC2_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1895,12 +1869,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S1_PRBC2_vs_lower + theme_pub()
+  WB_S1_PRBC2_vs_lower + theme_pub()
 
 
-  VF_S1_PRBDC_vs_lower <<- ggplot(VF_S1_AG, aes(x = PRBDC, y = lower, group = VF_gradient_no)) +
+  WB_S1_PRBDC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1909,12 +1883,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S1_PRBDC_vs_lower + theme_pub()
+  WB_S1_PRBDC_vs_lower + theme_pub()
 
 
-  VF_S1_PC_vs_lower <<- ggplot(VF_S1_AG, aes(x = PC, y = lower, group = VF_gradient_no)) +
+  WB_S1_PC_vs_lower <<- ggplot(WB_S1_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1923,12 +1897,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S1_PC_vs_lower + theme_pub()
+  WB_S1_PC_vs_lower + theme_pub()
 
 
-  VF_S1_lo_b_vs_lower <<- ggplot(VF_S1_AG, aes(x = lo_b, y = lower, group = VF_gradient_no)) +
+  WB_S1_lo_b_vs_lower <<- ggplot(WB_S1_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1937,18 +1911,18 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S1_lo_b_vs_lower + theme_pub()
+  WB_S1_lo_b_vs_lower + theme_pub()
 
 
-  VF_S1_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S1_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S1_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S1_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S1_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_S1_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S1_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'VF_S1_AG_production.tiff',
+    ggsave(filename = 'WB_S1_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -1956,11 +1930,11 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_S2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_S2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_S2_PREC_vs_lower <<- ggplot(VF_S2_AG, aes(x = PREC, y = lower, group = VF_gradient_no)) +
+  WB_S2_PREC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PREC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1968,12 +1942,12 @@ VF_GIS_tool <- function() {
     scale_x_continuous(limits = c(0,70), breaks = seq(0,70, by = 10), labels = scales::number_format(accuracy = 1), position = 'top') +
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
-  VF_S2_PREC_vs_lower + theme_pub()
+  WB_S2_PREC_vs_lower + theme_pub()
 
 
-  VF_S2_PRBC1_vs_lower <<- ggplot(VF_S2_AG, aes(x = PRBC1, y = lower, group = VF_gradient_no)) +
+  WB_S2_PRBC1_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBC1, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1982,12 +1956,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S2_PRBC1_vs_lower + theme_pub()
+  WB_S2_PRBC1_vs_lower + theme_pub()
 
 
-  VF_S2_PRBC2_vs_lower <<- ggplot(VF_S2_AG, aes(x = PRBC2, y = lower, group = VF_gradient_no)) +
+  WB_S2_PRBC2_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBC2, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -1996,12 +1970,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S2_PRBC2_vs_lower + theme_pub()
+  WB_S2_PRBC2_vs_lower + theme_pub()
 
 
-  VF_S2_PRBDC_vs_lower <<- ggplot(VF_S2_AG, aes(x = PRBDC, y = lower, group = VF_gradient_no)) +
+  WB_S2_PRBDC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PRBDC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2010,12 +1984,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S2_PRBDC_vs_lower + theme_pub()
+  WB_S2_PRBDC_vs_lower + theme_pub()
 
 
-  VF_S2_PC_vs_lower <<- ggplot(VF_S2_AG, aes(x = PC, y = lower, group = VF_gradient_no)) +
+  WB_S2_PC_vs_lower <<- ggplot(WB_S2_AG, aes(x = PC, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2024,12 +1998,12 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S2_PC_vs_lower + theme_pub()
+  WB_S2_PC_vs_lower + theme_pub()
 
 
-  VF_S2_lo_b_vs_lower <<- ggplot(VF_S2_AG, aes(x = lo_b, y = lower, group = VF_gradient_no)) +
+  WB_S2_lo_b_vs_lower <<- ggplot(WB_S2_AG, aes(x = lo_b, y = lower, group = WB_gradient_no)) +
     geom_path(size = 1) +
-    geom_point(aes(shape = VF_gradient_no, color = VF_gradient_no, fill = VF_gradient_no), size = 3) +
+    geom_point(aes(shape = WB_gradient_no, color = WB_gradient_no, fill = WB_gradient_no), size = 3) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'black', 'black', 'black', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2038,18 +2012,18 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-15,0), breaks = seq(-15,0, by = 3), labels = scales::number_format(accuracy = 1))
 
 
-  VF_S2_lo_b_vs_lower + theme_pub()
+  WB_S2_lo_b_vs_lower + theme_pub()
 
 
-  VF_S2_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S2_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S2_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S2_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_S2_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_S2_PREC_vs_lower+ theme_pub() + labs(x = expression('Eelgrass production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1.1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBC1_vs_lower+ theme_pub() + labs(x = expression('Opp. macroalgae production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBC2_vs_lower+ theme_pub() + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PRBDC_vs_lower+ theme_pub() + labs(x = expression('Benthic diatom production'~(g~C*~m^-2~GS^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_PC_vs_lower+ theme_pub() + labs(x = expression('Phytoplankton biomass'~(g~C*~m^-3)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_S2_lo_b_vs_lower + theme_pub() + labs(x = expression('Benthic light'~(mu*E*~m^-2*~s^-1)), y = '') + theme(legend.justification = c(1,1.85), plot.tag.position = c(0.952,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = 'A') +
-    ggsave(filename = 'VF_S2_AG_production.tiff',
+    ggsave(filename = 'WB_S2_AG_production.tiff',
 
            width = 30,
            height = 30,
@@ -2057,16 +2031,16 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_PREC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PREC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_G1_AS <<- bind_rows(VF_B_G1, VF_S1_G1, VF_S2_G1)
-  VF_G2_AS <<- bind_rows(VF_B_G2, VF_S1_G2, VF_S2_G2)
-  VF_G3_AS <<- bind_rows(VF_B_G3, VF_S1_G3, VF_S2_G3)
-  VF_G4_AS <<- bind_rows(VF_B_G4, VF_S1_G4, VF_S2_G4)
-  VF_G5_AS <<- bind_rows(VF_B_G5, VF_S1_G5, VF_S2_G5)
+  WB_G1_AS <<- bind_rows(WB_B_G1, WB_S1_G1, WB_S2_G1)
+  WB_G2_AS <<- bind_rows(WB_B_G2, WB_S1_G2, WB_S2_G2)
+  WB_G3_AS <<- bind_rows(WB_B_G3, WB_S1_G3, WB_S2_G3)
+  WB_G4_AS <<- bind_rows(WB_B_G4, WB_S1_G4, WB_S2_G4)
+  WB_G5_AS <<- bind_rows(WB_B_G5, WB_S1_G5, WB_S2_G5)
 
 
-  VF_AS_G1_PREC <<- ggplot(VF_G1_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G1_PREC <<- ggplot(WB_G1_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2077,9 +2051,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_PREC + theme_pub()
+  WB_AS_G1_PREC + theme_pub()
 
-  VF_AS_G2_PREC <<- ggplot(VF_G2_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G2_PREC <<- ggplot(WB_G2_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2090,9 +2064,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_PREC + theme_pub()
+  WB_AS_G2_PREC + theme_pub()
 
-  VF_AS_G3_PREC <<- ggplot(VF_G3_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G3_PREC <<- ggplot(WB_G3_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2103,9 +2077,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_PREC + theme_pub()
+  WB_AS_G3_PREC + theme_pub()
 
-  VF_AS_G4_PREC <<- ggplot(VF_G4_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G4_PREC <<- ggplot(WB_G4_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2116,9 +2090,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_PREC + theme_pub()
+  WB_AS_G4_PREC + theme_pub()
 
-  VF_AS_G5_PREC <<- ggplot(VF_G5_AS, aes(x = PREC, y = lower, group = scenario)) +
+  WB_AS_G5_PREC <<- ggplot(WB_G5_AS, aes(x = PREC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2129,23 +2103,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_PREC + theme_pub()
+  WB_AS_G5_PREC + theme_pub()
 
-  VF_AS_G1_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PREC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                       legend.background = element_rect(color = 'black'),
-                                       legend.spacing = unit(30, "pt"),
-                                       legend.key = element_blank(),
-                                       legend.key.size = unit(30, "pt"),
-                                       legend.key.width = unit(30, 'pt'),
-                                       legend.text = element_text(size = 20),
-                                       plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PREC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PREC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_PREC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PREC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2153,9 +2120,9 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_PRBC1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBC1 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_AS_G1_PRBC1 <<- ggplot(VF_G1_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G1_PRBC1 <<- ggplot(WB_G1_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2166,9 +2133,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_PRBC1 + theme_pub()
+  WB_AS_G1_PRBC1 + theme_pub()
 
-  VF_AS_G2_PRBC1 <<- ggplot(VF_G2_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G2_PRBC1 <<- ggplot(WB_G2_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2179,9 +2146,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_PRBC1 + theme_pub()
+  WB_AS_G2_PRBC1 + theme_pub()
 
-  VF_AS_G3_PRBC1 <<- ggplot(VF_G3_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G3_PRBC1 <<- ggplot(WB_G3_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2192,9 +2159,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_PRBC1 + theme_pub()
+  WB_AS_G3_PRBC1 + theme_pub()
 
-  VF_AS_G4_PRBC1 <<- ggplot(VF_G4_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G4_PRBC1 <<- ggplot(WB_G4_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2205,9 +2172,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_PRBC1 + theme_pub()
+  WB_AS_G4_PRBC1 + theme_pub()
 
-  VF_AS_G5_PRBC1 <<- ggplot(VF_G5_AS, aes(x = PRBC1, y = lower, group = scenario)) +
+  WB_AS_G5_PRBC1 <<- ggplot(WB_G5_AS, aes(x = PRBC1, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2218,23 +2185,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_PRBC1 + theme_pub()
+  WB_AS_G5_PRBC1 + theme_pub()
 
-  VF_AS_G1_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBC1+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBC1+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_PRBC1_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBC1_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2242,9 +2202,9 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_PRBC2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBC2 VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_AS_G1_PRBC2 <<- ggplot(VF_G1_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G1_PRBC2 <<- ggplot(WB_G1_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2255,9 +2215,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_PRBC2 + theme_pub()
+  WB_AS_G1_PRBC2 + theme_pub()
 
-  VF_AS_G2_PRBC2 <<- ggplot(VF_G2_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G2_PRBC2 <<- ggplot(WB_G2_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2268,9 +2228,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_PRBC2 + theme_pub()
+  WB_AS_G2_PRBC2 + theme_pub()
 
-  VF_AS_G3_PRBC2 <<- ggplot(VF_G3_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G3_PRBC2 <<- ggplot(WB_G3_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2281,9 +2241,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_PRBC2 + theme_pub()
+  WB_AS_G3_PRBC2 + theme_pub()
 
-  VF_AS_G4_PRBC2 <<- ggplot(VF_G4_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G4_PRBC2 <<- ggplot(WB_G4_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2294,9 +2254,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_PRBC2 + theme_pub()
+  WB_AS_G4_PRBC2 + theme_pub()
 
-  VF_AS_G5_PRBC2 <<- ggplot(VF_G5_AS, aes(x = PRBC2, y = lower, group = scenario)) +
+  WB_AS_G5_PRBC2 <<- ggplot(WB_G5_AS, aes(x = PRBC2, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2307,23 +2267,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-8,0), breaks = seq(-8,0, by = 1), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_PRBC2 + theme_pub()
+  WB_AS_G5_PRBC2 + theme_pub()
 
-  VF_AS_G1_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBC2+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBC2+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_PRBC2_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBC2_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2331,9 +2284,9 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_PRBDC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PRBDC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_AS_G1_PRBDC <<- ggplot(VF_G1_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G1_PRBDC <<- ggplot(WB_G1_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2344,9 +2297,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_PRBDC + theme_pub()
+  WB_AS_G1_PRBDC + theme_pub()
 
-  VF_AS_G2_PRBDC <<- ggplot(VF_G2_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G2_PRBDC <<- ggplot(WB_G2_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2357,9 +2310,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_PRBDC + theme_pub()
+  WB_AS_G2_PRBDC + theme_pub()
 
-  VF_AS_G3_PRBDC <<- ggplot(VF_G3_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G3_PRBDC <<- ggplot(WB_G3_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2370,9 +2323,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_PRBDC + theme_pub()
+  WB_AS_G3_PRBDC + theme_pub()
 
-  VF_AS_G4_PRBDC <<- ggplot(VF_G4_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G4_PRBDC <<- ggplot(WB_G4_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2383,9 +2336,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_PRBDC + theme_pub()
+  WB_AS_G4_PRBDC + theme_pub()
 
-  VF_AS_G5_PRBDC <<- ggplot(VF_G5_AS, aes(x = PRBDC, y = lower, group = scenario)) +
+  WB_AS_G5_PRBDC <<- ggplot(WB_G5_AS, aes(x = PRBDC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2396,23 +2349,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-16,0), breaks = seq(-16,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_PRBDC + theme_pub()
+  WB_AS_G5_PRBDC + theme_pub()
 
-  VF_AS_G1_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PRBDC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                        legend.background = element_rect(color = 'black'),
-                                        legend.spacing = unit(30, "pt"),
-                                        legend.key = element_blank(),
-                                        legend.key.size = unit(30, "pt"),
-                                        legend.key.width = unit(30, 'pt'),
-                                        legend.text = element_text(size = 20),
-                                        plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PRBDC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_PRBDC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PRBDC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2420,9 +2366,9 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_PC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_PC VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_AS_G1_PC <<- ggplot(VF_G1_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G1_PC <<- ggplot(WB_G1_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2433,9 +2379,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_PC + theme_pub()
+  WB_AS_G1_PC + theme_pub()
 
-  VF_AS_G2_PC <<- ggplot(VF_G2_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G2_PC <<- ggplot(WB_G2_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2446,9 +2392,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_PC + theme_pub()
+  WB_AS_G2_PC + theme_pub()
 
-  VF_AS_G3_PC <<- ggplot(VF_G3_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G3_PC <<- ggplot(WB_G3_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2459,9 +2405,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_PC + theme_pub()
+  WB_AS_G3_PC + theme_pub()
 
-  VF_AS_G4_PC <<- ggplot(VF_G4_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G4_PC <<- ggplot(WB_G4_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2472,9 +2418,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_PC + theme_pub()
+  WB_AS_G4_PC + theme_pub()
 
-  VF_AS_G5_PC <<- ggplot(VF_G5_AS, aes(x = PC, y = lower, group = scenario)) +
+  WB_AS_G5_PC <<- ggplot(WB_G5_AS, aes(x = PC, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2485,23 +2431,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_PC + theme_pub()
+  WB_AS_G5_PC + theme_pub()
 
-  VF_AS_G1_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_PC+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_PC+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                     legend.background = element_rect(color = 'black'),
-                                     legend.spacing = unit(30, "pt"),
-                                     legend.key = element_blank(),
-                                     legend.key.size = unit(30, "pt"),
-                                     legend.key.width = unit(30, 'pt'),
-                                     legend.text = element_text(size = 20),
-                                     plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_PC+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_PC+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_PC_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_PC_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2509,9 +2448,9 @@ VF_GIS_tool <- function() {
            device='tiff',
            dpi=300)
 
-  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH VF_ASAG_lo_b VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH WB_ASAG_lo_b VERTICAL PROFILES HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_AS_G1_lo_b <<- ggplot(VF_G1_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G1_lo_b <<- ggplot(WB_G1_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2522,9 +2461,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G1_lo_b + theme_pub()
+  WB_AS_G1_lo_b + theme_pub()
 
-  VF_AS_G2_lo_b <<- ggplot(VF_G2_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G2_lo_b <<- ggplot(WB_G2_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2535,9 +2474,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G2_lo_b + theme_pub()
+  WB_AS_G2_lo_b + theme_pub()
 
-  VF_AS_G3_lo_b <<- ggplot(VF_G3_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G3_lo_b <<- ggplot(WB_G3_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2548,9 +2487,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G3_lo_b + theme_pub()
+  WB_AS_G3_lo_b + theme_pub()
 
-  VF_AS_G4_lo_b <<- ggplot(VF_G4_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G4_lo_b <<- ggplot(WB_G4_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2561,9 +2500,9 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G4_lo_b + theme_pub()
+  WB_AS_G4_lo_b + theme_pub()
 
-  VF_AS_G5_lo_b <<- ggplot(VF_G5_AS, aes(x = lo_b, y = lower, group = scenario)) +
+  WB_AS_G5_lo_b <<- ggplot(WB_G5_AS, aes(x = lo_b, y = lower, group = scenario)) +
     geom_path(size = 1) +
     geom_point(aes(shape = scenario, color = scenario, fill = scenario), size = 3) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2574,23 +2513,16 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1))
 
 
-  VF_AS_G5_lo_b + theme_pub()
+  WB_AS_G5_lo_b + theme_pub()
 
-  VF_AS_G1_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G2_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G3_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G4_lo_b+ theme_pub() + theme(legend.position = 'none', plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
-    VF_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(-1.4,1.5),
-                                       legend.background = element_rect(color = 'black'),
-                                       legend.spacing = unit(30, "pt"),
-                                       legend.key = element_blank(),
-                                       legend.key.size = unit(30, "pt"),
-                                       legend.key.width = unit(30, 'pt'),
-                                       legend.text = element_text(size = 20),
-                                       plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+  WB_AS_G1_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G2_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G3_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G4_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8), plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
+    WB_AS_G5_lo_b+ theme_pub() + theme(legend.justification = c(1,2.8),plot.tag.position = c(0.93,0.77), plot.tag = element_text(size = 22), axis.title = element_text(size = 18)) +
     plot_layout(ncol = 2) +
     plot_annotation(tag_levels = '1', tag_prefix = 'no. ') +
-    ggsave(filename = 'VF_ASAG_lo_b_vs_lower.tiff',
+    ggsave(filename = 'WB_ASAG_lo_b_vs_lower.tiff',
 
            width = 30,
            height = 30,
@@ -2600,8 +2532,8 @@ VF_GIS_tool <- function() {
 
   #HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH   Benthic Vs. WC production   HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
-  VF_benthic_vs_WC_prod <<- VF_AS_AG_FINAL %>%
-    select(scenario, VF_gradient_no, PREC, PRBC1, PRBC2, PRBDC, PRPC) %>%
+  WB_benthic_vs_WC_prod <<- WB_AS_AG_FINAL %>%
+    select(scenario, WB_gradient_no, PREC, PRBC1, PRBC2, PRBDC, PRPC) %>%
     mutate(benthic_prod = PREC + PRBC1 + PRBC2 + PRBDC,
            WC_prod = PRPC,
            prod_100_pct = benthic_prod + WC_prod,
@@ -2611,11 +2543,11 @@ VF_GIS_tool <- function() {
     ) %>%
     rename('Benthic prod.' = benthic_prod_pct,
            'WC prod.' = WC_prod_pct) %>%
-    select(scenario, VF_gradient_no, 'Benthic prod.', 'WC prod.') %>%
+    select(scenario, WB_gradient_no, 'Benthic prod.', 'WC prod.') %>%
     gather(prod_ID, prod_pct, 'Benthic prod.':'WC prod.')
 
 
-  VF_benthic_vs_WC_prod_plot <<- ggplot(data = VF_benthic_vs_WC_prod, aes(x = VF_gradient_no, y = prod_pct, group = interaction(scenario, prod_ID))) +
+  WB_benthic_vs_WC_prod_plot <<- ggplot(data = WB_benthic_vs_WC_prod, aes(x = WB_gradient_no, y = prod_pct, group = interaction(scenario, prod_ID))) +
     geom_path(size = 1, aes(linetype = prod_ID)) +
     geom_point(size = 3, aes(shape = scenario, color = scenario, fill = scenario)) +
     scale_shape_manual(values = c(22, 22, 24)) +
@@ -2625,7 +2557,7 @@ VF_GIS_tool <- function() {
     scale_x_discrete(limits = c('0-1', '1-5', '5-9', '9-13', '13-21'), expand = c(0,0.05)) +
     scale_y_continuous(limits = c(0,105), breaks = seq(0,105, by = 10), labels = scales::number_format(accuracy = 1), expand = c(0,0.05))
 
-  VF_benthic_vs_WC_prod_plot + theme_pub() +
+  WB_benthic_vs_WC_prod_plot + theme_pub() +
     theme(
       legend.text = element_text(size = 20),
       legend.background = element_blank(),
@@ -2637,7 +2569,7 @@ VF_GIS_tool <- function() {
       axis.text.x = element_text(angle = -45, vjust = 1, hjust = 0),
       plot.margin = unit(c(5,50,0,0), "pt"),
     ) +
-    ggsave(filename = 'VF_Benthic_vs_WC_prod.tiff',
+    ggsave(filename = 'WB_Benthic_vs_WC_prod.tiff',
 
            width = 30,
            height = 20,
@@ -2658,8 +2590,8 @@ VF_GIS_tool <- function() {
 
   PC_vmax_C <<- 2; PC_kmDIN_C <<- 0.03; PC_kmDIP_C <<- 0.005; PC_kmlight_C <<- 75
 
-  VF_monod_table <<- bind_rows(VF_B_AG, VF_S1_AG, VF_S2_AG) %>%
-    select(scenario, VF_gradient_no, lower, EC, EN, EP, BC1, BN1, BP1, BC2, BN2, BP2, BDC, BDN, BDP, PC, PN, PP, DIN, DIP, lo_b, DIN_b, DIP_b) %>%
+  WB_monod_table <<- bind_rows(WB_B_AG, WB_S1_AG, WB_S2_AG) %>%
+    select(scenario, WB_gradient_no, lower, EC, EN, EP, BC1, BN1, BP1, BC2, BN2, BP2, BDC, BDN, BDP, PC, PN, PP, DIN, DIP, lo_b, DIN_b, DIP_b) %>%
     rename(
       EC_kmDIN = EC,
       EC_kmDIP = EN,
@@ -2705,9 +2637,9 @@ VF_GIS_tool <- function() {
 
 
   #Monod EC
-  VF_monod_EC_light <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = EC_kmlight, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_EC_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = EC_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.5, aes(color = scenario)) +
-    geom_point(size = 3, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 3, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2715,7 +2647,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Eelgrass growth limitation by benthic light\n', y = 'Depth (m)')
 
-  VF_monod_EC_light + theme_pub() +
+  WB_monod_EC_light + theme_pub() +
     theme(
       plot.margin = unit(c(1,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2724,13 +2656,13 @@ VF_GIS_tool <- function() {
       legend.text = element_text(size = 22)
     )
 
-  VF_monod_EC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 22), axis.text = element_text(size = 18), legend.justification = c(1.05,5.35),
+  WB_monod_EC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 22), axis.text = element_text(size = 18), legend.justification = c(1.05,5.35),
                                           legend.direction = 'vertical',
                                           legend.box = 'vertical',
                                           legend.text = element_text(size = 22),
                                           legend.spacing.x = unit(0.05, 'cm'),) +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'VF_monod_EC_light.tiff',
+    ggsave(filename = 'WB_monod_EC_light.tiff',
 
            width = 30,
            height = 40,
@@ -2739,9 +2671,9 @@ VF_GIS_tool <- function() {
            dpi=300)
 
   #Monod BC1
-  VF_monod_BC1_DIN <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIN, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC1_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2749,7 +2681,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by DIN\n', y = '')
 
-  VF_monod_BC1_DIN + theme_pub() +
+  WB_monod_BC1_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2757,9 +2689,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  VF_monod_BC1_DIP <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIP, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC1_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2767,7 +2699,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
 
-  VF_monod_BC1_DIP + theme_pub() +
+  WB_monod_BC1_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2775,9 +2707,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_BC1_light <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmlight, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC1_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC1_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2785,7 +2717,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Opp. macroalgae growth inhibition by benthic light\n', y = '')
 
-  VF_monod_BC1_light + theme_pub() +
+  WB_monod_BC1_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2793,17 +2725,17 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_BC1_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+  WB_monod_BC1_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                          legend.direction = 'vertical',
                                          legend.box = 'vertical') +
-    VF_monod_BC1_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_BC1_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                            legend.direction = 'vertical',
                                            legend.box = 'vertical') +
-    VF_monod_BC1_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_BC1_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                              legend.direction = 'vertical',
                                              legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'VF_monod_BC1.tiff',
+    ggsave(filename = 'WB_monod_BC1.tiff',
 
            width = 20,
            height = 40,
@@ -2813,9 +2745,9 @@ VF_GIS_tool <- function() {
 
 
   #Monod PC
-  VF_monod_PC_DIN <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIN, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_PC_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2823,7 +2755,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by DIN\n', y = '')
 
-  VF_monod_PC_DIN + theme_pub() +
+  WB_monod_PC_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2831,9 +2763,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  VF_monod_PC_DIP <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIP, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_PC_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2841,7 +2773,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by DIP\n', y = 'Depth (m)')
 
-  VF_monod_PC_DIP + theme_pub() +
+  WB_monod_PC_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2849,9 +2781,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_PC_light <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmlight, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_PC_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = PC_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2859,7 +2791,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Phytoplankton growth inhibition by benthic light\n', y = '')
 
-  VF_monod_PC_light + theme_pub() +
+  WB_monod_PC_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2867,17 +2799,17 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_PC_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+  WB_monod_PC_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                         legend.direction = 'vertical',
                                         legend.box = 'vertical') +
-    VF_monod_PC_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_PC_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                           legend.direction = 'vertical',
                                           legend.box = 'vertical') +
-    VF_monod_PC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_PC_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                             legend.direction = 'vertical',
                                             legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'VF_monod_PC.tiff',
+    ggsave(filename = 'WB_monod_PC.tiff',
 
            width = 20,
            height = 40,
@@ -2887,9 +2819,9 @@ VF_GIS_tool <- function() {
 
 
   #Monod BC2
-  VF_monod_BC2_DIN <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIN, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC2_DIN <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIN, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2897,7 +2829,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIN\n', y = '')
 
-  VF_monod_BC2_DIN + theme_pub() +
+  WB_monod_BC2_DIN + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2905,9 +2837,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical',
     )
 
-  VF_monod_BC2_DIP <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIP, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC2_DIP <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmDIP, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2915,7 +2847,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by DIP\n', y = 'Depth (m)')
 
-  VF_monod_BC2_DIP + theme_pub() +
+  WB_monod_BC2_DIP + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2923,9 +2855,9 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_BC2_light <<- ggplot(subset(VF_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmlight, y = lower, group = interaction(scenario, VF_gradient_no))) +
+  WB_monod_BC2_light <<- ggplot(subset(WB_monod_table, scenario %in% c('Baseline', 'N-30%')), aes(x = BC2_kmlight, y = lower, group = interaction(scenario, WB_gradient_no))) +
     geom_path(size = 1.2, aes(color = scenario)) +
-    geom_point(size = 2, aes(shape = VF_gradient_no, fill = VF_gradient_no)) +
+    geom_point(size = 2, aes(shape = WB_gradient_no, fill = WB_gradient_no)) +
     scale_shape_manual(values = c(21, 24, 22, 22, 24)) +
     scale_color_manual(values = c('black', 'orange', 'black')) +
     scale_fill_manual(values = c('black', 'black', 'black', 'white', 'white')) +
@@ -2933,7 +2865,7 @@ VF_GIS_tool <- function() {
     scale_y_continuous(limits = c(-20,0), breaks = seq(-20,0, by = 2), labels = scales::number_format(accuracy = 1)) +
     labs(x = 'Perennial macroalgae growth inhibition by benthic light\n', y = '')
 
-  VF_monod_BC2_light + theme_pub() +
+  WB_monod_BC2_light + theme_pub() +
     theme(
       plot.margin = unit(c(20,1,1,1), "pt"),
       legend.justification = c(1,1.6),
@@ -2941,17 +2873,17 @@ VF_GIS_tool <- function() {
       legend.box = 'vertical'
     )
 
-  VF_monod_BC2_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+  WB_monod_BC2_DIN + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                          legend.direction = 'vertical',
                                          legend.box = 'vertical') +
-    VF_monod_BC2_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_BC2_DIP + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                            legend.direction = 'vertical',
                                            legend.box = 'vertical') +
-    VF_monod_BC2_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
+    WB_monod_BC2_light + theme_pub() + theme(plot.margin = unit(c(15,1,1,1), "pt"), axis.title = element_text(size = 18), legend.justification = c(1,1.57),
                                              legend.direction = 'vertical',
                                              legend.box = 'vertical') +
     plot_layout(ncol = 1) +
-    ggsave(filename = 'VF_monod_BC2.tiff',
+    ggsave(filename = 'WB_monod_BC2.tiff',
 
            width = 20,
            height = 40,

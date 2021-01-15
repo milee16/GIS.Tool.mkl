@@ -1,0 +1,24 @@
+{
+    "id": "B1E92716",
+    "path": "D:/My R packages/GIS.Tool.mkl/R/getdata_function.R",
+    "project_path": "R/getdata_function.R",
+    "type": "r_source",
+    "hash": "1345001742",
+    "contents": "",
+    "dirty": false,
+    "created": 1610721276138.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "cursorPosition": "5,10",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1610721408,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1610721408160,
+    "read_only": false,
+    "read_only_alternatives": []
+}
